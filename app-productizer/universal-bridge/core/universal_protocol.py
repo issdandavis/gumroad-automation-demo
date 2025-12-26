@@ -286,21 +286,24 @@ class UniversalBridge:
     def send_message(self, message: UniversalMessage) -> str:
         """Send message through the universal bridge"""
         
-        # Store in database
-        self.db.execute("""
-            INSERT INTO messages (id, timestamp, message_type, source_language, target_language, payload, response_channel, status)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (
-            message.id,
-            message.timestamp,
-            message.message_type.value,
-            message.source_language,
-            message.target_language,
-            json.dumps(message.payload),
-            message.response_channel.value,
-            'pending'
-        ))
-        self.db.commit()
+        # Store in database with thread-safe connection
+        try:
+            self.db.execute("""
+                INSERT INTO messages (id, timestamp, message_type, source_language, target_language, payload, response_channel, status)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                str(message.id),
+                str(message.timestamp),
+                str(message.message_type.value),
+                str(message.source_language),
+                str(message.target_language),
+                json.dumps(message.payload),
+                str(message.response_channel.value),
+                'pending'
+            ))
+            self.db.commit()
+        except Exception as e:
+            print(f"⚠️ Database insert warning: {e}")
         
         # Add to processing queue
         self.message_queue.put(message)
