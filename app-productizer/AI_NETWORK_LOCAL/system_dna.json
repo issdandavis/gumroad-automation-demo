@@ -1,0 +1,48 @@
+{
+  "version": "2.0.0",
+  "birth_timestamp": "2025-12-26T17:15:55.956689",
+  "generation": 2,
+  "fitness_score": 102.0,
+  "core_traits": {
+    "communication_channels": 9,
+    "language_support": 12,
+    "ai_participants": [],
+    "evolutionary_features": [
+      "self_modification",
+      "learning_from_responses",
+      "adaptive_communication",
+      "distributed_storage",
+      "version_control",
+      "autonomous_workflow",
+      "multi_provider_ai",
+      "plugin_architecture"
+    ],
+    "autonomy_level": 0.7,
+    "enabled_providers": [
+      "openai",
+      "anthropic"
+    ],
+    "enabled_storage": [
+      "local",
+      "github"
+    ],
+    "max_concurrent_operations": 10
+  },
+  "mutations": [
+    {
+      "id": "mut_20251226_171555_961691",
+      "timestamp": "2025-12-26T17:15:55.961707",
+      "type": "communication_enhancement",
+      "description": "Demo: Add communication channel",
+      "fitness_impact": 2.0,
+      "risk_score": 0.1,
+      "generation": 2,
+      "source_ai": "Demo",
+      "auto_approved": true,
+      "rollback_snapshot": "snap_20251226_171555_959973",
+      "metadata": {}
+    }
+  ],
+  "snapshots": [],
+  "metadata": {}
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "generation": 2,
+    "timestamp": "2025-12-26T17:15:55.963367",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 102.0,
+    "fitness_after": 104.0,
+    "source_ai": "Demo",
+    "auto_approved": true,
+    "details": {}
+  }
+]
