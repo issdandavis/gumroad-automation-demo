@@ -2,7 +2,7 @@
 ## Professional AI Automation Platform | Enterprise Ready
 
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/your-org/evolving-ai-framework)
-[![License](https://img.shields.io/badge/license-Commercial-green.svg)](LICENSE_COMMERCIAL)
+[![License](https://img.shields.io/badge/license-Commercial-green.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-100%25%20passing-brightgreen.svg)](tests/)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://python.org)
 [![AWS](https://img.shields.io/badge/AWS-Bedrock%20Ready-orange.svg)](https://aws.amazon.com/bedrock/)
@@ -36,7 +36,7 @@ The **Self-Evolving AI Framework** is the world's first production-ready AI syst
 ```bash
 # 1. Clone and install
 git clone https://github.com/your-org/self-evolving-ai-framework.git
-cd app-productizer
+cd self-evolving-ai-framework
 pip install -r requirements.txt
 
 # 2. Configure (add your API keys)
@@ -63,8 +63,8 @@ framework.initialize()
 
 # Watch it evolve
 status = framework.get_status()
-print(f"Generation: {status['dna']['generation']}")
-print(f"Fitness: {status['dna']['fitness_score']}")
+print(f"Generation: {status['generation']}")
+print(f"Fitness: {status['fitness_score']}")
 ```
 
 ### 📊 **Real-Time Optimization**
