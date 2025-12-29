@@ -94,6 +94,37 @@ class CoreTraits:
 
 
 @dataclass
+class BedrockDecisionRecord:
+    """Record of a Bedrock LLM decision"""
+    decision_id: str
+    timestamp: str
+    model_used: str
+    decision: str  # APPROVE, REJECT, DEFER
+    confidence: float
+    reasoning: str
+    cost_usd: float
+    tokens_used: int
+    processing_time_ms: float
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass
+class CloudStorageMetadata:
+    """Cloud storage metadata for evolution data"""
+    s3_location: Optional[str] = None
+    dynamodb_item_id: Optional[str] = None
+    cloudwatch_metric_name: Optional[str] = None
+    cross_region_replicated: bool = False
+    storage_class: str = "STANDARD"
+    checksum: Optional[str] = None
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass
 class MutationRecord:
     """Record of an applied mutation"""
     id: str
@@ -107,6 +138,10 @@ class MutationRecord:
     auto_approved: bool = False
     rollback_snapshot: Optional[str] = None
     metadata: Dict[str, Any] = field(default_factory=dict)
+    # Cloud-specific fields
+    bedrock_decision: Optional[BedrockDecisionRecord] = None
+    cloud_storage: Optional[CloudStorageMetadata] = None
+    llm_reasoning: Optional[str] = None
     
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -115,7 +150,7 @@ class MutationRecord:
 @dataclass
 class SystemDNA:
     """Core genetic configuration for the AI system"""
-    version: str = "2.0.0"
+    version: str = "3.0.0"  # Updated for Bedrock integration
     birth_timestamp: str = field(default_factory=lambda: datetime.now().isoformat())
     generation: int = 1
     fitness_score: float = 100.0
@@ -123,6 +158,12 @@ class SystemDNA:
     mutations: List[MutationRecord] = field(default_factory=list)
     snapshots: List[str] = field(default_factory=list)
     metadata: Dict[str, Any] = field(default_factory=dict)
+    # Cloud-specific fields
+    bedrock_decisions: List[BedrockDecisionRecord] = field(default_factory=list)
+    cloud_storage_locations: Dict[str, CloudStorageMetadata] = field(default_factory=dict)
+    aws_region: Optional[str] = None
+    cost_tracking: Dict[str, float] = field(default_factory=dict)
+    model_usage_history: Dict[str, int] = field(default_factory=dict)
     
     def to_dict(self) -> Dict[str, Any]:
         data = asdict(self)

@@ -1,15 +1,15 @@
 {
-  "id": "snap_20251228_225850_929220",
-  "timestamp": "2025-12-28T22:58:50.929239",
-  "label": "pre_mutation_storage_optimization",
-  "dna_checksum": "2747893be88bb14a",
+  "id": "snap_20251229_022702_541094",
+  "timestamp": "2025-12-29T02:27:02.541105",
+  "label": "pre_mutation_performance_test",
+  "dna_checksum": "6032d3abca8c7c57",
   "dna_data": {
     "version": "2.0.0",
     "birth_timestamp": "2025-12-26T17:15:55.956689",
-    "generation": 10,
-    "fitness_score": 131.0,
+    "generation": 13,
+    "fitness_score": 138.0,
     "core_traits": {
-      "communication_channels": 16,
+      "communication_channels": 18,
       "language_support": 12,
       "ai_participants": [],
       "evolutionary_features": [
@@ -22,7 +22,8 @@
         "multi_provider_ai",
         "plugin_architecture",
         "real_time_sync",
-        "advanced_learning"
+        "advanced_learning",
+        "optimized_storage"
       ],
       "autonomy_level": 0.7,
       "enabled_providers": [
@@ -47,7 +48,10 @@
         "source_ai": "Demo",
         "auto_approved": true,
         "rollback_snapshot": "snap_20251226_171555_959973",
-        "metadata": {}
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
       },
       {
         "id": "mut_20251228_215037_212419",
@@ -60,7 +64,10 @@
         "source_ai": "Demo",
         "auto_approved": true,
         "rollback_snapshot": "snap_20251228_215037_209897",
-        "metadata": {}
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
       },
       {
         "id": "mut_20251228_215357_355253",
@@ -73,7 +80,10 @@
         "source_ai": "Test",
         "auto_approved": true,
         "rollback_snapshot": "snap_20251228_215357_352119",
-        "metadata": {}
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
       },
       {
         "id": "mut_20251228_215357_368216",
@@ -86,7 +96,10 @@
         "source_ai": "TestAI",
         "auto_approved": true,
         "rollback_snapshot": "snap_20251228_215357_366795",
-        "metadata": {}
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
       },
       {
         "id": "mut_20251228_223535_986839",
@@ -99,7 +112,10 @@
         "source_ai": "Demo",
         "auto_approved": true,
         "rollback_snapshot": "snap_20251228_223535_985185",
-        "metadata": {}
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
       },
       {
         "id": "mut_20251228_224843_428653",
@@ -112,7 +128,10 @@
         "source_ai": "Demo",
         "auto_approved": true,
         "rollback_snapshot": "snap_20251228_224843_426222",
-        "metadata": {}
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
       },
       {
         "id": "mut_20251228_225827_812005",
@@ -125,7 +144,10 @@
         "source_ai": "Tutorial",
         "auto_approved": true,
         "rollback_snapshot": "snap_20251228_225827_794715",
-        "metadata": {}
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
       },
       {
         "id": "mut_20251228_225848_265068",
@@ -138,7 +160,10 @@
         "source_ai": "Tutorial",
         "auto_approved": true,
         "rollback_snapshot": "snap_20251228_225848_261848",
-        "metadata": {}
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
       },
       {
         "id": "mut_20251228_225849_428248",
@@ -151,15 +176,71 @@
         "source_ai": "Tutorial",
         "auto_approved": true,
         "rollback_snapshot": "snap_20251228_225849_426862",
-        "metadata": {}
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
+      },
+      {
+        "id": "mut_20251228_225850_931288",
+        "timestamp": "2025-12-28T22:58:50.931311",
+        "type": "storage_optimization",
+        "description": "Implement distributed caching layer",
+        "fitness_impact": 3.0,
+        "risk_score": 0.14,
+        "generation": 11,
+        "source_ai": "Tutorial",
+        "auto_approved": true,
+        "rollback_snapshot": "snap_20251228_225850_929220",
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
+      },
+      {
+        "id": "mut_20251229_014556_717704",
+        "timestamp": "2025-12-29T01:45:56.717732",
+        "type": "communication_enhancement",
+        "description": "Demo: Add communication channel",
+        "fitness_impact": 2.0,
+        "risk_score": 0.1,
+        "generation": 12,
+        "source_ai": "Demo",
+        "auto_approved": true,
+        "rollback_snapshot": "snap_20251229_014556_714677",
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
+      },
+      {
+        "id": "mut_20251229_014608_209096",
+        "timestamp": "2025-12-29T01:46:08.209124",
+        "type": "communication_enhancement",
+        "description": "Test mutation from CLI",
+        "fitness_impact": 2.0,
+        "risk_score": 0.1,
+        "generation": 13,
+        "source_ai": "CLI",
+        "auto_approved": true,
+        "rollback_snapshot": "snap_20251229_014608_206455",
+        "metadata": {},
+        "bedrock_decision": null,
+        "cloud_storage": null,
+        "llm_reasoning": null
       }
     ],
     "snapshots": [],
-    "metadata": {}
+    "metadata": {},
+    "bedrock_decisions": [],
+    "cloud_storage_locations": {},
+    "aws_region": null,
+    "cost_tracking": {},
+    "model_usage_history": {}
   },
   "metadata": {
-    "generation": 10,
-    "fitness_score": 131.0,
-    "mutation_count": 9
+    "generation": 13,
+    "fitness_score": 138.0,
+    "mutation_count": 12
   }
 }
