@@ -1,0 +1,39 @@
+# Example batch generation file for morewritings
+# This demonstrates how to use the batch-generate command
+
+- type: scene
+  prompt: "Two rival adventurers must work together to escape a collapsing temple"
+  title: "The Temple's Last Breath"
+  characters:
+    - "Aria Blackwood"
+    - "Drake Stormwind"
+  genre: adventure
+  mood: intense
+
+- type: scene
+  prompt: "A quiet moment in a coffee shop where two strangers connect over shared grief"
+  title: "Morning Brew"
+  genre: drama
+  mood: melancholic
+
+- type: profile
+  prompt: "A brilliant but eccentric inventor who lives in a converted lighthouse"
+  name: "Professor Eleanor Gearsmith"
+
+- type: profile
+  prompt: "A street-smart orphan with a gift for pickpocketing and a heart of gold"
+  name: "Pip"
+
+- type: scenery
+  prompt: "A futuristic city floating among the clouds"
+  name: "Skyreach Metropolis"
+  location_type: sci-fi
+  mood: awe-inspiring
+  time_of_day: sunset
+
+- type: scenery
+  prompt: "A cozy bookshop tucked away on a rainy street"
+  name: "The Weathered Page"
+  location_type: indoor
+  mood: warm and inviting
+  weather: rainy

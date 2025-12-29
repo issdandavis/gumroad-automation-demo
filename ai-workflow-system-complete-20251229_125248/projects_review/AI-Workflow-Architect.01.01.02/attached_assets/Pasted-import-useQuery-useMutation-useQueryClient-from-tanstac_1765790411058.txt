@@ -1,0 +1,78 @@
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import Layout from "@/components/dashboard/Layout";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { CheckCircle, XCircle, RefreshCw, Server } from "lucide-react";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+
+export default function Status() {
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["/api/circuits"],
+    queryFn: async () => {
+      const res = await fetch("/api/circuits");
+      return res.json();
+    }
+  });
+
+  const resetMutation = useMutation({
+    mutationFn: async () => {
+      await apiRequest("POST", "/api/circuits/reset", {});
+    },
+    onSuccess: () => {
+      toast({ title: "Circuits Reset", description: "All provider connections have been reset." });
+      queryClient.invalidateQueries({ queryKey: ["/api/circuits"] });
+    }
+  });
+
+  return (
+    <Layout>
+      <div className="space-y-8">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight mb-2 text-glow flex items-center gap-2">
+              <Server className="w-8 h-8" /> System Status
+            </h1>
+            <p className="text-muted-foreground">Real-time connection health for all AI providers.</p>
+          </div>
+          <Button onClick={() => resetMutation.mutate()} disabled={resetMutation.isPending} variant="outline">
+            <RefreshCw className={`w-4 h-4 mr-2 ${resetMutation.isPending ? 'animate-spin' : ''}`} />
+            Reset Connections
+          </Button>
+        </div>
+
+        <div className="grid gap-4">
+          {data?.circuits && Object.entries(data.circuits).map(([provider, status]: any) => (
+            <Card key={provider} className="glass-panel border-white/5">
+              <div className="p-4 flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  {status.isOpen ? (
+                     <div className="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
+                  ) : (
+                     <div className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
+                  )}
+                  <span className="capitalize font-bold text-lg">{provider} API</span>
+                </div>
+                
+                <div className="flex items-center gap-2">
+                  {status.isOpen ? (
+                    <span className="text-red-400 flex items-center gap-1 text-sm font-medium">
+                      <XCircle className="w-4 h-4" /> Outage / Rate Limited
+                    </span>
+                  ) : (
+                    <span className="text-green-400 flex items-center gap-1 text-sm font-medium">
+                      <CheckCircle className="w-4 h-4" /> Operational
+                    </span>
+                  )}
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </Layout>
+  );
+}

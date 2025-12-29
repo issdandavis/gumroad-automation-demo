@@ -1,0 +1,14 @@
+{
+  "name": "Security Validator",
+  "description": "Validates security policies and triggers security review for sensitive changes",
+  "trigger": {
+    "type": "file_save",
+    "pattern": "src/core/autonomy.py|src/services/healing.py|src/api/*.py"
+  },
+  "action": {
+    "type": "message",
+    "content": "Security-sensitive files have been modified. Please perform a security review:\n\n1. Verify risk assessment logic is intact\n2. Check authentication and authorization controls\n3. Validate input sanitization and validation\n4. Review audit logging completeness\n5. Ensure proper error handling without information leakage\n6. Test security boundaries and access controls\n\nEnsure all changes comply with security policies in .kiro/steering/security-policies.md"
+  },
+  "enabled": true,
+  "priority": "critical"
+}

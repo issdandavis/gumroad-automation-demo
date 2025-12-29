@@ -1,0 +1,64 @@
+// ==========================================
+  // ENTERPRISE ADMIN ROUTES (NEW ADDITION)
+  // ==========================================
+
+  // Middleware to check if user is the admin
+  const requireAdmin = async (req: Request, res: Response, next: NextFunction) => {
+    if (!req.session.userId) return res.status(401).json({ error: "Unauthorized" });
+    const user = await storage.getUser(req.session.userId);
+    // Simple check: Is the user's email the configured admin email?
+    // You should add ADMIN_EMAIL to your Replit Secrets
+    if (user?.email !== process.env.ADMIN_EMAIL && user?.role !== 'owner') {
+      return res.status(403).json({ error: "Forbidden: Admin access only" });
+    }
+    next();
+  };
+
+  // 1. Super Admin Stats (Users, Revenue, Projects)
+  app.get("/api/admin/stats", requireAuth, requireAdmin, async (req: Request, res: Response) => {
+    try {
+      // Mocking complex aggregation for speed/safety in this example
+      // In a real scenario, you'd do count(*) queries
+      const { db } = await import("./db");
+      const { users, projects, usageRecords } = await import("@shared/schema");
+      
+      const allUsers = await db.select().from(users);
+      const allProjects = await db.select().from(projects);
+      const allUsage = await db.select().from(usageRecords);
+      
+      // Calculate total spend (revenue)
+      const totalRevenue = allUsage.reduce((acc, curr) => acc + parseFloat(curr.estimatedCostUsd || "0"), 0);
+
+      res.json({
+        users: allUsers.length,
+        projects: allProjects.length,
+        revenue: totalRevenue,
+        activeAgents: 0, // Placeholder for active runs
+        recentUsers: allUsers.slice(0, 10).map(u => ({ email: u.email, role: u.role, createdAt: u.createdAt }))
+      });
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch admin stats" });
+    }
+  });
+
+  // 2. Data Export (The "Panic Button")
+  app.get("/api/admin/export", requireAuth, requireAdmin, async (req: Request, res: Response) => {
+    try {
+      const { db } = await import("./db");
+      const { users, projects, agentRuns, memoryItems } = await import("@shared/schema");
+
+      const exportData = {
+        timestamp: new Date().toISOString(),
+        users: await db.select().from(users),
+        projects: await db.select().from(projects),
+        agentRuns: await db.select().from(agentRuns),
+        memories: await db.select().from(memoryItems),
+      };
+
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Content-Disposition', `attachment; filename=app_backup_${Date.now()}.json`);
+      res.send(JSON.stringify(exportData, null, 2));
+    } catch (error) {
+      res.status(500).json({ error: "Export failed" });
+    }
+  });

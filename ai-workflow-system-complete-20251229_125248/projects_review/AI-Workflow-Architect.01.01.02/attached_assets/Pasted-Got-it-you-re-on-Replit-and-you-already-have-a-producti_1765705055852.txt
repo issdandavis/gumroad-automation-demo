@@ -1,0 +1,178 @@
+Got it — you’re on Replit and you already have a *production-ready AI Orchestration Hub*. Here’s a concrete **next-phase implementation plan** for **MCP Server + AI Guide + In-App Code Space**, designed to fit a Replit deployment and your existing “branch-first safety / audit / budgets” posture.
+
+---
+
+## 1) MCP Server: what it should do in your product
+
+### Goals
+
+* Give your app a **standard “tools” surface** so an assistant can safely:
+
+  * inspect org/project context
+  * read/write repo files (in a controlled way)
+  * run commands (sandboxed)
+  * manage integrations (vault)
+  * query memory/search
+  * create PR-style diffs / commits with audit logs
+
+### High-level architecture
+
+**Your app (API)** ⟷ **MCP Server (tool gateway)** ⟷ **AI Guide (assistant)**
+
+* The MCP server becomes the *only* way the assistant can touch tools.
+* Your existing governance (roles, budgets, audit, rate limits) becomes **enforcement middleware** inside the MCP server.
+
+### Tool categories you’ll expose via MCP
+
+Minimum set for Phase 1:
+
+1. **Context / Identity**
+
+* `whoami`, `org.list`, `project.get`, `rbac.check`
+
+2. **Memory**
+
+* `memory.search`, `memory.add`, `memory.pin`, `memory.summarize`
+
+3. **Integrations (Vault)**
+
+* `vault.list`, `vault.connect`, `vault.test`, `vault.rotate_key`
+
+4. **Git + Code Ops (branch-first)**
+
+* `git.status`, `git.diff`, `git.create_branch`, `git.apply_patch`, `git.commit`, `git.open_pr` (or “create change request” if you don’t use PRs)
+
+5. **Command Runner (optional, tightly sandboxed)**
+
+* `shell.exec` limited allowlist (lint/test/build only)
+
+---
+
+## 2) AI Guide: assistant behavior that feels “native” (and safe)
+
+### UX principle
+
+The assistant shouldn’t be a chat toy; it should behave like a **guided operator** that:
+
+* proposes a plan
+* asks for minimal missing info
+* executes steps via MCP tools
+* shows diffs before writing
+* logs everything
+
+### Capability set
+
+* **Integration setup wizard**: “Connect GitHub / Notion / Drive”
+* **Code changes with review**: “Add endpoint / fix bug / refactor”
+* **Project automations**: generate agent templates + runbooks
+* **Explain & navigate**: “Where is X defined?” “Why did this error happen?”
+
+### Safety gates (you already have the primitives)
+
+Before any write action:
+
+* RBAC check (role + project scope)
+* Budget check (cost guard)
+* “Explain + Diff” requirement:
+
+  * assistant must show patch + file list + rationale
+  * user must approve (or you can allow owners to auto-approve)
+
+Audit logging should capture:
+
+* user id, org/project
+* tool name + arguments (redacted)
+* resulting file changes
+* tokens/costs by provider
+
+---
+
+## 3) In-App Code Space (Monaco + Git workflow)
+
+### MVP components
+
+* **Monaco Editor**: file tree + tabs
+* **Diff viewer**: before/after with patch apply
+* **Git panel**: staged changes, commit message, branch name
+* **Assistant panel**: “Generate change” → produces patch → user applies
+
+### Suggested flow
+
+1. User asks: “Add OAuth callback endpoint”
+2. Assistant creates branch: `ai/<slug>/<date>`
+3. Assistant proposes patch via `git.apply_patch` (dry-run first)
+4. UI shows diff → user clicks **Apply**
+5. Assistant runs tests (optional)
+6. Commit + push + open PR/change-request
+7. Audit + memory summary saved
+
+---
+
+## 4) Replit-friendly implementation path (fastest route)
+
+### Phase 1 (shipping path)
+
+* Run MCP server **inside the same Replit project** as your backend (simplifies networking).
+* Expose MCP endpoint behind your existing auth.
+* Put all governance checks in a shared middleware module.
+
+### Practical endpoint shape
+
+* `POST /mcp` for tool calls
+* `GET /mcp/schema` for tool definitions (so the assistant knows what exists)
+
+### Streaming
+
+You already have SSE; reuse it:
+
+* `POST /assistant/run` returns an SSE stream:
+
+  * `plan`
+  * `tool_call`
+  * `tool_result`
+  * `patch_proposed`
+  * `done`
+
+---
+
+## 5) Concrete build checklist (what to code next)
+
+### A) MCP Server
+
+* [ ] Define tool registry (name, input schema, output schema)
+* [ ] Add middleware: auth → rbac → budget → rate limit → audit
+* [ ] Implement the 10–15 core tools listed above
+* [ ] Add redaction for secrets in logs/tool outputs
+
+### B) AI Guide
+
+* [ ] Add “planner → executor” loop:
+
+  * planner produces steps + tool calls
+  * executor runs via MCP + streams progress
+* [ ] Add “diff-first” contract for any write
+* [ ] Add templates: integration setup, code change, debugging
+
+### C) Code Space
+
+* [ ] File tree + Monaco + open/save
+* [ ] Diff view + apply patch
+* [ ] Branch/commit UI
+* [ ] Assistant sidebar that can target selected files
+
+---
+
+## 6) The “one decision” that makes this feel premium
+
+Make the assistant **patch-based, not file-dump-based**.
+
+Meaning:
+
+* it never outputs whole files unless asked
+* it outputs unified diffs / patches
+* the user sees exactly what changes
+* you can enforce branch-first + audits cleanly
+
+---
+
+If you paste your current backend stack (Node/Express? Fastify? Python?) and how Git ops are implemented right now (local repo clone? bare repo? API wrapper?), I can give you a **drop-in folder structure + exact endpoint/tool schemas** that match your codebase.

@@ -1,0 +1,640 @@
+{
+  "timestamp": "2025-12-29T06:53:51.814039",
+  "framework_version": "2.0.0",
+  "test_runs": [
+    {
+      "name": "dna_initialization_completeness",
+      "status": "passed",
+      "duration": 3.0994415283203125e-05,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:51.858715"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.019973278045654297,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:51.938221"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.018492698669433594,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:51.957685"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.017876386642456055,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:51.977161"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.019825458526611328,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:51.997826"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.018904447555541992,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.194054"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.018926143646240234,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.213811"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.019733667373657227,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.237030"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.020709991455078125,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.258528"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.021387815475463867,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.280893"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.019348621368408203,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.303348"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0009293556213378906,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.305125"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0007956027984619141,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.306637"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0008168220520019531,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.308314"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.00090789794921875,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.309902"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0007925033569335938,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.311632"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0007617473602294922,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.313098"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0028181076049804688,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.316762"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0009150505065917969,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.322069"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0007929801940917969,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.323631"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0007548332214355469,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.325194"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0007495880126953125,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.326628"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0008170604705810547,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.328362"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0010268688201904297,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.330297"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0017786026000976562,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.333608"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0009517669677734375,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.335969"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0007901191711425781,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.337625"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.000978708267211914,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.339422"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0005645751953125,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.340611"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0009057521820068359,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.342330"
+    },
+    {
+      "name": "mutation_logging_consistency",
+      "status": "passed",
+      "duration": 0.0008215904235839844,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.344049"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.00182342529296875,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.349382"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.0009348392486572266,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.351392"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.0008921623229980469,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.362248"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.0016639232635498047,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.364711"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.001695394515991211,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.368242"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.002146482467651367,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.371630"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.0012652873992919922,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.373830"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.0014400482177734375,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.376140"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.003450155258178711,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.380982"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.0038204193115234375,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.388310"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.003675699234008789,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.393220"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.002221345901489258,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.396556"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.002803325653076172,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.402355"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.002160310745239258,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.405711"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.002080202102661133,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.408953"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.002270936965942383,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.412294"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.0021066665649414062,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.417296"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.0012814998626708984,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.419600"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.0014379024505615234,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.421920"
+    },
+    {
+      "name": "fitness_score_tracking",
+      "status": "passed",
+      "duration": 0.0008122920989990234,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.424548"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0008406639099121094,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.427958"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0008044242858886719,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.429454"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0015482902526855469,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.431802"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.006543874740600586,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.439487"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0007474422454833984,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.440996"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0005781650543212891,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.442113"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0006711483001708984,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.443301"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0007529258728027344,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.444617"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0008091926574707031,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.445990"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0010983943939208984,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.447715"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0010673999786376953,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.449962"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0008463859558105469,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.451609"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0009579658508300781,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.453549"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.000751495361328125,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.455020"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0006721019744873047,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.456236"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0007145404815673828,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.457490"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0007188320159912109,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.458793"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0009360313415527344,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.460336"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0007469654083251953,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.461766"
+    },
+    {
+      "name": "generation_invariant",
+      "status": "passed",
+      "duration": 0.0009930133819580078,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.463406"
+    },
+    {
+      "name": "rollback_completeness",
+      "status": "passed",
+      "duration": 0.003589630126953125,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.467361"
+    },
+    {
+      "name": "complete_mutation_workflow",
+      "status": "failed",
+      "duration": 0.0010523796081542969,
+      "error": "Mutation should be approved",
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.468661"
+    },
+    {
+      "name": "storage_sync_operations",
+      "status": "passed",
+      "duration": 0.009933948516845703,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.478683"
+    },
+    {
+      "name": "fitness_monitoring_workflow",
+      "status": "failed",
+      "duration": 0.0007910728454589844,
+      "error": "'OperationResult' object has no attribute 'cost'",
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.479588"
+    },
+    {
+      "name": "autonomous_workflow_execution",
+      "status": "passed",
+      "duration": 0.009031057357788086,
+      "error": null,
+      "details": {},
+      "timestamp": "2025-12-29T06:53:55.488804"
+    }
+  ],
+  "summary": {
+    "total_tests": 76,
+    "passed": 74,
+    "failed": 2,
+    "skipped": 0,
+    "duration": 3.751566171646118
+  },
+  "performance_metrics": {
+    "mutation_benchmark": {
+      "total_mutations": 50,
+      "total_duration": 0.03604459762573242,
+      "avg_duration": 0.0007201528549194336,
+      "median_duration": 0.000649571418762207,
+      "max_duration": 0.0020210742950439453,
+      "min_duration": 0.0005660057067871094,
+      "mutations_per_second": 1387.1704303422366
+    },
+    "fitness_benchmark": {
+      "total_calculations": 100,
+      "total_duration": 0.04080629348754883,
+      "calculations_per_second": 2450.6023814810055,
+      "avg_duration": 0.00040806293487548827
+    }
+  },
+  "property_test_stats": {},
+  "coverage_report": {}
+}

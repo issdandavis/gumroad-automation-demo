@@ -1,0 +1,32 @@
+# Templates for scene prompts
+# These can be used as inspiration or starting points
+
+mystery_investigation:
+  prompt: "Detective {detective_name} investigates a {crime_type} at {location}"
+  genre: mystery
+  mood: suspenseful
+
+romantic_encounter:
+  prompt: "Two people meet unexpectedly at {location} and {what_happens}"
+  genre: romance
+  mood: heartwarming
+
+epic_battle:
+  prompt: "{hero} faces off against {villain} in {location}"
+  genre: action
+  mood: intense
+
+quiet_reflection:
+  prompt: "{character} contemplates {subject} while {activity} at {location}"
+  genre: literary
+  mood: contemplative
+
+sci_fi_discovery:
+  prompt: "Scientists discover {discovery} on {planet_or_station}"
+  genre: sci-fi
+  mood: wonder
+
+fantasy_quest:
+  prompt: "{hero} must {quest_objective} before {deadline}"
+  genre: fantasy
+  mood: adventurous

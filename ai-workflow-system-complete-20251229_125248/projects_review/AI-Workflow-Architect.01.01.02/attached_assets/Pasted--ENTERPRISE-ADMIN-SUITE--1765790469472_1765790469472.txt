@@ -1,0 +1,83 @@
+// ==========================================
+  // ENTERPRISE ADMIN SUITE
+  // ==========================================
+
+  // Secure Middleware: Restricts access to the owner/admin email only
+  const requireAdmin = async (req: Request, res: Response, next: NextFunction) => {
+    if (!req.session.userId) return res.status(401).json({ error: "Unauthorized" });
+    
+    const user = await storage.getUser(req.session.userId);
+    // SECURITY: Ensure ADMIN_EMAIL is set in your Replit Secrets
+    const adminEmail = process.env.ADMIN_EMAIL;
+    
+    if (!adminEmail || user?.email !== adminEmail) {
+      console.warn(`[Security] Unauthorized admin access attempt by ${user?.email}`);
+      return res.status(403).json({ error: "Forbidden: Admin access only" });
+    }
+    next();
+  };
+
+  // 1. Analytics Dashboard Data
+  app.get("/api/admin/stats", requireAuth, requireAdmin, async (req: Request, res: Response) => {
+    try {
+      const { db } = await import("./db");
+      const { users, projects, usageRecords, agentRuns } = await import("@shared/schema");
+      const { sql } = await import("drizzle-orm");
+
+      // Aggregate high-level metrics
+      const userCount = await db.select({ count: sql<number>`count(*)` }).from(users);
+      const projectCount = await db.select({ count: sql<number>`count(*)` }).from(projects);
+      const runCount = await db.select({ count: sql<number>`count(*)` }).from(agentRuns);
+      
+      // Calculate Revenue & Token Usage
+      const usage = await db.select().from(usageRecords);
+      const totalRevenue = usage.reduce((acc, curr) => acc + parseFloat(curr.estimatedCostUsd || "0"), 0);
+      const totalTokens = usage.reduce((acc, curr) => acc + (curr.inputTokens || 0) + (curr.outputTokens || 0), 0);
+
+      // Get recent activity for the feed
+      const recentUsers = await db.select().from(users).orderBy(sql`${users.createdAt} DESC`).limit(5);
+
+      res.json({
+        metrics: {
+          totalUsers: Number(userCount[0].count),
+          totalProjects: Number(projectCount[0].count),
+          totalRuns: Number(runCount[0].count),
+          totalRevenue,
+          totalTokens
+        },
+        recentUsers: recentUsers.map(u => ({
+          id: u.id,
+          email: u.email,
+          role: u.role,
+          joined: u.createdAt
+        }))
+      });
+    } catch (error) {
+      console.error("Admin stats error:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
+
+  // 2. Full Data Export (GDPR/Backup Compliance)
+  app.get("/api/admin/export", requireAuth, requireAdmin, async (req: Request, res: Response) => {
+    try {
+      const { db } = await import("./db");
+      const schema = await import("@shared/schema");
+
+      // Gather all critical business data
+      const data = {
+        metadata: { exportedAt: new Date().toISOString(), version: "1.0.0" },
+        users: await db.select().from(schema.users),
+        projects: await db.select().from(schema.projects),
+        agents: await db.select().from(schema.agentRuns),
+        memories: await db.select().from(schema.memoryItems),
+        billing: await db.select().from(schema.usageRecords)
+      };
+
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Content-Disposition', `attachment; filename=platform_backup_${Date.now()}.json`);
+      res.send(JSON.stringify(data, null, 2));
+    } catch (error) {
+      res.status(500).json({ error: "Export failed" });
+    }
+  });

@@ -1,0 +1,6 @@
+{
+  "type": "communication_enhancement",
+  "description": "Test mutation via Bridge API",
+  "fitness_impact": 2.0,
+  "source_ai": "BridgeAPI"
+}

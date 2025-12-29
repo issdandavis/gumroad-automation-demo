@@ -1,0 +1,6 @@
+{
+  "bridge_api_url": "http://localhost:3001",
+  "evolution_api_url": "http://localhost:5000",
+  "websocket_enabled": true,
+  "auto_connect": true
+}

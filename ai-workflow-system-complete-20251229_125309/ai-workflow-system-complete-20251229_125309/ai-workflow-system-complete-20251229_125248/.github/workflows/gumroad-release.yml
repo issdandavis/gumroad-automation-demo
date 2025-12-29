@@ -1,0 +1,99 @@
+name: Package and Release to Gumroad
+
+on:
+  push:
+    tags:
+      - 'browser-automation-v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number (e.g., 1.0.0)'
+        required: true
+        default: '1.0.0'
+
+jobs:
+  package-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "VERSION=${GITHUB_REF#refs/tags/browser-automation-v}" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Create release package
+        run: |
+          VERSION=${{ steps.version.outputs.VERSION }}
+          PACKAGE_NAME="browser-automation-v${VERSION}"
+          
+          # Create package directory
+          mkdir -p dist/${PACKAGE_NAME}
+          
+          # Copy product files
+          cp -r gumroad-products/browser-automation/* dist/${PACKAGE_NAME}/
+          
+          # Add version to README
+          sed -i "s/version: \"1.0.0\"/version: \"${VERSION}\"/" dist/${PACKAGE_NAME}/recipes/*.yaml
+          
+          # Create ZIP for Gumroad
+          cd dist
+          zip -r ${PACKAGE_NAME}.zip ${PACKAGE_NAME}
+          
+          echo "📦 Package created: ${PACKAGE_NAME}.zip"
+          ls -la
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-automation-package
+          path: dist/*.zip
+          retention-days: 30
+          
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*.zip
+          body: |
+            ## Browser Automation Tool v${{ steps.version.outputs.VERSION }}
+            
+            **Automate Any Web Task Locally – No Code, No Cloud, Just Results**
+            
+            ### What's Included:
+            - 🛍️ Shopify Price Updater recipe
+            - 🔗 LinkedIn Connector recipe  
+            - 📊 Google Sheets Scraper recipe
+            - 📝 One-command installer (macOS/Linux/Windows)
+            - 📚 Complete documentation
+            
+            ### Quick Start:
+            1. Download and extract the ZIP
+            2. Run `./install.sh` (or `install.bat` on Windows)
+            3. Edit `config.yaml` with your settings
+            4. Run `python run.py --recipe recipes/shopify-price-updater.yaml`
+            
+            ---
+            *Privacy-first browser automation for solopreneurs*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Notify Gumroad webhook (optional)
+        if: env.GUMROAD_WEBHOOK_URL != ''
+        env:
+          GUMROAD_WEBHOOK_URL: ${{ secrets.GUMROAD_WEBHOOK_URL }}
+        run: |
+          curl -X POST "$GUMROAD_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "event": "new_release",
+              "product": "browser-automation",
+              "version": "${{ steps.version.outputs.VERSION }}",
+              "download_url": "https://github.com/${{ github.repository }}/releases/download/browser-automation-v${{ steps.version.outputs.VERSION }}/browser-automation-v${{ steps.version.outputs.VERSION }}.zip"
+            }'

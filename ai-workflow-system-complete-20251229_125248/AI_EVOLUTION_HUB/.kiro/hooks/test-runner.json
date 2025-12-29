@@ -1,0 +1,16 @@
+{
+  "name": "Test Runner",
+  "description": "Automatically runs tests when core system files are modified",
+  "trigger": {
+    "type": "file_save",
+    "pattern": "src/**/*.py"
+  },
+  "action": {
+    "type": "command",
+    "command": "python -m pytest tests/ -v --tb=short",
+    "workingDirectory": "AI_EVOLUTION_HUB"
+  },
+  "enabled": true,
+  "priority": "medium",
+  "debounce": 2000
+}

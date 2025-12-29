@@ -1,0 +1,25 @@
+{
+  "version": "3.0.0",
+  "build_date": "20251229",
+  "packages": {
+    "starter": {
+      "name": "Starter Edition",
+      "price": 297,
+      "file": "unified-ai-platform-starter-v3.0.0.zip",
+      "size_mb": 0.45
+    },
+    "professional": {
+      "name": "Professional Edition",
+      "price": 997,
+      "file": "unified-ai-platform-professional-v3.0.0.zip",
+      "size_mb": 0.51
+    },
+    "enterprise": {
+      "name": "Enterprise Edition",
+      "price": 2997,
+      "file": "unified-ai-platform-enterprise-v3.0.0.zip",
+      "size_mb": 0.45
+    }
+  },
+  "total_size_mb": 1.41
+}

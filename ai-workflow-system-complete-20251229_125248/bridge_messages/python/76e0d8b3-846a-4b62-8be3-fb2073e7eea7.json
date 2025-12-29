@@ -1,0 +1,15 @@
+{
+  "id": "76e0d8b3-846a-4b62-8be3-fb2073e7eea7",
+  "timestamp": "2025-12-25T21:00:20.391313",
+  "message_type": "ai_response",
+  "source_language": "universal_bridge",
+  "target_language": "python",
+  "payload": {
+    "original_message_id": "4b05d01a-1963-4fb4-962a-c67c2654387f",
+    "translated_code": "print('Hello')",
+    "from_language": "python",
+    "to_language": "koraelin"
+  },
+  "response_channel": "websocket",
+  "checksum": "5843e839f237a23a817264b3d893eb5e"
+}
