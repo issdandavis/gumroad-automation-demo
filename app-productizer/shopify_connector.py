@@ -29,16 +29,96 @@ from enum import Enum
 from pathlib import Path
 import requests
 
-# Framework imports
-from self_evolving_core.bedrock_client import BedrockClient, BedrockRequest, BedrockResponse
-from self_evolving_core.aws_config import AWSConfigManager
-from self_evolving_core.models import OperationResult, Event
-from universal_bridge.core.universal_protocol import (
-    UniversalMessage,
-    MessageType,
-    CommunicationChannel,
-    UniversalBridge
-)
+# Framework imports - with graceful fallbacks for standalone operation
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+
+# Try to import Bedrock client (optional - falls back to mock)
+try:
+    from self_evolving_core.bedrock_client import BedrockClient, BedrockRequest, BedrockResponse
+    from self_evolving_core.aws_config import AWSConfigManager
+    from self_evolving_core.models import OperationResult, Event
+    BEDROCK_AVAILABLE = True
+except ImportError as e:
+    BEDROCK_AVAILABLE = False
+    # Mock classes for standalone operation
+    @dataclass
+    class BedrockRequest:
+        model_id: str = ""
+        prompt: str = ""
+        max_tokens: int = 4000
+        temperature: float = 0.3
+        top_p: float = 0.9
+        stop_sequences: List[str] = field(default_factory=list)
+        metadata: Dict[str, Any] = field(default_factory=dict)
+
+    @dataclass
+    class BedrockResponse:
+        success: bool = False
+        content: str = ""
+        model_id: str = ""
+        error: Optional[str] = None
+
+    class BedrockClient:
+        def __init__(self, *args, **kwargs): pass
+        async def invoke_model(self, request):
+            return BedrockResponse(success=False, error="Bedrock not available")
+
+    class AWSConfigManager:
+        def __init__(self, *args, **kwargs): pass
+
+    @dataclass
+    class OperationResult:
+        success: bool = False
+        operation_type: str = ""
+        error: Optional[str] = None
+
+    @dataclass
+    class Event:
+        type: str = ""
+        data: Dict[str, Any] = field(default_factory=dict)
+
+# Try to import Universal Bridge (optional - falls back to mock)
+try:
+    # Handle both hyphenated directory name and module import
+    bridge_path = Path(__file__).parent / "universal-bridge" / "core"
+    if bridge_path.exists():
+        sys.path.insert(0, str(bridge_path.parent.parent))
+        sys.path.insert(0, str(bridge_path))
+
+    from universal_protocol import (
+        UniversalMessage,
+        MessageType,
+        CommunicationChannel,
+        UniversalBridge
+    )
+    BRIDGE_AVAILABLE = True
+except ImportError:
+    BRIDGE_AVAILABLE = False
+    # Mock classes for standalone operation
+    class MessageType(Enum):
+        AI_REQUEST = "ai_request"
+        AI_RESPONSE = "ai_response"
+        DATA_SYNC = "data_sync"
+        ERROR = "error"
+
+    class CommunicationChannel(Enum):
+        WEBSOCKET = "websocket"
+        FILE_SYSTEM = "file_system"
+
+    class UniversalMessage:
+        def __init__(self, msg_type, source, target, payload, channel):
+            self.id = str(uuid.uuid4())
+            self.message_type = msg_type
+            self.source_language = source
+            self.target_language = target
+            self.payload = payload
+            self.response_channel = channel
+
+    class UniversalBridge:
+        def __init__(self, *args, **kwargs): pass
+        def register_language_handler(self, *args): pass
+        def send_message(self, msg): pass
 
 logger = logging.getLogger(__name__)
 
@@ -702,12 +782,32 @@ class AIProductFinder:
         self.bedrock_client = bedrock_client
         self.margin_calculator = ProfitMarginCalculator(config)
 
+        # Check if AWS credentials are available
+        self.ai_enabled = self._check_aws_credentials()
+
         # Initialize wholesaler connections
         self.wholesalers = [
             AliExpressWholesaler(),
             SpocketWholesaler(),
             ModalystWholesaler()
         ]
+
+    def _check_aws_credentials(self) -> bool:
+        """Check if AWS credentials are available for Bedrock"""
+        # Check environment variables
+        if os.environ.get("AWS_ACCESS_KEY_ID") and os.environ.get("AWS_SECRET_ACCESS_KEY"):
+            return True
+        # Check for AWS config file
+        aws_config = Path.home() / ".aws" / "credentials"
+        if aws_config.exists():
+            return True
+        # Check for environment skip flag
+        if os.environ.get("SKIP_AI_CALLS", "").lower() in ("true", "1", "yes"):
+            return False
+        # Default: disabled in test environments
+        if os.environ.get("ENVIRONMENT", "").lower() in ("test", "development"):
+            return False
+        return False
 
     async def find_products(
         self,
@@ -782,6 +882,10 @@ class AIProductFinder:
     async def _analyze_request(self, user_request: str) -> Dict[str, Any]:
         """Use AI to analyze and expand the user's product request"""
 
+        # Skip AI if credentials not available
+        if not self.ai_enabled:
+            return self._fallback_analyze_request(user_request)
+
         prompt = f"""Analyze this product search request and extract structured information.
 
 User request: "{user_request}"
@@ -827,11 +931,36 @@ Example output:
             logger.error(f"AI request analysis failed: {e}")
 
         # Fallback to basic parsing
+        return self._fallback_analyze_request(user_request)
+
+    def _fallback_analyze_request(self, user_request: str) -> Dict[str, Any]:
+        """Fallback request analysis without AI"""
+        request_lower = user_request.lower()
+
+        # Extract common keywords
+        categories = ["electronics", "home", "fashion", "beauty", "fitness", "kitchen", "outdoor"]
+        detected_category = next((c for c in categories if c in request_lower), None)
+
+        # Generate related search queries
+        search_queries = []
+
+        if detected_category:
+            search_queries.append(detected_category)
+        elif "product" in request_lower or "find" in request_lower:
+            # Generic request - search multiple popular categories
+            search_queries = ["electronics", "home", "fashion"]
+        else:
+            search_queries = [user_request]
+
+        # Ensure we have at least one query
+        if not search_queries:
+            search_queries = ["electronics"]
+
         return {
-            "search_queries": [user_request],
+            "search_queries": search_queries[:3],
             "filters": {},
             "intent": user_request,
-            "suggestions": []
+            "suggestions": ["AI analysis unavailable - using keyword matching"]
         }
 
     async def _get_ai_recommendations(
@@ -840,6 +969,10 @@ Example output:
         user_request: str
     ) -> List[str]:
         """Get AI recommendations for the found products"""
+
+        # Skip AI if credentials not available
+        if not self.ai_enabled:
+            return self._fallback_recommendations(products)
 
         product_summaries = []
         for p in products[:10]:  # Limit to 10 for context
@@ -890,11 +1023,26 @@ Example: ["The wireless earbuds offer 65% margin - excellent for listing.", "Con
         except Exception as e:
             logger.error(f"AI recommendations failed: {e}")
 
-        return [
+        return self._fallback_recommendations(products)
+
+    def _fallback_recommendations(self, products: List[WholesaleProduct]) -> List[str]:
+        """Generate recommendations without AI"""
+        recommendations = [
             f"Found {len(products)} products matching your search.",
             "Products are sorted by profit margin (highest first).",
-            "Review pricing analysis before listing."
         ]
+
+        # Add margin-based recommendations
+        ideal_count = sum(1 for p in products if p.metadata.get("pricing_analysis", {}).get("category") == "ideal")
+        if ideal_count > 0:
+            recommendations.append(f"{ideal_count} products have IDEAL margins (60%+) - highly recommended.")
+
+        natural_count = sum(1 for p in products if p.metadata.get("pricing_analysis", {}).get("category") == "natural")
+        if natural_count > 0:
+            recommendations.append(f"{natural_count} products have NATURAL margins (40-60%) - good for listing.")
+
+        recommendations.append("Review pricing analysis before listing.")
+        return recommendations
 
 
 # =============================================================================
@@ -916,7 +1064,8 @@ class ZeroClickStoreManager:
     def __init__(
         self,
         config: ShopifyConfig = None,
-        aws_config: AWSConfigManager = None
+        aws_config: AWSConfigManager = None,
+        dry_run: bool = None
     ):
         self.config = config or ShopifyConfig()
         self.aws_config = aws_config or AWSConfigManager()
@@ -924,6 +1073,14 @@ class ZeroClickStoreManager:
         self.shopify_client = ShopifyAPIClient(self.config)
         self.product_finder = AIProductFinder(self.config, self.bedrock_client)
         self.margin_calculator = ProfitMarginCalculator(self.config)
+
+        # Dry run mode - skip actual Shopify API calls
+        if dry_run is None:
+            self.dry_run = os.environ.get("DRY_RUN", "").lower() in ("true", "1", "yes") or \
+                           os.environ.get("ENVIRONMENT", "").lower() in ("test", "development") or \
+                           not self.config.access_token
+        else:
+            self.dry_run = dry_run
 
         # Bridge for inter-AI communication
         self.bridge = None
@@ -1022,7 +1179,7 @@ class ZeroClickStoreManager:
         listed_products = []
         failed_products = []
 
-        if auto_list and approvable_products:
+        if auto_list and approvable_products and not self.dry_run:
             for wholesale_product in approvable_products:
                 try:
                     shopify_product = self._create_shopify_product(wholesale_product)
@@ -1046,6 +1203,17 @@ class ZeroClickStoreManager:
                         "title": wholesale_product.name,
                         "error": str(e)
                     })
+        elif self.dry_run and approvable_products:
+            # In dry run mode, simulate successful listing
+            for wholesale_product in approvable_products:
+                shopify_product = self._create_shopify_product(wholesale_product)
+                listed_products.append({
+                    "title": shopify_product.title,
+                    "id": f"dry_run_{uuid.uuid4().hex[:8]}",
+                    "price": shopify_product.price,
+                    "margin": shopify_product.pricing_analysis.margin_percent if shopify_product.pricing_analysis else 0,
+                    "dry_run": True
+                })
 
         duration = time.time() - start_time
 
@@ -1065,9 +1233,15 @@ class ZeroClickStoreManager:
             )
             self.bridge.send_message(message)
 
+        message = f"Found {finder_result.total_found} products"
+        if self.dry_run:
+            message += f", simulated listing {len(listed_products)} (DRY RUN)"
+        else:
+            message += f", listed {len(listed_products)} to Shopify"
+
         return {
             "success": True,
-            "message": f"Found {finder_result.total_found} products, listed {len(listed_products)} to Shopify",
+            "message": message,
             "products_found": finder_result.total_found,
             "products_listed": len(listed_products),
             "listed_products": listed_products,
@@ -1076,7 +1250,8 @@ class ZeroClickStoreManager:
             "ai_recommendations": finder_result.ai_recommendations,
             "duration_seconds": round(duration, 2),
             "auto_approved": len([p for p in listed_products if p]),
-            "pending_review": len(approvable_products) - len(listed_products)
+            "pending_review": len(approvable_products) - len(listed_products),
+            "dry_run": self.dry_run
         }
 
     def _create_shopify_product(self, wholesale: WholesaleProduct) -> ShopifyProduct:
