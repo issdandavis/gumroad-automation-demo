@@ -5978,5 +5978,115 @@
     "source_ai": "sequence_test",
     "auto_approved": true,
     "details": {}
+  },
+  {
+    "generation": 15,
+    "timestamp": "2025-12-29T04:30:22.939908",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 140.0,
+    "fitness_after": 142.0,
+    "source_ai": "Demo",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 16,
+    "timestamp": "2025-12-29T04:30:54.131041",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 142.0,
+    "fitness_after": 142.0,
+    "source_ai": "unknown",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 17,
+    "timestamp": "2025-12-29T04:30:57.335933",
+    "mutation_type": "autonomy_adjustment",
+    "fitness_before": 142.0,
+    "fitness_after": 142.0,
+    "source_ai": "unknown",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 18,
+    "timestamp": "2025-12-29T04:30:57.363244",
+    "mutation_type": "autonomy_adjustment",
+    "fitness_before": 142.0,
+    "fitness_after": 142.0,
+    "source_ai": "unknown",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 19,
+    "timestamp": "2025-12-29T04:30:57.395924",
+    "mutation_type": "provider_addition",
+    "fitness_before": 142.0,
+    "fitness_after": 142.0,
+    "source_ai": "unknown",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 20,
+    "timestamp": "2025-12-29T04:30:57.424011",
+    "mutation_type": "provider_addition",
+    "fitness_before": 142.0,
+    "fitness_after": 137.2679638219612,
+    "source_ai": "unknown",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 21,
+    "timestamp": "2025-12-29T04:30:57.449008",
+    "mutation_type": "language_expansion",
+    "fitness_before": 137.2679638219612,
+    "fitness_after": 137.52474398540753,
+    "source_ai": "unknown",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 22,
+    "timestamp": "2025-12-29T04:30:57.473995",
+    "mutation_type": "autonomy_adjustment",
+    "fitness_before": 137.52474398540753,
+    "fitness_after": 135.54173420727446,
+    "source_ai": "unknown",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 23,
+    "timestamp": "2025-12-29T04:30:57.502462",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 135.54173420727446,
+    "fitness_after": 135.54173420727446,
+    "source_ai": "unknown",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 24,
+    "timestamp": "2025-12-29T04:30:57.528433",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 135.54173420727446,
+    "fitness_after": 135.54173420727446,
+    "source_ai": "unknown",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 25,
+    "timestamp": "2025-12-29T04:30:57.551969",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 135.54173420727446,
+    "fitness_after": 129.10789705008838,
+    "source_ai": "unknown",
+    "auto_approved": true,
+    "details": {}
   }
 ]
