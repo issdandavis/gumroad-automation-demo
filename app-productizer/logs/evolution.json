@@ -48,5 +48,65 @@
     "source_ai": "Test",
     "auto_approved": true,
     "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-28T22:35:35.990608",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 111.0,
+    "fitness_after": 113.0,
+    "source_ai": "Demo",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-28T22:48:43.431832",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 113.0,
+    "fitness_after": 115.0,
+    "source_ai": "Demo",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-28T22:58:27.816853",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 118.0,
+    "fitness_after": 123.0,
+    "source_ai": "Tutorial",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-28T22:58:48.268488",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 123.0,
+    "fitness_after": 128.0,
+    "source_ai": "Tutorial",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 10,
+    "timestamp": "2025-12-28T22:58:49.430429",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 131.0,
+    "fitness_after": 139.0,
+    "source_ai": "Tutorial",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 11,
+    "timestamp": "2025-12-28T22:58:50.932975",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 134.0,
+    "fitness_after": 137.0,
+    "source_ai": "Tutorial",
+    "auto_approved": true,
+    "details": {}
   }
 ]

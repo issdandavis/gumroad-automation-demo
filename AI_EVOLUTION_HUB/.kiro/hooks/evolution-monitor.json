@@ -1,0 +1,14 @@
+{
+  "name": "Evolution Monitor",
+  "description": "Monitors system evolution and triggers analysis when mutations are applied",
+  "trigger": {
+    "type": "file_save",
+    "pattern": "src/core/models.py"
+  },
+  "action": {
+    "type": "message",
+    "content": "A core model file has been updated. Please analyze the changes for potential evolution impacts:\n\n1. Check if SystemDNA structure has changed\n2. Validate mutation compatibility\n3. Assess fitness calculation impacts\n4. Review rollback implications\n5. Update tests if needed\n\nFocus on maintaining backward compatibility and evolution safety."
+  },
+  "enabled": true,
+  "priority": "high"
+}

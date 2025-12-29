@@ -22,3 +22,11 @@ hypothesis>=6.0.0  # Property-based testing
 # Optional: For local development and testing
 moto>=4.2.0  # AWS service mocking
 pytest-mock>=3.11.0
+
+# Web Interface Dependencies
+flask>=2.3.0
+flask-cors>=4.0.0
+gunicorn>=21.0.0  # Production WSGI server
+
+# Security and Encryption
+cryptography>=41.0.0

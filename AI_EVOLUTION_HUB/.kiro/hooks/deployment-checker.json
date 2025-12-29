@@ -1,0 +1,14 @@
+{
+  "name": "Deployment Checker",
+  "description": "Validates deployment readiness and infrastructure changes",
+  "trigger": {
+    "type": "file_save",
+    "pattern": "infrastructure/**/*.py|infrastructure/**/*.ts|cdk.json"
+  },
+  "action": {
+    "type": "message",
+    "content": "Infrastructure or deployment files have been modified. Please validate:\n\n1. Run CDK diff to check infrastructure changes\n2. Verify security groups and IAM policies\n3. Check cost implications of resource changes\n4. Validate backup and disaster recovery impacts\n5. Review monitoring and alerting configurations\n6. Test deployment in staging environment\n\nEnsure changes follow AWS Well-Architected principles and security best practices."
+  },
+  "enabled": true,
+  "priority": "high"
+}
