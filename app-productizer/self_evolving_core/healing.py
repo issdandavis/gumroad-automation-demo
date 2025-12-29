@@ -340,13 +340,19 @@ class SelfHealer:
         if not self.healing_history:
             return {
                 "total_attempts": 0,
+                "total_events": 0,
+                "successful_heals": 0,
+                "failed_heals": 0,
                 "success_rate": 0.0,
                 "by_error_type": {},
-                "by_strategy": {}
+                "by_strategy": {},
+                "avg_duration_ms": 0.0,
+                "last_event_at": None
             }
         
         total = len(self.healing_history)
         successful = sum(1 for h in self.healing_history if h.success)
+        failed = total - successful
         
         # By error type
         by_error = {}
@@ -366,12 +372,19 @@ class SelfHealer:
             if attempt.success:
                 by_strategy[attempt.strategy]["success"] += 1
         
+        # Get last event timestamp
+        last_event_at = self.healing_history[-1].timestamp if self.healing_history else None
+        
         return {
             "total_attempts": total,
+            "total_events": total,
+            "successful_heals": successful,
+            "failed_heals": failed,
             "success_rate": successful / total if total > 0 else 0.0,
             "by_error_type": by_error,
             "by_strategy": by_strategy,
-            "avg_duration_ms": sum(h.duration_ms for h in self.healing_history) / total if total > 0 else 0
+            "avg_duration_ms": sum(h.duration_ms for h in self.healing_history) / total if total > 0 else 0,
+            "last_event_at": last_event_at
         }
     
     def clear_history(self) -> None:

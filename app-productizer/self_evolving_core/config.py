@@ -246,6 +246,11 @@ class ConfigManager:
     
     def _load_from_env(self) -> None:
         """Load configuration from environment variables"""
+        # Check for AI_NETWORK_LOCAL env var override first
+        env_local = os.getenv("AI_NETWORK_LOCAL")
+        if env_local:
+            self.config.storage.local_path = env_local
+        
         env_mappings = {
             # Storage
             f"{self.ENV_PREFIX}DROPBOX_TOKEN": ("storage", "dropbox_token"),

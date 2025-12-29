@@ -241,8 +241,10 @@ class EvolvingAIFramework:
     # High-level API methods
     
     def get_dna(self) -> SystemDNA:
-        """Get current system DNA"""
-        return self.dna_manager.load()
+        """Get current system DNA (defensive copy to avoid shared-reference surprises)"""
+        dna = self.dna_manager.load()
+        # Deep-ish copy through serialization to prevent in-place mutation side effects
+        return SystemDNA.from_dict(dna.to_dict())
     
     def propose_mutation(self, mutation: Mutation) -> Dict[str, Any]:
         """
@@ -259,7 +261,7 @@ class EvolvingAIFramework:
         # Check auto-approval
         if self.autonomy.should_auto_approve(mutation):
             mutation.auto_approved = True
-            result = self.mutation_engine.apply_mutation(mutation, dna)
+            result = self.mutation_engine.apply_mutation(mutation)
             
             if result.success:
                 self.event_bus.emit_mutation_applied(
