@@ -1,0 +1,5982 @@
+[
+  {
+    "generation": 2,
+    "timestamp": "2025-12-26T17:15:55.963367",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 102.0,
+    "fitness_after": 104.0,
+    "source_ai": "Demo",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-28T21:50:37.214272",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 104.0,
+    "fitness_after": 106.0,
+    "source_ai": "Demo",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-28T21:53:57.361155",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 106.0,
+    "fitness_after": 108.0,
+    "source_ai": "Test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-28T21:53:57.369946",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 109.0,
+    "fitness_after": 112.0,
+    "source_ai": "TestAI",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-28T21:53:57.507076",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 114.0,
+    "fitness_after": 119.0,
+    "source_ai": "Test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-28T22:35:35.990608",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 111.0,
+    "fitness_after": 113.0,
+    "source_ai": "Demo",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-28T22:48:43.431832",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 113.0,
+    "fitness_after": 115.0,
+    "source_ai": "Demo",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-28T22:58:27.816853",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 118.0,
+    "fitness_after": 123.0,
+    "source_ai": "Tutorial",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-28T22:58:48.268488",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 123.0,
+    "fitness_after": 128.0,
+    "source_ai": "Tutorial",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 10,
+    "timestamp": "2025-12-28T22:58:49.430429",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 131.0,
+    "fitness_after": 139.0,
+    "source_ai": "Tutorial",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 11,
+    "timestamp": "2025-12-28T22:58:50.932975",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 134.0,
+    "fitness_after": 137.0,
+    "source_ai": "Tutorial",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.124585",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.161614",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.196428",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 94.86192106356576,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.250560",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.288681",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.350231",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 91.88406752146435,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.387268",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.01,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.421432",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.456074",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 98.18975234143349,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.516396",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 103.40542415787019,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.556575",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 93.18067002769295,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.628333",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 104.20750438184145,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.668453",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 103.34127930270364,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.711808",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 108.98249433609124,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.749951",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 93.2002910687038,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.846168",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 99.99999997802196,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.890038",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 99.99999999996436,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.932111",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:30.974338",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 105.62923340292443,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.009320",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 100.85445499492195,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.074389",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 101.72372464009916,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.133643",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 104.29576291790336,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.167510",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.201461",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.260731",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 97.52422009935515,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.299577",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 109.5517681812423,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.333997",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 96.8738593136061,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.366893",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 109.34036779986967,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.406527",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.458445",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 92.90727366414961,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.508208",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 105.91550183488188,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.555554",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 106.9132312547996,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.608074",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.653891",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.015,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.703385",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.750065",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 97.47274345762165,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:31.756164",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.47274345762165,
+    "fitness_after": 90.8669862411136,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:31.762071",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 90.8669862411136,
+    "fitness_after": 90.8669862411136,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:31.766709",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 90.8669862411136,
+    "fitness_after": 89.95212692989686,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:31.772655",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 89.95212692989686,
+    "fitness_after": 91.15212692989687,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:42:31.777544",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 91.15212692989687,
+    "fitness_after": 91.15212692989687,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:42:31.781968",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 91.15212692989687,
+    "fitness_after": 81.15212692989687,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:42:31.788252",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 81.15212692989687,
+    "fitness_after": 81.43502811110704,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.834484",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 108.4546317412806,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.876852",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 108.6236701966216,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:31.881012",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 108.6236701966216,
+    "fitness_after": 103.72668165353271,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:31.885604",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 103.72668165353271,
+    "fitness_after": 95.0518106043688,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:31.891485",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.0518106043688,
+    "fitness_after": 95.0518106043688,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:31.895677",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.0518106043688,
+    "fitness_after": 103.11688920660644,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:42:31.900691",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 103.11688920660644,
+    "fitness_after": 103.11688920660644,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:31.961425",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:31.968892",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 91.09491454559924,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:31.977292",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 91.09491454559924,
+    "fitness_after": 92.59491454559924,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:31.987591",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.59491454559924,
+    "fitness_after": 92.59491454559924,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:31.996378",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.59491454559924,
+    "fitness_after": 92.59491454559924,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:42:32.005677",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.59491454559924,
+    "fitness_after": 92.59491454559924,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:42:32.011330",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.59491454559924,
+    "fitness_after": 88.25073225508794,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.066736",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.114785",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 99.69454532010707,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.118947",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.69454532010707,
+    "fitness_after": 99.69454532010707,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.124041",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.69454532010707,
+    "fitness_after": 99.69454532596905,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.127971",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.69454532596905,
+    "fitness_after": 99.69454532596905,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.179944",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.184287",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 92.57835542866367,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.190324",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.57835542866367,
+    "fitness_after": 95.5235220747777,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.196462",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.5235220747777,
+    "fitness_after": 95.5235220747777,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:32.202900",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.5235220747777,
+    "fitness_after": 90.19697770682487,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:42:32.208499",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 90.19697770682487,
+    "fitness_after": 85.81175337206666,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:42:32.214450",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 85.81175337206666,
+    "fitness_after": 85.81175337206666,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:42:32.222790",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 85.81175337206666,
+    "fitness_after": 95.06628207113025,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.279585",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.284488",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484598855706,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.290470",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484598855706,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.295225",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484598855706,
+    "fitness_after": 104.12484573874409,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:32.300241",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484573874409,
+    "fitness_after": 112.29850999633713,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.350826",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.356057",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484598855706,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.360843",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484598855706,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.365749",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484598855706,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:32.371109",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484598855706,
+    "fitness_after": 112.2985102461501,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.408963",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.414283",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484598855706,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.421675",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484598855706,
+    "fitness_after": 112.2985102461501,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.427183",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 112.2985102461501,
+    "fitness_after": 112.2985102461501,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:32.433215",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 112.2985102461501,
+    "fitness_after": 120.47217450374315,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.488896",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.494229",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484598855706,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.500220",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.12484598855706,
+    "fitness_after": 112.2985102461501,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.506993",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 112.2985102461501,
+    "fitness_after": 112.2985102461501,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:32.512057",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 112.2985102461501,
+    "fitness_after": 112.2985102461501,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.557074",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 104.12484598855706,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.600049",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.02422789408895,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.606663",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.02422789408895,
+    "fitness_after": 99.73746824331202,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.612192",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.73746824331202,
+    "fitness_after": 99.9386593177631,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.618664",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.9386593177631,
+    "fitness_after": 100.14849587315189,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:32.625908",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.14849587315189,
+    "fitness_after": 100.94849587315188,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:42:32.631389",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.94849587315188,
+    "fitness_after": 107.33895077129161,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.679487",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.02422789408895,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.685068",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.02422789408895,
+    "fitness_after": 99.73746824331202,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.691268",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.73746824331202,
+    "fitness_after": 99.9386593177631,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.696624",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.9386593177631,
+    "fitness_after": 100.14849587315189,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:32.702125",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.14849587315189,
+    "fitness_after": 100.94849587315188,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:42:32.708029",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.94849587315188,
+    "fitness_after": 101.74849587315188,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.748867",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.20119107445107,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.755288",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.20119107445107,
+    "fitness_after": 99.91443142367415,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.761314",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.91443142367415,
+    "fitness_after": 100.11562249812522,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.767074",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.11562249812522,
+    "fitness_after": 100.32545905351401,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:32.773606",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.32545905351401,
+    "fitness_after": 101.125459053514,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:42:32.781081",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.125459053514,
+    "fitness_after": 101.925459053514,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.824848",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.20119107445107,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.831636",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.20119107445107,
+    "fitness_after": 99.91443142367415,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.838015",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.91443142367415,
+    "fitness_after": 100.11562249812522,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.844806",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.11562249812522,
+    "fitness_after": 100.3168135725763,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:32.850223",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.3168135725763,
+    "fitness_after": 101.11681357257629,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:42:32.856700",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.11681357257629,
+    "fitness_after": 101.91681357257629,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.898664",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.20119107445107,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.904413",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.20119107445107,
+    "fitness_after": 99.91443142367415,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.909666",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.91443142367415,
+    "fitness_after": 100.11562249812522,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.916154",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.11562249812522,
+    "fitness_after": 100.3168135725763,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:32.923216",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.3168135725763,
+    "fitness_after": 100.51800464702737,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:42:32.928510",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.51800464702737,
+    "fitness_after": 101.31800464702737,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:32.966260",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.20119107445107,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:32.972461",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.20119107445107,
+    "fitness_after": 101.00119107445107,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:32.977689",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.00119107445107,
+    "fitness_after": 101.20238214890215,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:32.983240",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.20238214890215,
+    "fitness_after": 101.40357322335322,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:32.989141",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.40357322335322,
+    "fitness_after": 101.6047642978043,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:42:32.995299",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.6047642978043,
+    "fitness_after": 102.40476429780429,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:33.038904",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.20119107445107,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:33.044627",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.20119107445107,
+    "fitness_after": 101.00119107445107,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:33.050008",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.00119107445107,
+    "fitness_after": 101.80119107445107,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:33.055880",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.80119107445107,
+    "fitness_after": 102.00238214890214,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:33.062297",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 102.00238214890214,
+    "fitness_after": 102.20357322335322,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:42:33.068668",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 102.20357322335322,
+    "fitness_after": 103.00357322335321,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:33.110342",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 105.97868539519646,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:33.116372",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 105.97868539519646,
+    "fitness_after": 104.87868539519647,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:33.156035",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.8617962419223,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:33.163512",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.8617962419223,
+    "fitness_after": 111.77961896685294,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:33.170337",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 111.77961896685294,
+    "fitness_after": 119.65567073632315,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:33.178402",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 119.65567073632315,
+    "fitness_after": 111.23718687625336,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:33.184656",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 111.23718687625336,
+    "fitness_after": 111.23718687625336,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:33.233959",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.8617962419223,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:33.241946",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.8617962419223,
+    "fitness_after": 103.72359248384461,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:33.248008",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 103.72359248384461,
+    "fitness_after": 111.5996442533148,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:33.255388",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 111.5996442533148,
+    "fitness_after": 103.18116039324502,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:42:33.263307",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 103.18116039324502,
+    "fitness_after": 103.18116039324502,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:34.850308",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:34.898197",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:34.949133",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:34.956414",
+    "mutation_type": "provider_addition",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:34.964488",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:34.971089",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 103.0,
+    "fitness_after": 104.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:35.015549",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:35.022185",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:35.094951",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:35.101046",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:35.108715",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:35.150480",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:35.192938",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:35.198687",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:35.206866",
+    "mutation_type": "provider_addition",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:35.212869",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 103.0,
+    "fitness_after": 104.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:35.254013",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:35.296566",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:35.304318",
+    "mutation_type": "language_expansion",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:35.311897",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:35.354000",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:35.360212",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:35.367676",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:35.412163",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:35.420057",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:35.428187",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:35.476041",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:35.483672",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:35.491879",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:42:35.500044",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 103.0,
+    "fitness_after": 104.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:35.550853",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:35.559059",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:35.567269",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:42:35.619421",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:42:35.627964",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:42:35.637979",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 12,
+    "timestamp": "2025-12-29T01:45:56.721232",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 134.0,
+    "fitness_after": 136.0,
+    "source_ai": "Demo",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 13,
+    "timestamp": "2025-12-29T01:46:08.211109",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 136.0,
+    "fitness_after": 138.0,
+    "source_ai": "CLI",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:30.717175",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 103.0,
+    "source_ai": "integration_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:30.767384",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 102.5,
+    "source_ai": "integration_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:31.272901",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 102.0,
+    "source_ai": "fitness_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:36.259332",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:36.487730",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:36.564746",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 104.67404302336772,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:36.691512",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 91.71269113116875,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:36.767009",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:36.842729",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 92.08570964329452,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:36.913802",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 98.38509765665208,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.000285",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.106591",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 92.93232152215441,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.163962",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.234741",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.288442",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 95.95300071307072,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.342498",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 90.9255875311112,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.393743",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.443530",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 99.36525860078989,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.494836",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 91.16664038912505,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.545921",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 90.41422564102965,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.598637",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 105.91408715350813,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.646718",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 106.80669132248174,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.719670",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 94.38178896406663,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.783577",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.837383",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.892563",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:37.988979",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 106.96610127565447,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.044102",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 108.94232116332881,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.105500",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.172953",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 91.90809261615138,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.239065",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.350505",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 92.99807255657505,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.422888",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 91.8941801059839,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.522214",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.594274",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.656613",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 110.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.716948",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 103.19715583988051,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.774914",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 94.44657943271346,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.836273",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.899666",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 103.04029608368748,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:38.951018",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.57360992950352,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:39.003557",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 110.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:39.015362",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 110.0,
+    "fitness_after": 100.22538530357865,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:39.024590",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.22538530357865,
+    "fitness_after": 100.22538530357865,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:39.034250",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.22538530357865,
+    "fitness_after": 110.22538530357865,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:39.043934",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 110.22538530357865,
+    "fitness_after": 105.88787582887333,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:39.052832",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 105.88787582887333,
+    "fitness_after": 105.88787582887333,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:39.062407",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 105.88787582887333,
+    "fitness_after": 112.14381517829881,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:39.118954",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 103.87832083714139,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:39.170850",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 98.86447933228176,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:39.221396",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:39.231733",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 94.49411212833428,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:39.240824",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 94.49411212833428,
+    "fitness_after": 90.14708490445773,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:39.250391",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 90.14708490445773,
+    "fitness_after": 83.66105709613663,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:39.261918",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 83.66105709613663,
+    "fitness_after": 81.29714562033257,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:39.274387",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 81.29714562033257,
+    "fitness_after": 77.86373010181997,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:39.284218",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 77.86373010181997,
+    "fitness_after": 78.36373010181997,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:46:39.294878",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 78.36373010181997,
+    "fitness_after": 79.34773410181997,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:39.363709",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 108.02285547220934,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:39.378258",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 108.02285547220934,
+    "fitness_after": 108.02285547220934,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:39.388091",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 108.02285547220934,
+    "fitness_after": 113.48497322371284,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:39.398529",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 113.48497322371284,
+    "fitness_after": 117.61886794097133,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:39.462179",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:39.471353",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 99.7875523122458,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:39.481325",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.7875523122458,
+    "fitness_after": 106.62638001632035,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:39.492040",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 106.62638001632035,
+    "fitness_after": 106.7900086584063,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:39.548337",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 93.3480831983129,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:39.557718",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 93.3480831983129,
+    "fitness_after": 99.26911549770651,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:39.567607",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.26911549770651,
+    "fitness_after": 99.27011549770651,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:39.578444",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.27011549770651,
+    "fitness_after": 99.27011549770651,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:39.632772",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 105.46208118507276,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:39.643596",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 105.46208118507276,
+    "fitness_after": 109.7135394605875,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:39.653298",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 109.7135394605875,
+    "fitness_after": 102.82998422577323,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:39.663270",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 102.82998422577323,
+    "fitness_after": 102.82998422577323,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:39.672094",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 102.82998422577323,
+    "fitness_after": 111.35230769574906,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:39.682303",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 111.35230769574906,
+    "fitness_after": 111.35230769574906,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:39.693246",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 111.35230769574906,
+    "fitness_after": 118.46723503549167,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:46:39.704215",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 118.46723503549167,
+    "fitness_after": 118.46723503549167,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:39.766448",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 105.46208118507276,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:39.777373",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 105.46208118507276,
+    "fitness_after": 109.7135394605875,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:39.787668",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 109.7135394605875,
+    "fitness_after": 115.17562064566026,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:39.799384",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 115.17562064566026,
+    "fitness_after": 115.17562064566026,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:39.811115",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 115.17562064566026,
+    "fitness_after": 123.69794411563609,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:39.822541",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 123.69794411563609,
+    "fitness_after": 123.69794411563609,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:39.835324",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 123.69794411563609,
+    "fitness_after": 130.8128714553787,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:46:39.847715",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 130.8128714553787,
+    "fitness_after": 130.8128714553787,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:39.903093",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 105.46208118507276,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:39.914874",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 105.46208118507276,
+    "fitness_after": 109.7135394605875,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:39.928042",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 109.7135394605875,
+    "fitness_after": 115.17562064566026,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:39.943592",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 115.17562064566026,
+    "fitness_after": 115.17562064566026,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:39.955480",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 115.17562064566026,
+    "fitness_after": 123.69794411563609,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:39.966810",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 123.69794411563609,
+    "fitness_after": 123.69794411563609,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:39.979034",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 123.69794411563609,
+    "fitness_after": 129.16002530070887,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:46:39.991345",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 129.16002530070887,
+    "fitness_after": 129.16002530070887,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:40.051503",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 108.52232346997583,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:40.063112",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 108.52232346997583,
+    "fitness_after": 112.77378174549057,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:40.075624",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 112.77378174549057,
+    "fitness_after": 118.23586293056333,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:40.086983",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 118.23586293056333,
+    "fitness_after": 118.23586293056333,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:40.098892",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 118.23586293056333,
+    "fitness_after": 126.75818640053916,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:40.110566",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 126.75818640053916,
+    "fitness_after": 126.75818640053916,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:40.120705",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 126.75818640053916,
+    "fitness_after": 132.22026758561194,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:46:40.131147",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 132.22026758561194,
+    "fitness_after": 132.22026758561194,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:40.187397",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 108.52232346997583,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:40.199792",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 108.52232346997583,
+    "fitness_after": 112.77378174549057,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:40.213377",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 112.77378174549057,
+    "fitness_after": 118.23586293056333,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:40.230964",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 118.23586293056333,
+    "fitness_after": 118.23586293056333,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:40.246170",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 118.23586293056333,
+    "fitness_after": 126.75818640053916,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:40.266020",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 126.75818640053916,
+    "fitness_after": 126.75818640053916,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:40.277672",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 126.75818640053916,
+    "fitness_after": 135.280509870515,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:46:40.288266",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 135.280509870515,
+    "fitness_after": 135.280509870515,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:40.338598",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 108.52232346997583,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:40.349183",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 108.52232346997583,
+    "fitness_after": 108.52232346997583,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:40.360136",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 108.52232346997583,
+    "fitness_after": 113.98440465504859,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:40.370137",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 113.98440465504859,
+    "fitness_after": 113.98440465504859,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:40.380352",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 113.98440465504859,
+    "fitness_after": 122.50672812502442,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:40.391150",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 122.50672812502442,
+    "fitness_after": 122.50672812502442,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:40.401667",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 122.50672812502442,
+    "fitness_after": 131.02905159500025,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:46:40.412134",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 131.02905159500025,
+    "fitness_after": 131.02905159500025,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:40.470116",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 108.52232346997583,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:40.490164",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 108.52232346997583,
+    "fitness_after": 108.52232346997583,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:40.511805",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 108.52232346997583,
+    "fitness_after": 113.98440465504859,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:40.527459",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 113.98440465504859,
+    "fitness_after": 113.98440465504859,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:40.544045",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 113.98440465504859,
+    "fitness_after": 122.50672812502442,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:40.556553",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 122.50672812502442,
+    "fitness_after": 122.50672812502442,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:40.567402",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 122.50672812502442,
+    "fitness_after": 131.02905159500025,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:46:40.578190",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 131.02905159500025,
+    "fitness_after": 131.02905159500025,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:40.629960",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:40.640133",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 103.45102468670456,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:40.650969",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 103.45102468670456,
+    "fitness_after": 112.67865036970257,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:40.700356",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:40.710777",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 109.22762568299801,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:40.720834",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 109.22762568299801,
+    "fitness_after": 118.45525136599602,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:40.770618",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:40.781216",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 109.22762568299801,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:40.831600",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 109.22762568299801,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:40.842565",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 109.22762568299801,
+    "fitness_after": 118.45525136599602,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:40.893080",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 91.74374771931554,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:40.942313",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:40.952823",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 97.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:40.963962",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:40.974943",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:40.987330",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:40.998718",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:41.010358",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:46:41.022162",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 112.36582715755804,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:41.107033",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:41.123610",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 97.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:41.144128",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:41.155412",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:41.166749",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:41.178357",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:41.189645",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:46:41.201683",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 112.36582715755804,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:41.260794",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:41.273393",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 97.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:41.285384",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:41.298741",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T01:46:41.314267",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T01:46:41.328621",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T01:46:41.342741",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T01:46:41.354624",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.98024730771046,
+    "fitness_after": 107.98024730771046,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:43.516915",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:43.575605",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:43.629467",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:43.681474",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:43.693185",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:43.704808",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:43.761477",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:43.828080",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:43.912118",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:43.967285",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:43.981330",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:43.993020",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T01:46:44.004479",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 103.0,
+    "fitness_after": 104.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:44.065322",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:44.119548",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:44.179072",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:44.192949",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:44.250318",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:44.266816",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:44.325457",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:44.415952",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:44.435590",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:44.447705",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T01:46:44.515412",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T01:46:44.529238",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T01:46:44.544098",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 14,
+    "timestamp": "2025-12-29T02:27:02.603760",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 138.0,
+    "fitness_after": 140.0,
+    "source_ai": "validation",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:14.561658",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:14.614389",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:14.667444",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 100.969392,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:14.721530",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:14.779910",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 105.86407967335936,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:14.829696",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 92.98034732760503,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:14.878443",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 94.48636134063592,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:14.929834",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 108.84952096703591,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:14.980230",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 101.76934525959278,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.043099",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 102.86226050977965,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.093125",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 105.91351571442016,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.143644",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 100.001,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.225559",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 91.52521071226113,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.275927",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 108.44409966031738,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.330116",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 109.46722681499557,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.397081",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 97.06027891472434,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.448783",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 93.95651411216143,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.499620",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 105.80362908292783,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.554623",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 97.73205732218985,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.610369",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 93.55339005915334,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.662784",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 94.25611919378336,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.717136",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 93.57367573194382,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.770473",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 95.46982870870686,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.824840",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 108.75060208662377,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.876917",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 91.92245097784789,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.932019",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 106.13933601625962,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:15.984298",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 94.20361773473145,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.046014",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 90.1407616203373,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.097142",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 91.75551534479847,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.149007",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 92.71489014455844,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.230775",
+    "mutation_type": "language_expansion",
+    "fitness_before": 100.0,
+    "fitness_after": 90.01859494436937,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.282008",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 98.2290951726067,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.333917",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.384827",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 108.06360596692613,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.435563",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 95.12414240841841,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.486786",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 103.28884909860814,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.538721",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 103.5,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.589867",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 100.46178454584363,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.688179",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.755864",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 108.8422592966971,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.815972",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 94.53755713924556,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:16.877089",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 95.31891820568164,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:16.890159",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.31891820568164,
+    "fitness_after": 96.31890820568164,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:16.904886",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 96.31890820568164,
+    "fitness_after": 96.31890820568164,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:16.918352",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 96.31890820568164,
+    "fitness_after": 96.31890820568164,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:16.934528",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 96.31890820568164,
+    "fitness_after": 95.50681294209554,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:17.003609",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 93.98774485919793,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:17.016525",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 93.98774485919793,
+    "fitness_after": 98.3030937589168,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:17.031069",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 98.3030937589168,
+    "fitness_after": 99.1530937589168,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:17.110380",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:17.123239",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 108.69360557005781,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:17.137349",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 108.69360557005781,
+    "fitness_after": 109.69360557005781,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:17.149609",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 109.69360557005781,
+    "fitness_after": 109.69360557005781,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:17.207248",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 96.00444867885045,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:17.219687",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 96.00444867885045,
+    "fitness_after": 91.07127625939704,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:17.232365",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 91.07127625939704,
+    "fitness_after": 96.00115516913641,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:17.244738",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 96.00115516913641,
+    "fitness_after": 103.06323605431342,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:17.260613",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 103.06323605431342,
+    "fitness_after": 103.06323611391807,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:17.320180",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 105.59660436508668,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:17.332721",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 105.59660436508668,
+    "fitness_after": 96.1347301847359,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:17.347354",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 96.1347301847359,
+    "fitness_after": 96.1347301847359,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:17.362608",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 96.1347301847359,
+    "fitness_after": 96.1347301847359,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:17.377999",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 96.1347301847359,
+    "fitness_after": 96.1347301847359,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:17.437156",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.015,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:17.450205",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.015,
+    "fitness_after": 93.15716925313295,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:17.463628",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 93.15716925313295,
+    "fitness_after": 85.73161771048177,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:17.476459",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 85.73161771048177,
+    "fitness_after": 86.24671898582903,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:17.489526",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 86.24671898582903,
+    "fitness_after": 86.24671892622439,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:17.502850",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 86.24671892622439,
+    "fitness_after": 88.41526633588984,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:17.516047",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 88.41526633588984,
+    "fitness_after": 83.69112451777863,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T02:41:17.529481",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 83.69112451777863,
+    "fitness_after": 81.34852824702294,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:17.587852",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.33325566169941,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:17.601806",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.33325566169941,
+    "fitness_after": 91.98811234439279,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:17.615979",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 91.98811234439279,
+    "fitness_after": 95.98811234439279,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:17.629729",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.98811234439279,
+    "fitness_after": 95.98811234439279,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:17.643485",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.98811234439279,
+    "fitness_after": 97.82332278580482,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:17.657838",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.82332278580482,
+    "fitness_after": 92.29197131317684,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:17.671977",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.29197131317684,
+    "fitness_after": 97.98483689894017,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T02:41:17.686085",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.98483689894017,
+    "fitness_after": 103.23662601947282,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:17.747742",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 107.5800395508472,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:17.760540",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.5800395508472,
+    "fitness_after": 111.98280858836459,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:17.774726",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 111.98280858836459,
+    "fitness_after": 118.40689715240399,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:17.788122",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 118.40689715240399,
+    "fitness_after": 122.40689715240399,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:17.801644",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 122.40689715240399,
+    "fitness_after": 122.40689715240399,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:17.815351",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 122.40689715240399,
+    "fitness_after": 122.40689715240399,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:17.829123",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 122.40689715240399,
+    "fitness_after": 130.3534969793367,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:17.887045",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 107.5800395508472,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:17.902774",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.5800395508472,
+    "fitness_after": 111.98280858836459,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:17.917083",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 111.98280858836459,
+    "fitness_after": 118.40689715240399,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:17.931125",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 118.40689715240399,
+    "fitness_after": 124.83098571644338,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:17.945200",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 124.83098571644338,
+    "fitness_after": 124.83098571644338,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:17.959162",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 124.83098571644338,
+    "fitness_after": 124.83098571644338,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:17.972953",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 124.83098571644338,
+    "fitness_after": 132.77758554337612,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:18.037114",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 107.5800395508472,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:18.049885",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.5800395508472,
+    "fitness_after": 111.98280858836459,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:18.064486",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 111.98280858836459,
+    "fitness_after": 118.40689715240399,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:18.078172",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 118.40689715240399,
+    "fitness_after": 126.35349697933671,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:18.093798",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 126.35349697933671,
+    "fitness_after": 126.35349697933671,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:18.108930",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 126.35349697933671,
+    "fitness_after": 126.35349697933671,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:18.122858",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 126.35349697933671,
+    "fitness_after": 134.30009680626944,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:18.181471",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 107.5800395508472,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:18.195336",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.5800395508472,
+    "fitness_after": 115.52663937777993,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:18.210245",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 115.52663937777993,
+    "fitness_after": 121.95072794181932,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:18.224615",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 121.95072794181932,
+    "fitness_after": 129.89732776875206,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:18.239515",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 129.89732776875206,
+    "fitness_after": 129.89732776875206,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:18.254654",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 129.89732776875206,
+    "fitness_after": 129.89732776875206,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:18.273464",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 129.89732776875206,
+    "fitness_after": 137.8439275956848,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:18.331414",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 107.5800395508472,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:18.346122",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.5800395508472,
+    "fitness_after": 115.52663937777993,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:18.361390",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 115.52663937777993,
+    "fitness_after": 121.95072794181932,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:18.376498",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 121.95072794181932,
+    "fitness_after": 129.89732776875206,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:18.391066",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 129.89732776875206,
+    "fitness_after": 137.8439275956848,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:18.406526",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 137.8439275956848,
+    "fitness_after": 137.8439275956848,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:18.421927",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 137.8439275956848,
+    "fitness_after": 145.79052742261752,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:18.478385",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 107.5800395508472,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:18.493054",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.5800395508472,
+    "fitness_after": 107.5800395508472,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:18.508211",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 107.5800395508472,
+    "fitness_after": 114.0041281148866,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:18.523447",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 114.0041281148866,
+    "fitness_after": 121.95072794181934,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:18.538642",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 121.95072794181934,
+    "fitness_after": 129.89732776875206,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:18.554141",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 129.89732776875206,
+    "fitness_after": 129.89732776875206,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:18.569741",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 129.89732776875206,
+    "fitness_after": 137.8439275956848,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:18.631992",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 102.00001,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:18.649485",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 102.00001,
+    "fitness_after": 99.97042933326486,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:18.665399",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.97042933326486,
+    "fitness_after": 99.97042933326486,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:18.680698",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.97042933326486,
+    "fitness_after": 92.87677162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:18.696272",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.87677162813203,
+    "fitness_after": 92.87677162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:18.711823",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.87677162813203,
+    "fitness_after": 92.87677162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:18.727277",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.87677162813203,
+    "fitness_after": 92.87677162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T02:41:18.742830",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.87677162813203,
+    "fitness_after": 88.0322518606646,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:18.801672",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 102.00001,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:18.816740",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 102.00001,
+    "fitness_after": 99.97042933326486,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:18.832807",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.97042933326486,
+    "fitness_after": 99.97042933326486,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:18.847901",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 99.97042933326486,
+    "fitness_after": 92.87677162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:18.863365",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.87677162813203,
+    "fitness_after": 92.87677162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:18.878636",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.87677162813203,
+    "fitness_after": 92.87677162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:18.894297",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.87677162813203,
+    "fitness_after": 92.87677162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T02:41:18.910727",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.87677162813203,
+    "fitness_after": 92.87677162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:18.968827",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:18.986676",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 97.97041933326486,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:19.003428",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.97041933326486,
+    "fitness_after": 97.97041933326486,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:19.019613",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.97041933326486,
+    "fitness_after": 90.87676162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:19.035835",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 90.87676162813203,
+    "fitness_after": 90.87676162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:19.054157",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 90.87676162813203,
+    "fitness_after": 90.87676162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:19.070414",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 90.87676162813203,
+    "fitness_after": 90.87676162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T02:41:19.086684",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 90.87676162813203,
+    "fitness_after": 90.87676162813203,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:19.149071",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:19.164529",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 97.97041933326486,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:19.179893",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.97041933326486,
+    "fitness_after": 95.94083866652971,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:19.195578",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.94083866652971,
+    "fitness_after": 88.84718096139689,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:19.210558",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 88.84718096139689,
+    "fitness_after": 88.84718096139689,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:19.225621",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 88.84718096139689,
+    "fitness_after": 88.84718096139689,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:19.242396",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 88.84718096139689,
+    "fitness_after": 88.84718096139689,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T02:41:19.258003",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 88.84718096139689,
+    "fitness_after": 88.84718096139689,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:19.315158",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:19.330856",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 97.97041933326486,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:19.346504",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.97041933326486,
+    "fitness_after": 95.94083866652971,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:19.362559",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.94083866652971,
+    "fitness_after": 88.84718096139689,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:19.379133",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 88.84718096139689,
+    "fitness_after": 88.84718096139689,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:19.394244",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 88.84718096139689,
+    "fitness_after": 88.84718096139689,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:19.410277",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 88.84718096139689,
+    "fitness_after": 88.84718096139689,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T02:41:19.425676",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 88.84718096139689,
+    "fitness_after": 88.84718096139689,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:19.485492",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:19.501613",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 97.97041933326486,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:19.516656",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.97041933326486,
+    "fitness_after": 95.94083866652971,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:19.532252",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.94083866652971,
+    "fitness_after": 88.84718096139689,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:19.548012",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 88.84718096139689,
+    "fitness_after": 86.81760029466174,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:19.563360",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 86.81760029466174,
+    "fitness_after": 86.81760029466174,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:19.579182",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 86.81760029466174,
+    "fitness_after": 86.81760029466174,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T02:41:19.594903",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 86.81760029466174,
+    "fitness_after": 86.81760029466174,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:19.659596",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 100.0,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:19.676548",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 97.97041933326486,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:19.693558",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 97.97041933326486,
+    "fitness_after": 95.94083866652971,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:19.709292",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.94083866652971,
+    "fitness_after": 95.94083866652971,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:19.725575",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.94083866652971,
+    "fitness_after": 93.91125799979457,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:19.741849",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 93.91125799979457,
+    "fitness_after": 93.91125799979457,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:19.757959",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 93.91125799979457,
+    "fitness_after": 93.91125799979457,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T02:41:19.773539",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 93.91125799979457,
+    "fitness_after": 93.91125799979457,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:19.835698",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 95.76063401998253,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:19.852753",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.76063401998253,
+    "fitness_after": 86.76063401998253,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:19.869154",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 86.76063401998253,
+    "fitness_after": 86.76063401998253,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:19.884456",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 86.76063401998253,
+    "fitness_after": 94.15315587247756,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:19.900083",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 94.15315587247756,
+    "fitness_after": 92.67007944517786,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:19.915948",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.67007944517786,
+    "fitness_after": 92.67008944517787,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:19.931709",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.67008944517787,
+    "fitness_after": 92.67008944517787,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T02:41:19.949421",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 92.67008944517787,
+    "fitness_after": 101.62589815818066,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:20.011816",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 95.76063401998253,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:20.029090",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 95.76063401998253,
+    "fitness_after": 86.76063401998253,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:20.045620",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 86.76063401998253,
+    "fitness_after": 86.76063401998253,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:20.061661",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 86.76063401998253,
+    "fitness_after": 94.15315587247756,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:20.077884",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 94.15315587247756,
+    "fitness_after": 85.15315587247756,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 7,
+    "timestamp": "2025-12-29T02:41:20.093935",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 85.15315587247756,
+    "fitness_after": 85.15316587247756,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 8,
+    "timestamp": "2025-12-29T02:41:20.110261",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 85.15316587247756,
+    "fitness_after": 85.15316587247756,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 9,
+    "timestamp": "2025-12-29T02:41:20.126447",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 85.15316587247756,
+    "fitness_after": 94.10897458548035,
+    "source_ai": "property_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.073691",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.129777",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.187238",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.279674",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.337241",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:22.353251",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.410019",
+    "mutation_type": "provider_addition",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:22.426224",
+    "mutation_type": "language_expansion",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:22.442823",
+    "mutation_type": "language_expansion",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:22.459246",
+    "mutation_type": "provider_addition",
+    "fitness_before": 103.0,
+    "fitness_after": 104.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.513902",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:22.530264",
+    "mutation_type": "language_expansion",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.593314",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-29T02:41:22.609580",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 101.0,
+    "fitness_after": 102.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-29T02:41:22.625545",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 102.0,
+    "fitness_after": 103.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-29T02:41:22.641943",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 103.0,
+    "fitness_after": 104.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-29T02:41:22.658851",
+    "mutation_type": "protocol_improvement",
+    "fitness_before": 104.0,
+    "fitness_after": 105.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.723685",
+    "mutation_type": "plugin_integration",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.783524",
+    "mutation_type": "intelligence_upgrade",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.845164",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.908942",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:22.971864",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 2,
+    "timestamp": "2025-12-29T02:41:23.034083",
+    "mutation_type": "storage_optimization",
+    "fitness_before": 100.0,
+    "fitness_after": 101.0,
+    "source_ai": "sequence_test",
+    "auto_approved": true,
+    "details": {}
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "id": "5c9f1ce5-cdf2-4013-ae3d-6f472c002390",
+  "timestamp": "2025-12-25T21:00:21.435948",
+  "message_type": "ai_response",
+  "source_language": "ai_neural_spine",
+  "target_language": "koraelin",
+  "payload": {
+    "original_message_id": "9556ce81-45d4-42e0-8d2a-69ef01dd3fec",
+    "ai_result": "AI processed request from koraelin",
+    "data": {
+      "spell": "Thul'ael nav'sil",
+      "original_code": "\ndef create_product(name, price):\n    if name and price > 0:\n        product = {\"name\": name, \"price\": price}\n        print(f\"Created product: {product}\")\n        return product\n    return None\n",
+      "intent": "product_creation",
+      "power_level": 2
+    },
+    "timestamp": "2025-12-25T21:00:21.435897"
+  },
+  "response_channel": "websocket",
+  "checksum": "43095018698bba345cfc86d54e283e55"
+}

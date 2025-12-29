@@ -1,0 +1,39 @@
+ai_providers:
+- cost_per_token: 3.0e-05
+  enabled: true
+  max_tokens: 4000
+  model: gpt-4-turbo-preview
+  name: openai
+  rate_limit: 100
+  temperature: 0.7
+- cost_per_token: 1.5e-05
+  enabled: true
+  max_tokens: 4000
+  model: claude-3-sonnet-20240229
+  name: anthropic
+  rate_limit: 100
+  temperature: 0.7
+security:
+  api_key_rotation_days: 90
+  audit_log_retention_days: 365
+  max_login_attempts: 5
+  password_min_length: 12
+storage:
+- backup_enabled: true
+  enabled: true
+  platform: local
+  retry_attempts: 3
+  sync_interval: 300
+- backup_enabled: true
+  enabled: false
+  platform: dropbox
+  retry_attempts: 3
+  sync_interval: 600
+system:
+  backup_directory: backups
+  data_directory: AI_NETWORK_LOCAL
+  debug: true
+  environment: development
+  health_check_interval: 60
+  log_level: INFO
+  max_concurrent_operations: 10
