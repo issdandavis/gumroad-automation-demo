@@ -1,0 +1,85 @@
+{
+  "id": "snap_20251228_215357_366795",
+  "timestamp": "2025-12-28T21:53:57.366814",
+  "label": "pre_mutation_communication_enhancement",
+  "dna_checksum": "727d369894bdad69",
+  "dna_data": {
+    "version": "2.0.0",
+    "birth_timestamp": "2025-12-26T17:15:55.956689",
+    "generation": 4,
+    "fitness_score": 106.0,
+    "core_traits": {
+      "communication_channels": 11,
+      "language_support": 12,
+      "ai_participants": [],
+      "evolutionary_features": [
+        "self_modification",
+        "learning_from_responses",
+        "adaptive_communication",
+        "distributed_storage",
+        "version_control",
+        "autonomous_workflow",
+        "multi_provider_ai",
+        "plugin_architecture"
+      ],
+      "autonomy_level": 0.7,
+      "enabled_providers": [
+        "openai",
+        "anthropic"
+      ],
+      "enabled_storage": [
+        "local",
+        "github"
+      ],
+      "max_concurrent_operations": 10
+    },
+    "mutations": [
+      {
+        "id": "mut_20251226_171555_961691",
+        "timestamp": "2025-12-26T17:15:55.961707",
+        "type": "communication_enhancement",
+        "description": "Demo: Add communication channel",
+        "fitness_impact": 2.0,
+        "risk_score": 0.1,
+        "generation": 2,
+        "source_ai": "Demo",
+        "auto_approved": true,
+        "rollback_snapshot": "snap_20251226_171555_959973",
+        "metadata": {}
+      },
+      {
+        "id": "mut_20251228_215037_212419",
+        "timestamp": "2025-12-28T21:50:37.212439",
+        "type": "communication_enhancement",
+        "description": "Demo: Add communication channel",
+        "fitness_impact": 2.0,
+        "risk_score": 0.1,
+        "generation": 3,
+        "source_ai": "Demo",
+        "auto_approved": true,
+        "rollback_snapshot": "snap_20251228_215037_209897",
+        "metadata": {}
+      },
+      {
+        "id": "mut_20251228_215357_355253",
+        "timestamp": "2025-12-28T21:53:57.355311",
+        "type": "communication_enhancement",
+        "description": "Test: Add communication channel for testing",
+        "fitness_impact": 2.0,
+        "risk_score": 0.1,
+        "generation": 4,
+        "source_ai": "Test",
+        "auto_approved": true,
+        "rollback_snapshot": "snap_20251228_215357_352119",
+        "metadata": {}
+      }
+    ],
+    "snapshots": [],
+    "metadata": {}
+  },
+  "metadata": {
+    "generation": 4,
+    "fitness_score": 106.0,
+    "mutation_count": 3
+  }
+}

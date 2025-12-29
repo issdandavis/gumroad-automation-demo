@@ -8,5 +8,45 @@
     "source_ai": "Demo",
     "auto_approved": true,
     "details": {}
+  },
+  {
+    "generation": 3,
+    "timestamp": "2025-12-28T21:50:37.214272",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 104.0,
+    "fitness_after": 106.0,
+    "source_ai": "Demo",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 4,
+    "timestamp": "2025-12-28T21:53:57.361155",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 106.0,
+    "fitness_after": 108.0,
+    "source_ai": "Test",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 5,
+    "timestamp": "2025-12-28T21:53:57.369946",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 109.0,
+    "fitness_after": 112.0,
+    "source_ai": "TestAI",
+    "auto_approved": true,
+    "details": {}
+  },
+  {
+    "generation": 6,
+    "timestamp": "2025-12-28T21:53:57.507076",
+    "mutation_type": "communication_enhancement",
+    "fitness_before": 114.0,
+    "fitness_after": 119.0,
+    "source_ai": "Test",
+    "auto_approved": true,
+    "details": {}
   }
 ]
