@@ -1,0 +1,16 @@
+# Shopify Mobile Manager - Production Dependencies
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Werkzeug==2.3.7
+ShopifyAPI==12.0.0
+requests==2.31.0
+python-dotenv==1.0.0
+gunicorn==21.2.0
+psycopg2-binary==2.9.7
+redis==4.6.0
+celery==5.3.1
+stripe==6.5.0
+twilio==8.5.0
+sendgrid==6.10.0
+Pillow==10.0.0
+boto3==1.28.57
