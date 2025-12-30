@@ -183,7 +183,6 @@ export class EvolutionAdapter {
       throw new IntegrationError(
         'Failed to get sync status',
         'evolution',
-        'evolution',
         error
       );
     }
