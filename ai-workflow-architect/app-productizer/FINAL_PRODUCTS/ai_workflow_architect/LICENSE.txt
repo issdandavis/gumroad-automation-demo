@@ -1,0 +1,47 @@
+Commercial License Agreement
+
+AI Workflow Architect - Professional Edition
+
+Copyright (c) 2025 [Your Company Name]
+
+COMMERCIAL LICENSE
+
+This software is licensed for commercial use. By purchasing this software, you are granted the following rights:
+
+1. USAGE RIGHTS
+   - Use the software in commercial projects and businesses
+   - Deploy on your own infrastructure and servers
+   - Integrate with your existing systems and workflows
+   - Use for client projects and consulting work
+
+2. MODIFICATION RIGHTS
+   - Modify and customize the software as needed
+   - Create derivative works based on the software
+   - Adapt the software for your specific requirements
+
+3. DISTRIBUTION RIGHTS
+   - Deploy the software on multiple servers/environments
+   - Share with team members within your organization
+   - Include in client deliverables (with restrictions)
+
+4. RESTRICTIONS
+   - Cannot resell or redistribute the source code
+   - Cannot create competing products using this code
+   - Cannot remove copyright notices
+   - Must maintain license terms in derivative works
+
+5. SUPPORT AND UPDATES
+   - Email support included for 1 year
+   - Free updates and bug fixes for 1 year
+   - Access to documentation and resources
+
+6. WARRANTY DISCLAIMER
+   This software is provided "as is" without warranty of any kind.
+
+7. LIMITATION OF LIABILITY
+   The author shall not be liable for any damages arising from the use of this software.
+
+For questions about this license, contact: support@yourcompany.com
+
+Generated on: 2025-12-25
+License ID: AI_WORKFLOW_ARCHITECT_COMMERCIAL_20251225

@@ -1,0 +1,68 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-agentcore:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        cd agentcore-demo
+        pip install -r requirements.txt
+    
+    - name: Run tests
+      run: |
+        cd agentcore-demo
+        python -m pytest tests/ -v
+    
+    - name: Validate package
+      run: |
+        cd agentcore-demo
+        python validate_package.py
+
+  test-platform:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: |
+        cd ai-workflow-architect
+        npm install
+    
+    - name: Run tests
+      run: |
+        cd ai-workflow-architect
+        npm test
+    
+    - name: Build project
+      run: |
+        cd ai-workflow-architect
+        npm run build
+
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Run security scan
+      uses: securecodewarrior/github-action-add-sarif@v1
+      with:
+        sarif-file: 'security-scan-results.sarif'

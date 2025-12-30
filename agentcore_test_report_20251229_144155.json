@@ -1,0 +1,287 @@
+{
+  "test_summary": {
+    "total_tests": 19,
+    "passed": 19,
+    "failed": 0,
+    "errors": 0,
+    "success_rate_percent": 100.0,
+    "total_duration_seconds": 0.01
+  },
+  "performance_summary": {
+    "average_response_time_ms": 0.2,
+    "min_response_time_ms": 0.01,
+    "max_response_time_ms": 2.9,
+    "total_requests_tested": 19
+  },
+  "detailed_results": [
+    {
+      "test_name": "Basic Test 1",
+      "status": "PASS",
+      "duration_ms": 0.02,
+      "timestamp": "2025-12-29T14:41:55.024671",
+      "details": {
+        "prompt": "hello",
+        "response_length": 105,
+        "found_keywords": [
+          "Hello",
+          "AgentCore"
+        ]
+      }
+    },
+    {
+      "test_name": "Basic Test 2",
+      "status": "PASS",
+      "duration_ms": 0.04,
+      "timestamp": "2025-12-29T14:41:55.025251",
+      "details": {
+        "prompt": "what time is it",
+        "response_length": 37,
+        "found_keywords": [
+          "Current time",
+          "2025"
+        ]
+      }
+    },
+    {
+      "test_name": "Basic Test 3",
+      "status": "PASS",
+      "duration_ms": 0.01,
+      "timestamp": "2025-12-29T14:41:55.025770",
+      "details": {
+        "prompt": "tell me about agentcore",
+        "response_length": 327,
+        "found_keywords": [
+          "AgentCore",
+          "AWS",
+          "serverless"
+        ]
+      }
+    },
+    {
+      "test_name": "Basic Test 4",
+      "status": "PASS",
+      "duration_ms": 0.01,
+      "timestamp": "2025-12-29T14:41:55.025986",
+      "details": {
+        "prompt": "what are your capabilities",
+        "response_length": 298,
+        "found_keywords": [
+          "capabilities",
+          "demo agent"
+        ]
+      }
+    },
+    {
+      "test_name": "Basic Test 5",
+      "status": "PASS",
+      "duration_ms": 0.01,
+      "timestamp": "2025-12-29T14:41:55.026080",
+      "details": {
+        "prompt": "random question",
+        "response_length": 143,
+        "found_keywords": [
+          "You said",
+          "demo agent"
+        ]
+      }
+    },
+    {
+      "test_name": "Single Request Performance",
+      "status": "PASS",
+      "duration_ms": 0.01,
+      "timestamp": "2025-12-29T14:41:55.026284",
+      "details": {
+        "response_size": 331
+      }
+    },
+    {
+      "test_name": "Sequential Requests (10x)",
+      "status": "PASS",
+      "duration_ms": 0.08,
+      "timestamp": "2025-12-29T14:41:55.026554",
+      "details": {
+        "average_time": 0.01,
+        "min_time": 0.01,
+        "max_time": 0.01
+      }
+    },
+    {
+      "test_name": "Concurrent Requests (10x)",
+      "status": "PASS",
+      "duration_ms": 2.9,
+      "timestamp": "2025-12-29T14:41:55.029621",
+      "details": {
+        "total_time": 2.9,
+        "average_individual": 0.02,
+        "throughput_rps": 3445.86
+      }
+    },
+    {
+      "test_name": "Edge Case: Empty Prompt",
+      "status": "PASS",
+      "duration_ms": 0.02,
+      "timestamp": "2025-12-29T14:41:55.030080",
+      "details": {
+        "input_type": "str",
+        "response_status": "success"
+      }
+    },
+    {
+      "test_name": "Edge Case: None Prompt",
+      "status": "PASS",
+      "duration_ms": 0.01,
+      "timestamp": "2025-12-29T14:41:55.030170",
+      "details": {
+        "input_type": "NoneType",
+        "response_status": "error"
+      }
+    },
+    {
+      "test_name": "Edge Case: Missing Prompt",
+      "status": "PASS",
+      "duration_ms": 0.01,
+      "timestamp": "2025-12-29T14:41:55.030237",
+      "details": {
+        "input_type": "NoneType",
+        "response_status": "success"
+      }
+    },
+    {
+      "test_name": "Edge Case: Long Prompt",
+      "status": "PASS",
+      "duration_ms": 0.01,
+      "timestamp": "2025-12-29T14:41:55.030298",
+      "details": {
+        "input_type": "str",
+        "response_status": "success"
+      }
+    },
+    {
+      "test_name": "Edge Case: Special Characters",
+      "status": "PASS",
+      "duration_ms": 0.01,
+      "timestamp": "2025-12-29T14:41:55.030369",
+      "details": {
+        "input_type": "str",
+        "response_status": "success"
+      }
+    },
+    {
+      "test_name": "Edge Case: Unicode Characters",
+      "status": "PASS",
+      "duration_ms": 0.45,
+      "timestamp": "2025-12-29T14:41:55.030884",
+      "details": {
+        "input_type": "str",
+        "response_status": "success"
+      }
+    },
+    {
+      "test_name": "Edge Case: Number Prompt",
+      "status": "PASS",
+      "duration_ms": 0.02,
+      "timestamp": "2025-12-29T14:41:55.031013",
+      "details": {
+        "input_type": "int",
+        "response_status": "error"
+      }
+    },
+    {
+      "test_name": "Edge Case: List Prompt",
+      "status": "PASS",
+      "duration_ms": 0.02,
+      "timestamp": "2025-12-29T14:41:55.031106",
+      "details": {
+        "input_type": "list",
+        "response_status": "error"
+      }
+    },
+    {
+      "test_name": "Edge Case: Dict Prompt",
+      "status": "PASS",
+      "duration_ms": 0.02,
+      "timestamp": "2025-12-29T14:41:55.031217",
+      "details": {
+        "input_type": "dict",
+        "response_status": "error"
+      }
+    },
+    {
+      "test_name": "JSON Serialization",
+      "status": "PASS",
+      "duration_ms": 0.09,
+      "timestamp": "2025-12-29T14:41:55.031552",
+      "details": {
+        "json_size_bytes": 324,
+        "serializable": true
+      }
+    },
+    {
+      "test_name": "AgentCore Integration",
+      "status": "PASS",
+      "duration_ms": 0.02,
+      "timestamp": "2025-12-29T14:41:55.031803",
+      "details": {
+        "user_id_preserved": true,
+        "session_id_preserved": true,
+        "agent_name": "AgentCore Demo Agent"
+      }
+    }
+  ],
+  "performance_metrics": [
+    {
+      "metric": "Response Time Test 1",
+      "value": 0.021696090698242188,
+      "unit": "ms",
+      "timestamp": "2025-12-29T14:41:55.025192"
+    },
+    {
+      "metric": "Response Time Test 2",
+      "value": 0.04100799560546875,
+      "unit": "ms",
+      "timestamp": "2025-12-29T14:41:55.025417"
+    },
+    {
+      "metric": "Response Time Test 3",
+      "value": 0.011205673217773438,
+      "unit": "ms",
+      "timestamp": "2025-12-29T14:41:55.025956"
+    },
+    {
+      "metric": "Response Time Test 4",
+      "value": 0.013113021850585938,
+      "unit": "ms",
+      "timestamp": "2025-12-29T14:41:55.026061"
+    },
+    {
+      "metric": "Response Time Test 5",
+      "value": 0.009059906005859375,
+      "unit": "ms",
+      "timestamp": "2025-12-29T14:41:55.026148"
+    },
+    {
+      "metric": "Single Request Time",
+      "value": 0.010728836059570312,
+      "unit": "ms",
+      "timestamp": "2025-12-29T14:41:55.026349"
+    },
+    {
+      "metric": "Average Sequential Time",
+      "value": 0.007510185241699219,
+      "unit": "ms",
+      "timestamp": "2025-12-29T14:41:55.026631"
+    },
+    {
+      "metric": "Concurrent Throughput",
+      "value": 3445.862635557016,
+      "unit": "rps",
+      "timestamp": "2025-12-29T14:41:55.029767"
+    }
+  ],
+  "errors": [],
+  "test_environment": {
+    "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "test_timestamp": "2025-12-29T14:41:55.032737",
+    "agent_version": "1.0.0"
+  }
+}
