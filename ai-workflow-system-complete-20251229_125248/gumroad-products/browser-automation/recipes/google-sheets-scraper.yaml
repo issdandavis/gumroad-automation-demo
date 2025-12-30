@@ -1,0 +1,64 @@
+# Google Sheets Web Scraper Recipe
+# Scrapes data from any website and exports to Google Sheets
+
+name: Google Sheets Scraper
+version: "1.0.0"
+description: Extract data from any website directly into Google Sheets
+
+config:
+  target_url: "{{url_to_scrape}}"
+  google_sheet_id: "{{sheet_id}}"
+  sheet_name: "Scraped Data"
+  append_mode: true
+
+selectors:
+  # Customize these for your target site
+  container: ".product-list"
+  item: ".product-card"
+  fields:
+    title: ".product-title"
+    price: ".product-price"
+    description: ".product-description"
+    image_url: "img@src"
+    link: "a@href"
+
+steps:
+  - action: navigate
+    url: "{{target_url}}"
+    wait_for: "{{selectors.container}}"
+
+  - action: extract
+    selector: "{{selectors.item}}"
+    fields: "{{selectors.fields}}"
+    store_as: "scraped_data"
+
+  - action: paginate
+    next_button: ".pagination-next"
+    max_pages: 10
+    repeat_extract: true
+
+  - action: navigate
+    url: "https://docs.google.com/spreadsheets/d/{{google_sheet_id}}/edit"
+    wait_for: ".grid-container"
+
+  - action: conditional
+    if: "{{append_mode}}"
+    then:
+      - action: keyboard
+        keys: ["Ctrl", "End"]
+      - action: keyboard
+        keys: ["Enter"]
+
+  - action: loop
+    data: "{{scraped_data}}"
+    steps:
+      - action: type
+        value: "{{row.title}}\t{{row.price}}\t{{row.description}}\t{{row.link}}"
+      - action: keyboard
+        keys: ["Enter"]
+
+output:
+  format: json
+  summary:
+    total_items: "{{scraped_data.length}}"
+    sheet_url: "https://docs.google.com/spreadsheets/d/{{google_sheet_id}}"

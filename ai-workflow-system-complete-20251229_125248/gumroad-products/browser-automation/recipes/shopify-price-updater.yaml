@@ -1,0 +1,66 @@
+# Shopify Bulk Price Updater Recipe
+# Updates product prices in bulk from a CSV file
+
+name: Shopify Price Updater
+version: "1.0.0"
+description: Bulk update product prices from CSV - save hours of manual work
+
+config:
+  store_url: "{{shopify_store_url}}"
+  price_adjustment_type: "percentage"  # or "fixed"
+  price_adjustment_value: 10
+  apply_to_variants: true
+
+input:
+  type: csv
+  file: "prices.csv"
+  columns:
+    - product_id
+    - sku
+    - new_price
+    - compare_at_price
+
+steps:
+  - action: navigate
+    url: "{{store_url}}/admin/products"
+    wait_for: ".Polaris-ResourceList"
+
+  - action: loop
+    data: "{{input_csv}}"
+    steps:
+      - action: navigate
+        url: "{{store_url}}/admin/products/{{row.product_id}}"
+        wait_for: ".product-form"
+
+      - action: clear
+        selector: "input[name='price']"
+        
+      - action: type
+        selector: "input[name='price']"
+        value: "{{row.new_price}}"
+
+      - action: conditional
+        if: "{{row.compare_at_price}}"
+        then:
+          - action: clear
+            selector: "input[name='compare_at_price']"
+          - action: type
+            selector: "input[name='compare_at_price']"
+            value: "{{row.compare_at_price}}"
+
+      - action: click
+        selector: "button[type='submit']"
+        wait_for: ".Polaris-Banner--success"
+
+      - action: wait
+        duration_ms: 1500
+
+output:
+  format: csv
+  fields:
+    - product_id
+    - sku
+    - old_price
+    - new_price
+    - status
+    - timestamp

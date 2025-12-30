@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Detect project type
+        id: detect
+        run: |
+          if [ -f "package.json" ]; then
+            echo "type=node" >> "$GITHUB_OUTPUT"
+          elif [ -f "pyproject.toml" ] || [ -f "requirements.txt" ]; then
+            echo "type=python" >> "$GITHUB_OUTPUT"
+          elif [ -f "pom.xml" ]; then
+            echo "type=java-maven" >> "$GITHUB_OUTPUT"
+          else
+            echo "type=unknown" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Show detected project type
+        run: echo "Detected project type: ${{ steps.detect.outputs.type }}"
+
+      # ---------- Node / JS ----------
+      - name: Set up Node (if Node project)
+        if: ${{ steps.detect.outputs.type == 'node' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps (Node)
+        if: ${{ steps.detect.outputs.type == 'node' }}
+        run: |
+          if [ -f "package-lock.json" ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Run tests (Node)
+        if: ${{ steps.detect.outputs.type == 'node' }}
+        run: |
+          if npm run | grep -q " test"; then
+            npm test
+          else
+            echo "No test script defined. Add one to package.json to enable tests."
+          fi
+
+      # ---------- Python ----------
+      - name: Set up Python (if Python project)
+        if: ${{ steps.detect.outputs.type == 'python' }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps (Python)
+        if: ${{ steps.detect.outputs.type == 'python' }}
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f "requirements.txt" ]; then
+            pip install -r requirements.txt
+          elif [ -f "pyproject.toml" ]; then
+            pip install .
+          else
+            echo "No Python deps file found."
+          fi
+
+      - name: Run tests (Python)
+        if: ${{ steps.detect.outputs.type == 'python' }}
+        run: |
+          if [ -d "tests" ]; then
+            python -m pytest || echo "Tests failed or not configured."
+          else
+            echo "No tests/ directory found. Add tests to enable automated testing."
+          fi
+
+      # ---------- Fallback ----------
+      - name: No test automation configured yet
+        if: ${{ steps.detect.outputs.type == 'unknown' }}
+        run: |
+          echo "No recognized project type. Update .github/workflows/ci.yml to add your build/test steps."

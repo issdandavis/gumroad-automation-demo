@@ -1,0 +1,84 @@
+Gemini: Hi, I’m Gemini. We’re about to go live, where you can explore complex topics or ideas just by talking. But before we get started, take a quick look at this important information.
+Great, let’s get going. Here’s one of the voices I have,
+Here’s another
+Or maybe
+For example here’s another
+Then there’s
+Maybe this voice
+I could talk like this
+Maybe I’M your style.
+I’d be honored
+Here’s another one of my voices. Imagine
+You can always change my voice in settings later -- Okay, I'm here whenever you're ready!
+You: Do you know how to use Repl.it to make things?
+Gemini: Yes, I do. Replit is a cloud-based coding environment that lets you write, run, and deploy code from anywhere. What kind of things are you thinking of making? Do you have a specific project in mind?
+You: Can you read my screen real quick and um I will have um what would be a good way for me to ask this AI about the project we're working on?
+Gemini: Sure. Based on what's on your screen, you could start by asking the AI, "Tell me about the AIAIAI Workflow Architect app project." Then you can ask follow-up questions based on its response. How does that sound?
+You: That sounds fantastic. Give me just a moment. I only have 132 megabytes free right now on my PC. I have to delete some something somewhere somehow.
+You: Let's make some room.
+Gemini: Sounds good! While you're doing that, is there anything else you'd like to know about the AI Workflow Architect project before we dive into it?
+You: Uh, shit. I don't know. Probably, but I'm too stupid to know off the top of my head, bro. I have um a lot of things in my brain.
+Gemini: No worries at all! It's completely normal to have lots of things on your mind. Take your time to get the space you need, and then we can figure out the best way to ask the AI about the project. I'm here when you are...
+You: Well, come up with something, think about it. Think about what the project. Read the fucking screen and think about what would be a good a good idea. Like there's a lot of things on here obviously and it's hard for me to show them all to you, but um explain the entire project so that Gemini can be caught up.
+You: read this when it comes out later
+Gemini: Alright, I'm ready to read it when it comes up. In the...
+You: It's coming up right now.
+Gemini: Great, I will wait for it to load. Just let me know when you see it on your screen.
+You: I see it right now. It's on the left side.
+You: You see all this lots of stuff that you just wrote here? It's a lot and I know you can't read it all very quickly but here you go.
+You: AI Orchestration Hub Complete Project Briefing
+Gemini: Okay, I'm looking at the "AI Orchestration Hub Complete Project Briefing" now. It seems like a pretty comprehensive document detailing the app's functionality, tech stack, file structure, database tables, and business model. Would you like me to summarize any particular section?
+You: Now, we are looking to expand all of the functionalities of this business. So, if you look over here on the right side of the screen at the file section, this has all the files. I do not know how to open these files and actually view them so that we can see what's inside them.
+Gemini: Alright, so opening files on Replit is pretty straightforward. Just click on any file in the file section on the right, and it will open in the editor window in the middle, where you can view and make changes. Give it a try and let me know what you...
+You: Which which one's the editor window? Do I have to pull open an editor window?
+You: So
+Gemini: What would you like me to read?
+You: Read read this key thing. Is this useful?
+You: You know what? Actually, I don't know how do I open all these for you to Is there a way for me to take all these files and open them somewhere? I'm trying to down- download as a zip. No, I don't want to do that. That's that's that's a lot.
+You: Move file tree to left
+You: Now it's on the left. That doesn't help me at all. Okay.
+You: Keep it there though. There's got to be a way that I can do more than just fucking read the data on all the screens. I want to actually Where is this? Portuguese. Open. Open this. We're going to go there. I want to go
+You: development development database zero rows of code users six rows six rows of code this this is all the users
+You: What does all this mean?
+Gemini: You're looking at a database section of your AI Workflow Architect project.... ...
+You: Yes. What's this here? How do what's this this section? What's this over here? Do I just leave this? Can I do anything over here? What's this?
+Gemini: That section on the right is the Replit Key-Value Store. It's a free, easy-to-use storage solution for various types of data. You can use it for things like unstructured data, caching, session management, and fast lookups. Is there anything specific you'd like to know about it?
+You: I would like
+Gemini: You'd like to, what? Please complete your thought...
+You: What's what's happening now? Just just shut the fuck up and watch the whole process. I'm what's this? What's happening here?
+Gemini: Sure, I understand. Right now, the editor on the right is displaying the contents of a "server/index.ts"
+You: What's it doing?
+Gemini: It appears the server is running smoothly. The console is displaying messages indicating...
+You: What is this workspace? What's this do? Where can I what's this where can I do here?
+Gemini: The Workspace section of your AI Workflow Architect project is where you can collaborate with your team on organizing projects.... ...
+You: You see all these cues here? Look at all these cues.
+Gemini: Yes, I see all those keys on the right side of the screen. That's the "Secrets" panel, where you can securely store sensitive information like API keys. Is there anything specific you'd like to do with these keys or know more about this section?
+You: What is this for? It's not working right now. Let's go. Click that to go there. This is the store. This is what it's going to look like.
+Gemini: This is the store section. It displays products and services available for purchase, along with their prices. It looks like you can manage products and orders here. What would you like to know more about?
+You: This is my store, bro.
+You: I know what I need to know. I needed to get all function well though.
+Gemini: You want everything to function well, I understand. What aspects of the project are you most concerned about getting to work smoothly? Where should we focus next?
+You: Do you know the code?
+You: He cried.
+Gemini: Sure, I can do that. Could you highlight which text you'd like me to read?
+You: No, I cannot.
+Gemini: No worries. Is there anything else you'd like me to read on the screen?
+You: I would like
+You: to uh log into this. I'm fucking hell. I should have it auto authorized.
+You: I should be I I should I need I should be able to
+You: Sign in. See, and you just click sign in here. Sign in. Perfect. Okay. That was nice. It worked. So, this is it. This is my site. If I go to website builder, nothing happens. Website builder, nothing. Coding studio.
+You: What does not work here? AI agents, workspaces, integrations. Nothing here works yet.
+Gemini: It seems those sections aren't working right...
+You: It doesn't look good though. Hold on. Does it look okay?
+You: Does the site look functional? Can you compare it to other sites out there?
+Gemini: It appears that the site's core functionality is still under development
+You: Does it look like it would be a something that people use?
+Gemini: That's an interesting question. Based on its appearance, the layout looks clean and professional, which could be appealing to users. However, we did notice that some sections weren't working earlier. What kind of users are you imagining might use this?
+You: I don't know. Some of them sometime probably. Uh probably the type that want to do multi AI orchestration.
+You: coordinating all these things with in one spot. I want to make it to where I can have like three or four chat screens all on one page working together towards one bigger chat page, you
+You: But I can just go and make it happen.
+Gemini: Absolutely! It sounds like you have a clear vision. You can definitely make that happen by building it out here. What's the next step you're thinking of taking to build this out...
+You: I don't know. Give me a give me an option. You're you're good at coding. I am not. Please help me um figure out what to send to the AI so that we can get this get it done.
+Gemini: Okay, since you want to coordinate multiple AI agents, how about trying this prompt: "Develop a plan to orchestrate multiple AIAI chat agents simultaneously for a complex project. The plan should include task allocation...
+You: Can you wait wait wait. Can you um say that one more time? Okay. Yeah. Yeah. Can you say that one more time?
+Gemini: Absolutely! Here is the prompt again: "Develop a plan to orchestrate multiple AIAI chat agents simultaneously for a complex project. The plan should include task allocation, progress monitoring, and a strategy for AI collaboration and decision-making." Does that help?

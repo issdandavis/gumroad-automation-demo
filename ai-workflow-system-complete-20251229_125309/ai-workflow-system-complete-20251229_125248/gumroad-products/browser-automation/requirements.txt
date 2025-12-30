@@ -1,0 +1,26 @@
+# Browser Automation Tool Dependencies
+# Privacy-First | No-Code | Local Execution
+
+# Core automation
+playwright>=1.40.0
+selenium>=4.15.0
+
+# YAML recipe parsing
+pyyaml>=6.0.1
+jinja2>=3.1.2
+
+# Data handling
+pandas>=2.0.0
+openpyxl>=3.1.2  # Excel support
+
+# CLI interface
+click>=8.1.7
+rich>=13.7.0  # Beautiful terminal output
+
+# HTTP requests (for API integrations)
+httpx>=0.25.0
+aiohttp>=3.9.0
+
+# Utilities
+python-dotenv>=1.0.0
+watchdog>=3.0.0  # File watching for hot reload

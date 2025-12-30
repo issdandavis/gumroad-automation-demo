@@ -1,0 +1,627 @@
+# GitHub Actions CI/CD Workflows for Self-Evolving AI Framework
+# Comprehensive automation for testing, building, and deployment
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop, 'release/*' ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Run security scans daily at 2 AM UTC
+    - cron: '0 2 * * *'
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  PYTHON_VERSION: '3.11'
+  NODE_VERSION: '18'
+
+jobs:
+  # Code Quality and Security Checks
+  code-quality:
+    name: Code Quality & Security
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+
+    - name: Cache Python dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
+
+    - name: Code formatting check (Black)
+      run: |
+        black --check --diff .
+
+    - name: Import sorting check (isort)
+      run: |
+        isort --check-only --diff .
+
+    - name: Linting (flake8)
+      run: |
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+    - name: Type checking (mypy)
+      run: |
+        mypy app_productizer/ --ignore-missing-imports
+
+    - name: Security scan (bandit)
+      run: |
+        bandit -r . -f json -o bandit-report.json
+        bandit -r . -ll
+
+    - name: Dependency vulnerability scan
+      run: |
+        pip-audit --format=json --output=pip-audit-report.json
+        pip-audit
+
+    - name: SAST with CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: python
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+
+    - name: Upload security reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: security-reports
+        path: |
+          bandit-report.json
+          pip-audit-report.json
+
+  # Unit and Integration Tests
+  test:
+    name: Test Suite
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11', '3.12']
+    
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test_db
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+      
+      redis:
+        image: redis:7-alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Cache Python dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-${{ matrix.python-version }}-pip-${{ hashFiles('**/requirements*.txt') }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -r requirements-test.txt
+
+    - name: Set up test environment
+      run: |
+        cp .env.test.example .env.test
+        export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/test_db"
+        export REDIS_URL="redis://localhost:6379/0"
+
+    - name: Run unit tests
+      run: |
+        pytest tests/unit/ -v --cov=app_productizer --cov-report=xml --cov-report=html
+      env:
+        DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+        REDIS_URL: redis://localhost:6379/0
+
+    - name: Run integration tests
+      run: |
+        pytest tests/integration/ -v --cov=app_productizer --cov-append --cov-report=xml
+      env:
+        DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+        REDIS_URL: redis://localhost:6379/0
+
+    - name: Run property-based tests
+      run: |
+        pytest tests/property/ -v --hypothesis-show-statistics
+      env:
+        DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+        REDIS_URL: redis://localhost:6379/0
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: true
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-results-${{ matrix.python-version }}
+        path: |
+          htmlcov/
+          .coverage
+          coverage.xml
+
+  # Performance and Load Testing
+  performance-test:
+    name: Performance Tests
+    runs-on: ubuntu-latest
+    needs: [test]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install locust pytest-benchmark
+
+    - name: Run performance benchmarks
+      run: |
+        pytest tests/performance/ --benchmark-json=benchmark-results.json
+
+    - name: Run load tests
+      run: |
+        locust -f tests/load/locustfile.py --headless -u 100 -r 10 -t 60s --host=http://localhost:8000
+
+    - name: Upload performance results
+      uses: actions/upload-artifact@v3
+      with:
+        name: performance-results
+        path: |
+          benchmark-results.json
+          locust-report.html
+
+  # Build Docker Images
+  build:
+    name: Build Docker Images
+    runs-on: ubuntu-latest
+    needs: [code-quality, test]
+    outputs:
+      image-digest: ${{ steps.build.outputs.digest }}
+      image-tags: ${{ steps.meta.outputs.tags }}
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Log in to Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Extract metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        tags: |
+          type=ref,event=branch
+          type=ref,event=pr
+          type=semver,pattern={{version}}
+          type=semver,pattern={{major}}.{{minor}}
+          type=sha,prefix={{branch}}-
+          type=raw,value=latest,enable={{is_default_branch}}
+
+    - name: Build and push Docker image
+      id: build
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./Dockerfile
+        platforms: linux/amd64,linux/arm64
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+        build-args: |
+          VERSION=${{ github.sha }}
+          BUILD_DATE=${{ github.event.head_commit.timestamp }}
+
+    - name: Generate SBOM
+      uses: anchore/sbom-action@v0
+      with:
+        image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+        format: spdx-json
+        output-file: sbom.spdx.json
+
+    - name: Scan image for vulnerabilities
+      uses: anchore/scan-action@v3
+      with:
+        image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+        fail-build: true
+        severity-cutoff: high
+
+    - name: Upload SBOM and scan results
+      uses: actions/upload-artifact@v3
+      with:
+        name: security-artifacts
+        path: |
+          sbom.spdx.json
+          anchore-reports/
+
+  # Deploy to Staging
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: github.ref == 'refs/heads/develop'
+    environment:
+      name: staging
+      url: https://staging-api.evolving-ai.com
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'v1.28.0'
+
+    - name: Update kubeconfig
+      run: |
+        aws eks update-kubeconfig --region us-east-1 --name evolving-ai-staging
+
+    - name: Deploy to staging
+      run: |
+        # Update image tags in Kubernetes manifests
+        sed -i "s|evolving-ai/evolution-engine:.*|${{ needs.build.outputs.image-tags }}|g" deployment/staging/kubernetes-manifests.yaml
+        
+        # Apply Kubernetes manifests
+        kubectl apply -f deployment/staging/kubernetes-manifests.yaml
+        
+        # Wait for rollout to complete
+        kubectl rollout status deployment/evolution-engine -n evolving-ai-staging --timeout=600s
+
+    - name: Run smoke tests
+      run: |
+        # Wait for service to be ready
+        sleep 30
+        
+        # Run basic health checks
+        curl -f https://staging-api.evolving-ai.com/health || exit 1
+        
+        # Run API smoke tests
+        pytest tests/smoke/ --base-url=https://staging-api.evolving-ai.com
+
+    - name: Notify deployment status
+      uses: 8398a7/action-slack@v3
+      if: always()
+      with:
+        status: ${{ job.status }}
+        channel: '#deployments'
+        webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+        fields: repo,message,commit,author,action,eventName,ref,workflow
+
+  # Deploy to Production
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [build, deploy-staging]
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: production
+      url: https://api.evolving-ai.com
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD }}
+        aws-region: us-east-1
+
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'v1.28.0'
+
+    - name: Update kubeconfig
+      run: |
+        aws eks update-kubeconfig --region us-east-1 --name evolving-ai-production
+
+    - name: Blue-Green Deployment
+      run: |
+        # Create new deployment with blue-green strategy
+        ./scripts/blue-green-deploy.sh ${{ needs.build.outputs.image-tags }}
+
+    - name: Run production health checks
+      run: |
+        # Comprehensive health checks
+        ./scripts/production-health-check.sh
+
+    - name: Update monitoring dashboards
+      run: |
+        # Update Grafana dashboards with new deployment info
+        ./scripts/update-monitoring.sh
+
+    - name: Notify successful deployment
+      uses: 8398a7/action-slack@v3
+      with:
+        status: success
+        channel: '#production'
+        webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+        fields: repo,message,commit,author,action,eventName,ref,workflow
+        text: "🚀 Production deployment successful! New version is live."
+
+  # Security Scanning (Scheduled)
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'trivy-results.sarif'
+
+    - name: Run OWASP Dependency Check
+      uses: dependency-check/Dependency-Check_Action@main
+      with:
+        project: 'evolving-ai-framework'
+        path: '.'
+        format: 'ALL'
+
+    - name: Upload dependency check results
+      uses: actions/upload-artifact@v3
+      with:
+        name: dependency-check-report
+        path: reports/
+
+  # Release Management
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    needs: [build, deploy-production]
+    if: startsWith(github.ref, 'refs/tags/v')
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Generate changelog
+      id: changelog
+      run: |
+        # Generate changelog from git commits
+        ./scripts/generate-changelog.sh > CHANGELOG.md
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body_path: CHANGELOG.md
+        draft: false
+        prerelease: false
+
+    - name: Build release artifacts
+      run: |
+        # Create distribution packages
+        python setup.py sdist bdist_wheel
+        
+        # Create Docker Compose bundle
+        tar -czf docker-compose-bundle.tar.gz docker-compose.yml .env.example
+
+    - name: Upload release artifacts
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./dist/
+        asset_name: python-packages
+        asset_content_type: application/zip
+
+    - name: Publish to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ secrets.PYPI_API_TOKEN }}
+
+    - name: Update documentation
+      run: |
+        # Trigger documentation update
+        curl -X POST \
+          -H "Authorization: token ${{ secrets.DOCS_DEPLOY_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/evolving-ai/docs/dispatches \
+          -d '{"event_type":"update-docs","client_payload":{"version":"${{ github.ref }}"}}'
+
+  # Cleanup
+  cleanup:
+    name: Cleanup
+    runs-on: ubuntu-latest
+    needs: [deploy-production, release]
+    if: always()
+    
+    steps:
+    - name: Clean up old images
+      run: |
+        # Clean up old container images (keep last 10)
+        echo "Cleaning up old container images..."
+        # This would typically use a script to clean up old images from the registry
+
+    - name: Clean up old artifacts
+      uses: actions/github-script@v6
+      with:
+        script: |
+          // Clean up old workflow artifacts (keep last 30 days)
+          const artifacts = await github.rest.actions.listArtifactsForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          });
+          
+          const thirtyDaysAgo = new Date();
+          thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+          
+          for (const artifact of artifacts.data.artifacts) {
+            if (new Date(artifact.created_at) < thirtyDaysAgo) {
+              await github.rest.actions.deleteArtifact({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                artifact_id: artifact.id,
+              });
+            }
+          }
+
+# Reusable workflow for environment-specific deployments
+---
+name: Deploy Environment
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+      image-tag:
+        required: true
+        type: string
+      cluster-name:
+        required: true
+        type: string
+    secrets:
+      aws-access-key-id:
+        required: true
+      aws-secret-access-key:
+        required: true
+      slack-webhook:
+        required: false
+
+jobs:
+  deploy:
+    name: Deploy to ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.aws-access-key-id }}
+        aws-secret-access-key: ${{ secrets.aws-secret-access-key }}
+        aws-region: us-east-1
+
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
+
+    - name: Update kubeconfig
+      run: |
+        aws eks update-kubeconfig --region us-east-1 --name ${{ inputs.cluster-name }}
+
+    - name: Deploy application
+      run: |
+        # Update image tags
+        sed -i "s|evolving-ai/evolution-engine:.*|${{ inputs.image-tag }}|g" deployment/${{ inputs.environment }}/kubernetes-manifests.yaml
+        
+        # Apply manifests
+        kubectl apply -f deployment/${{ inputs.environment }}/kubernetes-manifests.yaml
+        
+        # Wait for rollout
+        kubectl rollout status deployment/evolution-engine -n evolving-ai-${{ inputs.environment }} --timeout=600s
+
+    - name: Verify deployment
+      run: |
+        # Run health checks
+        kubectl get pods -n evolving-ai-${{ inputs.environment }}
+        kubectl get services -n evolving-ai-${{ inputs.environment }}
+
+    - name: Notify deployment
+      if: secrets.slack-webhook != ''
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        webhook_url: ${{ secrets.slack-webhook }}
+        text: "Deployment to ${{ inputs.environment }} completed with status: ${{ job.status }}"

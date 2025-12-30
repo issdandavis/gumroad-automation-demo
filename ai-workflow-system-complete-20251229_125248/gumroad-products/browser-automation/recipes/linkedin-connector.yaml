@@ -1,0 +1,56 @@
+# LinkedIn Auto-Connector Recipe
+# Automatically sends connection requests to target profiles
+
+name: LinkedIn Connection Automator
+version: "1.0.0"
+description: Auto-connect with LinkedIn profiles matching your criteria
+
+config:
+  max_connections_per_day: 25
+  delay_between_actions_ms: 3000
+  include_note: true
+  note_template: |
+    Hi {{first_name}}, I came across your profile and would love to connect!
+
+steps:
+  - action: navigate
+    url: "https://www.linkedin.com/search/results/people/"
+    wait_for: ".search-results-container"
+
+  - action: type
+    selector: "input[placeholder='Search']"
+    value: "{{search_query}}"
+    
+  - action: click
+    selector: "button[type='submit']"
+    wait_for: ".entity-result"
+
+  - action: loop
+    selector: ".entity-result"
+    max_iterations: "{{max_connections_per_day}}"
+    steps:
+      - action: click
+        selector: "button[aria-label*='Connect']"
+        
+      - action: conditional
+        if: "{{include_note}}"
+        then:
+          - action: click
+            selector: "button[aria-label='Add a note']"
+          - action: type
+            selector: "textarea[name='message']"
+            value: "{{note_template}}"
+            
+      - action: click
+        selector: "button[aria-label='Send']"
+        
+      - action: wait
+        duration_ms: "{{delay_between_actions_ms}}"
+
+output:
+  format: csv
+  fields:
+    - profile_name
+    - profile_url
+    - connection_status
+    - timestamp

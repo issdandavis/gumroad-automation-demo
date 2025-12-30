@@ -1,0 +1,16 @@
+{
+  "tests/test_bedrock_integration.py::TestBedrockIntegration::test_complete_mutation_workflow": true,
+  "tests/test_bedrock_integration.py::TestBedrockIntegration::test_evolution_guidance_workflow": true,
+  "tests/test_bedrock_integration.py::TestBedrockIntegration::test_cost_optimization_workflow": true,
+  "tests/test_bedrock_integration.py::TestBedrockIntegration::test_cloud_storage_workflow": true,
+  "tests/test_bedrock_integration.py::TestBedrockIntegration::test_security_compliance_workflow": true,
+  "tests/test_bedrock_integration.py::TestBedrockIntegration::test_cloud_healing_workflow": true,
+  "tests/test_bedrock_integration.py::TestBedrockIntegration::test_cloud_architecture_workflow": true,
+  "tests/test_bedrock_integration.py::TestBedrockIntegration::test_end_to_end_evolution_cycle": true,
+  "tests/test_bedrock_integration.py::TestBedrockIntegration::test_multi_region_consistency_workflow": true,
+  "tests/test_bedrock_integration.py::TestBedrockIntegration::test_error_handling_and_recovery": true,
+  "tests/test_bedrock_integration.py::TestBedrockPerformance::test_concurrent_bedrock_requests": true,
+  "tests/test_bedrock_integration.py::TestBedrockPerformance::test_cost_tracking_performance": true,
+  "tests/test_bedrock_integration.py::TestBedrockPerformance::test_memory_usage_stability": true,
+  "tests/test_bedrock_properties.py": true
+}

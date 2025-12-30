@@ -1,0 +1,4 @@
+# file: C:\Users\issda\vscode-remote-wsl\app-productizer\self_evolving_core\healing.py
+# hypothesis_version: 6.148.8
+
+[0.0, 1000, 'avg_duration_ms', 'by_error_type', 'by_strategy', 'context', 'data', 'error', 'error_type', 'escalate', 'failed_heals', 'fallback', 'fallback_func', 'fitness_degradation', 'healing_attempts', 'last_event_at', 'mutation_failure', 'none', 'path', 'provider_failure', 'restart', 'restart_func', 'retry', 'rollback', 'rollback_snapshot_id', 'skip', 'storage_failure', 'success', 'success_rate', 'successful_heals', 'sync_failure', 'timestamp', 'total', 'total_attempts', 'total_events', 'unknown', 'validation_failure']

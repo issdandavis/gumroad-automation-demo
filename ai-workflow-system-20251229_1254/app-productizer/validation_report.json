@@ -1,0 +1,43 @@
+{
+  "timestamp": "2025-12-29T02:26:43.412119",
+  "overall_status": "failed",
+  "test_results": {
+    "tests/test_bedrock_integration.py": "failed",
+    "tests/test_bedrock_properties.py": "failed",
+    "tests/test_components.py": "passed",
+    "mutation_evaluation": "success",
+    "system_status": "healthy"
+  },
+  "aws_connectivity": {},
+  "cost_validation": {
+    "accuracy": "perfect",
+    "budget_enforcement": "working"
+  },
+  "security_validation": {
+    "encryption": "working",
+    "iam": "failed"
+  },
+  "performance_metrics": {
+    "response_time": "excellent",
+    "response_time_seconds": 0.010040760040283203,
+    "memory_efficiency": "good",
+    "mutations_processed": 100
+  },
+  "compliance_status": {
+    "soc2_score": 25.0,
+    "soc2_status": "non_compliant"
+  },
+  "errors": [
+    "Test failures in tests/test_bedrock_integration.py",
+    "Test failures in tests/test_bedrock_properties.py",
+    "IAM validation failed: STS client not available",
+    "SOC2 compliance is poor: 25.0%"
+  ],
+  "warnings": [
+    "Bedrock integration not available"
+  ],
+  "recommendations": [
+    "Address all critical errors before production deployment",
+    "Configure AWS Bedrock integration for full functionality"
+  ]
+}

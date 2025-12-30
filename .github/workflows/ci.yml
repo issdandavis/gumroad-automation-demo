@@ -1,0 +1,43 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-agentcore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd agentcore-demo
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          cd agentcore-demo
+          python -m pytest tests/ -v
+
+      - name: Validate package
+        run: |
+          cd agentcore-demo
+          python validate_package.py
+
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run security scan
+        run: |
+          echo "Security scan placeholder - configure with your preferred security tool"
+          echo "Recommended: Snyk, GitHub Advanced Security, or similar"

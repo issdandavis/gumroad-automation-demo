@@ -1,0 +1,95 @@
+Perfect — your refined plan is **exactly** the right architecture for what you’re building.
+
+### First: what I can do from *this* chat
+
+I can’t directly edit your Replit filesystem from here, but I *can* help you wire “AI → tools” using MCP + your app’s API, and I can generate the exact code you paste into Replit.
+
+Also: I just checked the Zapier MCP path available in your environment — to add Zapier actions as MCP tools, you use Zapier’s MCP config page:
+
+**Go here to add actions/tools:**
+[https://mcp.zapier.com/mcp/servers/08cf9c9b-be1c-4142-9e0b-c8eb04f3a380/config](https://mcp.zapier.com/mcp/servers/08cf9c9b-be1c-4142-9e0b-c8eb04f3a380/config)
+
+That’s where you pick things like Gmail/Notion actions and Zapier turns them into MCP tools.
+
+---
+
+## Next step (the actual “do this now”)
+
+You have two parallel tracks. Start with Track A (fast) and then optionally add Track B.
+
+### Track A — Implement MCP inside your app (Replit → your server URL)
+
+**Deliverable:** a working `POST /mcp` and `GET /mcp/schema` in your Node/Express app.
+
+**Minimum tools to ship v1:**
+
+* `whoami`
+* `project.list`, `project.get`
+* `memory.search`, `memory.add`
+* `vault.list`, `vault.test`
+* `agent.run`
+* *(optional later)* `git.apply_patch`, `git.commit`
+
+This makes your app “AI-addressable” and sets the foundation for your in-app guide + code space.
+
+### Track B — Add Zapier MCP tools (Zapier → MCP → Replit Agent)
+
+**Deliverable:** Zapier MCP server exposes tools like `gmail.send_email`, `notion.create_page`, etc.
+
+Do this on the Zapier MCP config page above, then connect that MCP server inside Replit Agent via Integrations.
+
+---
+
+## What I need from you (no long back-and-forth)
+
+To generate the correct code files for your MCP gateway inside your existing Node/Express/TS app, tell me **one** of these:
+
+1. **Your repo structure** (just top-level folders): e.g. `src/server.ts`, `src/routes`, `src/middleware`, etc.
+   **or**
+2. Paste the file where you set up Express routes (`server.ts` / `app.ts`).
+
+Then I’ll output a drop-in implementation for:
+
+* `/mcp/schema` (tool definitions)
+* `/mcp` (JSON-RPC tool execution)
+* governance middleware chain: auth → RBAC → budgets → rate limit → audit
+* a starter ToolRegistry with those v1 tools
+
+---
+
+## Quick sanity: your plan is correct, with 2 small refinements
+
+### Refinement 1: Keep MCP tools “business-level”
+
+Instead of raw “git.*” at first, do:
+
+* `code.propose_patch`
+* `code.apply_patch` (approval required)
+* `code.commit` (approval required)
+
+Internally they call your git layer, but you control safety centrally.
+
+### Refinement 2: The AI Guide should call MCP, not your internal services directly
+
+That keeps *one* enforcement path and makes it easy to swap:
+
+* Replit Agent
+* in-app assistant
+* ChatGPT Actions / Claude tools
+  All hit the same tool gateway.
+
+---
+
+## Immediate checklist for “everything connected”
+
+From your screenshot you already have connectors active (Gmail/Notion/Drive/etc.). What’s missing is:
+
+* **Vault mapping:** store “which org/project can use which connector”
+* **Tool wrappers:** `vault.test`, `gmail.send`, `notion.create_page` etc.
+* **Recipe UI:** copy/paste steps + “Run test” buttons
+
+You don’t need new keys for many of those connectors—Replit already has the OAuth connection; you just need to use it in code.
+
+---
+
+If you paste your `src/server.ts` (or wherever Express is created), I’ll reply with the exact MCP endpoints + ToolRegistry scaffolding in TypeScript that matches your stack (Express + Drizzle + sessions + RBAC).

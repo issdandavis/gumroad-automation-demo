@@ -1,0 +1,71 @@
+{
+  "entries": [
+    {
+      "timestamp": "2025-12-29T02:27:02.372006",
+      "category": "validation_test",
+      "service": "bedrock",
+      "operation": "test_op_0",
+      "amount_usd": 0.001,
+      "tokens_used": 0,
+      "requests_count": 1,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2025-12-29T02:27:02.372833",
+      "category": "validation_test",
+      "service": "bedrock",
+      "operation": "test_op_1",
+      "amount_usd": 0.002,
+      "tokens_used": 0,
+      "requests_count": 1,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2025-12-29T02:27:02.373406",
+      "category": "validation_test",
+      "service": "bedrock",
+      "operation": "test_op_2",
+      "amount_usd": 0.003,
+      "tokens_used": 0,
+      "requests_count": 1,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2025-12-29T02:27:02.373883",
+      "category": "validation_test",
+      "service": "bedrock",
+      "operation": "test_op_3",
+      "amount_usd": 0.004,
+      "tokens_used": 0,
+      "requests_count": 1,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2025-12-29T02:27:02.374600",
+      "category": "validation_test",
+      "service": "bedrock",
+      "operation": "test_op_4",
+      "amount_usd": 0.005,
+      "tokens_used": 0,
+      "requests_count": 1,
+      "metadata": {}
+    },
+    {
+      "timestamp": "2025-12-29T02:27:02.375699",
+      "category": "test",
+      "service": "service",
+      "operation": "budget_test",
+      "amount_usd": 0.02,
+      "tokens_used": 0,
+      "requests_count": 1,
+      "metadata": {}
+    }
+  ],
+  "daily_totals": {
+    "2025-12-29": 0.035
+  },
+  "monthly_totals": {
+    "2025-12": 0.035
+  },
+  "last_updated": "2025-12-29T02:27:02.375752"
+}

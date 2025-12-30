@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon FBA Profit Analyzer - Professional Product Research Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff9500;
+            --secondary-color: #232f3e;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background: var(--secondary-color) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+        }
+        
+        .hero-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .search-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .results-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b35 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(255,149,0,0.3);
+        }
+        
+        .product-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 25px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #e6850e;
+            border-color: #e6850e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,149,0,0.4);
+        }
+        
+        .profit-badge {
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+        
+        .competition-low { background: var(--success-color); }
+        .competition-medium { background: var(--warning-color); color: #000; }
+        .competition-high { background: var(--danger-color); }
+        
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 2rem 1rem;
+                margin: 1rem 0;
+            }
+            
+            .search-card, .results-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fab fa-amazon me-2"></i>FBA Profit Analyzer
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section text-center">
+            <h1 class="display-4 fw-bold mb-4">
+                <i class="fab fa-amazon text-warning me-3"></i>
+                Amazon FBA Profit Analyzer
+            </h1>
+            <p class="lead mb-4">
+                Professional-grade product research tool with real Amazon API integration. 
+                Find profitable products, calculate FBA fees, and analyze market competition instantly.
+            </p>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h5>Real-time Analysis</h5>
+                    <p>Live Amazon data with instant profit calculations</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h5>FBA Fee Calculator</h5>
+                    <p>Accurate fee calculations for all product categories</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-target"></i>
+                    </div>
+                    <h5>Competition Analysis</h5>
+                    <p>Identify low-competition, high-profit opportunities</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-card">
+            <h3 class="mb-4">
+                <i class="fas fa-search me-2"></i>Product Research
+            </h3>
+            <form id="searchForm">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="keywords" class="form-label">Search Keywords</label>
+                        <input type="text" class="form-control" id="keywords" placeholder="e.g., wireless headphones, yoga mat" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="category" class="form-label">Category (Optional)</label>
+                        <select class="form-select" id="category">
+                            <option value="">All Categories</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Home & Kitchen">Home & Kitchen</option>
+                            <option value="Sports & Outdoors">Sports & Outdoors</option>
+                            <option value="Books">Books</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Beauty">Beauty</option>
+                            <option value="Toys & Games">Toys & Games</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-3 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-search me-1"></i>Analyze
+                        </button>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="loading-spinner">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Analyzing products...</span>
+                </div>
+                <p class="mt-2">Analyzing Amazon products and calculating profits...</p>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-card" id="resultsSection">
+            <!-- Market Overview -->
+            <div class="row mb-4" id="marketOverview">
+                <div class="col-12">
+                    <h3 class="mb-4">
+                        <i class="fas fa-chart-bar me-2"></i>Market Analysis
+                    </h3>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card">
+                        <i class="fas fa-boxes fa-2x mb-2"></i>
+                        <h4 id="totalProducts">0</h4>
+                        <p>Products Analyzed</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card">
+                        <i class="fas fa-dollar-sign fa-2x mb-2"></i>
+                        <h4 id="avgPrice">$0</h4>
+                        <p>Average Price</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card">
+                        <i class="fas fa-trophy fa-2x mb-2"></i>
+                        <h4 id="avgRank">0</h4>
+                        <p>Avg Sales Rank</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card">
+                        <i class="fas fa-percentage fa-2x mb-2"></i>
+                        <h4 id="saturation">0%</h4>
+                        <p>Market Saturation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Price Range Recommendation -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        <h5><i class="fas fa-lightbulb me-2"></i>Recommended Price Range</h5>
+                        <p class="mb-0">
+                            Based on market analysis: 
+                            <strong>$<span id="priceMin">0</span> - $<span id="priceMax">0</span></strong>
+                            (Median: $<span id="priceMedian">0</span>)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Profit Opportunities -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h4 class="mb-3">
+                        <i class="fas fa-gem me-2"></i>Top Profit Opportunities
+                    </h4>
+                    <div id="profitOpportunities">
+                        <!-- Profit opportunities will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Sellers -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h4 class="mb-3">
+                        <i class="fas fa-fire me-2"></i>Top Selling Products
+                    </h4>
+                    <div id="topSellers">
+                        <!-- Top sellers will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Options -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <button class="btn btn-success me-2" onclick="exportResults('csv')">
+                        <i class="fas fa-file-csv me-1"></i>Export CSV
+                    </button>
+                    <button class="btn btn-info me-2" onclick="exportResults('pdf')">
+                        <i class="fas fa-file-pdf me-1"></i>Export PDF
+                    </button>
+                    <button class="btn btn-warning" onclick="saveToWatchlist()">
+                        <i class="fas fa-bookmark me-1"></i>Save to Watchlist
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demo Notice -->
+        <div class="alert alert-warning text-center">
+            <h5><i class="fas fa-info-circle me-2"></i>Demo Version</h5>
+            <p class="mb-0">
+                This is a demonstration of the Amazon FBA Profit Analyzer. 
+                The full version includes real Amazon API integration, advanced analytics, 
+                and comprehensive reporting features.
+                <br><strong>Full Version: $297</strong>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Demo data for testing
+        const demoData = {
+            total_products: 47,
+            avg_price: 24.99,
+            avg_sales_rank: 15420,
+            market_saturation: 68.5,
+            recommended_price_range: {
+                min: 15.99,
+                max: 39.99,
+                median: 24.99
+            },
+            profit_opportunities: [
+                {
+                    asin: 'B08XYZ123',
+                    title: 'Wireless Bluetooth Headphones with Noise Cancellation',
+                    price: 29.99,
+                    profit_margin: 45.2,
+                    roi: 78.5,
+                    competition_level: 'Low',
+                    estimated_sales: 850
+                },
+                {
+                    asin: 'B09ABC456',
+                    title: 'Portable Phone Charger 10000mAh Power Bank',
+                    price: 19.99,
+                    profit_margin: 38.7,
+                    roi: 65.3,
+                    competition_level: 'Medium',
+                    estimated_sales: 1200
+                },
+                {
+                    asin: 'B07DEF789',
+                    title: 'Yoga Mat Non-Slip Exercise Fitness Mat',
+                    price: 24.99,
+                    profit_margin: 42.1,
+                    roi: 71.8,
+                    competition_level: 'Low',
+                    estimated_sales: 650
+                }
+            ],
+            top_sellers: [
+                {
+                    asin: 'B08TOP001',
+                    title: 'Best Selling Wireless Earbuds Premium Quality',
+                    price: 49.99,
+                    sales_rank: 1250,
+                    estimated_sales: 2500,
+                    profit_margin: 32.5
+                },
+                {
+                    asin: 'B09TOP002',
+                    title: 'Popular Fitness Tracker Smart Watch',
+                    price: 79.99,
+                    sales_rank: 2100,
+                    estimated_sales: 1800,
+                    profit_margin: 28.9
+                }
+            ]
+        };
+
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const keywords = document.getElementById('keywords').value;
+            const category = document.getElementById('category').value;
+            
+            if (!keywords.trim()) {
+                alert('Please enter search keywords');
+                return;
+            }
+            
+            // Show loading
+            document.querySelector('.loading-spinner').style.display = 'block';
+            document.getElementById('resultsSection').style.display = 'none';
+            
+            // Simulate API call with demo data
+            setTimeout(() => {
+                displayResults(demoData);
+                document.querySelector('.loading-spinner').style.display = 'none';
+                document.getElementById('resultsSection').style.display = 'block';
+                
+                // Scroll to results
+                document.getElementById('resultsSection').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }, 2000);
+        });
+
+        function displayResults(data) {
+            // Update market overview
+            document.getElementById('totalProducts').textContent = data.total_products;
+            document.getElementById('avgPrice').textContent = '$' + data.avg_price.toFixed(2);
+            document.getElementById('avgRank').textContent = data.avg_sales_rank.toLocaleString();
+            document.getElementById('saturation').textContent = data.market_saturation.toFixed(1) + '%';
+            
+            // Update price recommendations
+            document.getElementById('priceMin').textContent = data.recommended_price_range.min.toFixed(2);
+            document.getElementById('priceMax').textContent = data.recommended_price_range.max.toFixed(2);
+            document.getElementById('priceMedian').textContent = data.recommended_price_range.median.toFixed(2);
+            
+            // Display profit opportunities
+            const profitContainer = document.getElementById('profitOpportunities');
+            profitContainer.innerHTML = '';
+            
+            data.profit_opportunities.forEach(product => {
+                const productCard = createProductCard(product, 'opportunity');
+                profitContainer.appendChild(productCard);
+            });
+            
+            // Display top sellers
+            const sellersContainer = document.getElementById('topSellers');
+            sellersContainer.innerHTML = '';
+            
+            data.top_sellers.forEach(product => {
+                const productCard = createProductCard(product, 'seller');
+                sellersContainer.appendChild(productCard);
+            });
+        }
+
+        function createProductCard(product, type) {
+            const card = document.createElement('div');
+            card.className = 'product-card card mb-3';
+            
+            const competitionClass = product.competition_level ? 
+                `competition-${product.competition_level.toLowerCase()}` : '';
+            
+            card.innerHTML = `
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h6 class="card-title">${product.title}</h6>
+                            <p class="card-text">
+                                <strong>ASIN:</strong> ${product.asin}<br>
+                                <strong>Price:</strong> $${product.price.toFixed(2)}<br>
+                                ${product.sales_rank ? `<strong>Sales Rank:</strong> ${product.sales_rank.toLocaleString()}<br>` : ''}
+                                <strong>Est. Monthly Sales:</strong> ${product.estimated_sales} units
+                            </p>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            ${product.profit_margin ? `
+                                <span class="profit-badge badge bg-success mb-2 d-block">
+                                    ${product.profit_margin.toFixed(1)}% Profit Margin
+                                </span>
+                            ` : ''}
+                            ${product.roi ? `
+                                <span class="profit-badge badge bg-info mb-2 d-block">
+                                    ${product.roi.toFixed(1)}% ROI
+                                </span>
+                            ` : ''}
+                            ${product.competition_level ? `
+                                <span class="profit-badge badge ${competitionClass} d-block">
+                                    ${product.competition_level} Competition
+                                </span>
+                            ` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function exportResults(format) {
+            if (format === 'csv') {
+                // Create CSV content
+                let csvContent = "data:text/csv;charset=utf-8,";
+                csvContent += "ASIN,Title,Price,Profit Margin,ROI,Competition,Est Sales\n";
+                
+                demoData.profit_opportunities.forEach(product => {
+                    csvContent += `${product.asin},"${product.title}",${product.price},${product.profit_margin},${product.roi},${product.competition_level},${product.estimated_sales}\n`;
+                });
+                
+                const encodedUri = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "fba_analysis_" + new Date().toISOString().split('T')[0] + ".csv");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else {
+                alert('Export feature available in full version ($297)');
+            }
+        }
+
+        function saveToWatchlist() {
+            alert('Watchlist feature available in full version ($297)');
+        }
+
+        // Auto-fill demo data
+        document.getElementById('keywords').value = 'wireless headphones';
+        document.getElementById('category').value = 'Electronics';
+    </script>
+</body>
+</html>

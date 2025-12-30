@@ -1,0 +1,673 @@
+// src/mcp.ts
+import { Router, json, Request, Response } from "express";
+import crypto from "crypto";
+
+export const MCP_PROTOCOL_VERSION = "2025-06-18";
+
+/**
+ * Minimal MCP (Model Context Protocol) Streamable HTTP server:
+ * - Single endpoint path supports POST + GET (GET can return 405 if no SSE)
+ * - JSON-RPC 2.0 messages: initialize -> tools/list -> tools/call, etc.
+ *
+ * Spec references:
+ * - Streamable HTTP transport requirements: POST/GET on a single MCP endpoint path
+ * - Lifecycle: initialize then notifications/initialized
+ * - Tools: tools/list and tools/call message formats
+ */
+
+type JsonRpcId = string | number | null;
+
+type JsonRpcRequest = {
+  jsonrpc: "2.0";
+  id?: JsonRpcId; // absent => notification
+  method: string;
+  params?: unknown;
+};
+
+type JsonRpcSuccess = {
+  jsonrpc: "2.0";
+  id: JsonRpcId;
+  result: unknown;
+};
+
+type JsonRpcError = {
+  jsonrpc: "2.0";
+  id: JsonRpcId;
+  error: {
+    code: number;
+    message: string;
+    data?: unknown;
+  };
+};
+
+type TextContent = { type: "text"; text: string };
+
+type ToolResult = {
+  content: TextContent[];
+  structuredContent?: unknown; // MCP "structuredContent" (optional)
+  isError?: boolean;
+};
+
+type ToolDefinition = {
+  name: string;
+  title?: string;
+  description: string;
+  inputSchema: Record<string, unknown>;
+  outputSchema?: Record<string, unknown>;
+  annotations?: Record<string, unknown>;
+
+  // governance metadata (your app-specific):
+  requiredRoles?: string[];
+  costUnits?: number;
+
+  handler: (ctx: ToolContext, args: any) => Promise<ToolResult>;
+};
+
+type AuthContext = {
+  subject: string;
+  roles: string[];
+  apiKeyId: string; // stable identifier derived from key
+};
+
+type ToolContext = {
+  requestId: string;
+  sessionId: string;
+  auth: AuthContext;
+};
+
+type McpSession = {
+  createdAtMs: number;
+  initialized: boolean;
+  auth: AuthContext;
+  budgetRemaining: number;
+};
+
+function isObject(x: unknown): x is Record<string, unknown> {
+  return !!x && typeof x === "object" && !Array.isArray(x);
+}
+
+function jsonRpcOk(id: JsonRpcId, result: unknown): JsonRpcSuccess {
+  return { jsonrpc: "2.0", id, result };
+}
+
+function jsonRpcErr(id: JsonRpcId, code: number, message: string, data?: unknown): JsonRpcError {
+  return { jsonrpc: "2.0", id, error: { code, message, ...(data !== undefined ? { data } : {}) } };
+}
+
+function asTextResult(value: unknown): ToolResult {
+  return {
+    content: [{ type: "text", text: typeof value === "string" ? value : JSON.stringify(value, null, 2) }],
+    structuredContent: isObject(value) || Array.isArray(value) ? value : undefined,
+  };
+}
+
+class ToolRegistry {
+  private tools = new Map<string, ToolDefinition>();
+
+  register(tool: ToolDefinition): this {
+    if (this.tools.has(tool.name)) throw new Error(`Tool already registered: ${tool.name}`);
+    this.tools.set(tool.name, tool);
+    return this;
+  }
+
+  get(name: string): ToolDefinition | undefined {
+    return this.tools.get(name);
+  }
+
+  listPublic(): Array<Omit<ToolDefinition, "handler" | "requiredRoles" | "costUnits">> {
+    return [...this.tools.values()].map(({ handler, requiredRoles, costUnits, ...publicFields }) => publicFields);
+  }
+}
+
+/**
+ * -----------------------
+ * Example in-memory stores
+ * -----------------------
+ * Replace these with Drizzle/DB calls in your real app.
+ */
+type Project = { id: string; name: string; createdAt: string };
+type MemoryItem = { id: string; text: string; createdAt: string; metadata?: Record<string, unknown> };
+
+function buildDefaultRegistry(): ToolRegistry {
+  const registry = new ToolRegistry();
+
+  const projects = new Map<string, Project>([
+    ["demo", { id: "demo", name: "Demo Project", createdAt: new Date().toISOString() }],
+  ]);
+
+  const memory: MemoryItem[] = [];
+
+  registry.register({
+    name: "whoami",
+    title: "Who am I?",
+    description: "Return the authenticated identity (subject + roles).",
+    inputSchema: { type: "object", properties: {}, additionalProperties: false },
+    outputSchema: {
+      type: "object",
+      properties: {
+        subject: { type: "string" },
+        roles: { type: "array", items: { type: "string" } },
+        apiKeyId: { type: "string" },
+      },
+      required: ["subject", "roles", "apiKeyId"],
+    },
+    costUnits: 0,
+    handler: async (ctx) => asTextResult(ctx.auth),
+  });
+
+  registry.register({
+    name: "project.list",
+    title: "List projects",
+    description: "List projects visible to the caller.",
+    inputSchema: { type: "object", properties: {}, additionalProperties: false },
+    outputSchema: {
+      type: "object",
+      properties: {
+        projects: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: { id: { type: "string" }, name: { type: "string" }, createdAt: { type: "string" } },
+            required: ["id", "name", "createdAt"],
+          },
+        },
+      },
+      required: ["projects"],
+    },
+    requiredRoles: ["reader"],
+    costUnits: 1,
+    handler: async () => asTextResult({ projects: [...projects.values()] }),
+  });
+
+  registry.register({
+    name: "project.get",
+    title: "Get project",
+    description: "Fetch a single project by id.",
+    inputSchema: {
+      type: "object",
+      properties: { projectId: { type: "string" } },
+      required: ["projectId"],
+      additionalProperties: false,
+    },
+    outputSchema: {
+      type: "object",
+      properties: {
+        project: {
+          anyOf: [
+            { type: "null" },
+            {
+              type: "object",
+              properties: { id: { type: "string" }, name: { type: "string" }, createdAt: { type: "string" } },
+              required: ["id", "name", "createdAt"],
+            },
+          ],
+        },
+      },
+      required: ["project"],
+    },
+    requiredRoles: ["reader"],
+    costUnits: 1,
+    handler: async (_ctx, args) => {
+      const project = projects.get(String(args?.projectId ?? "")) ?? null;
+      return asTextResult({ project });
+    },
+  });
+
+  registry.register({
+    name: "memory.add",
+    title: "Add memory",
+    description: "Add a memory entry (text + optional metadata).",
+    inputSchema: {
+      type: "object",
+      properties: {
+        text: { type: "string" },
+        metadata: { type: "object", additionalProperties: true },
+      },
+      required: ["text"],
+      additionalProperties: false,
+    },
+    outputSchema: {
+      type: "object",
+      properties: { id: { type: "string" } },
+      required: ["id"],
+    },
+    requiredRoles: ["writer"],
+    costUnits: 2,
+    handler: async (_ctx, args) => {
+      const id = crypto.randomUUID();
+      memory.push({
+        id,
+        text: String(args?.text ?? ""),
+        createdAt: new Date().toISOString(),
+        metadata: isObject(args?.metadata) ? (args.metadata as Record<string, unknown>) : undefined,
+      });
+      return asTextResult({ id });
+    },
+  });
+
+  registry.register({
+    name: "memory.search",
+    title: "Search memory",
+    description: "Search memory entries by substring match (v1 naive).",
+    inputSchema: {
+      type: "object",
+      properties: {
+        query: { type: "string" },
+        limit: { type: "number", minimum: 1, maximum: 50 },
+      },
+      required: ["query"],
+      additionalProperties: false,
+    },
+    outputSchema: {
+      type: "object",
+      properties: {
+        results: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              id: { type: "string" },
+              text: { type: "string" },
+              createdAt: { type: "string" },
+              metadata: { type: "object", additionalProperties: true },
+            },
+            required: ["id", "text", "createdAt"],
+          },
+        },
+      },
+      required: ["results"],
+    },
+    requiredRoles: ["reader"],
+    costUnits: 2,
+    handler: async (_ctx, args) => {
+      const q = String(args?.query ?? "").toLowerCase();
+      const limit = Math.max(1, Math.min(50, Number(args?.limit ?? 10)));
+      const results = memory.filter((m) => m.text.toLowerCase().includes(q)).slice(0, limit);
+      return asTextResult({ results });
+    },
+  });
+
+  registry.register({
+    name: "vault.list",
+    title: "List vault connectors",
+    description: "List external connectors available (stub).",
+    inputSchema: { type: "object", properties: {}, additionalProperties: false },
+    outputSchema: {
+      type: "object",
+      properties: { connectors: { type: "array", items: { type: "string" } } },
+      required: ["connectors"],
+    },
+    requiredRoles: ["reader"],
+    costUnits: 1,
+    handler: async () => asTextResult({ connectors: ["zapier-mcp", "gmail", "notion"] }),
+  });
+
+  registry.register({
+    name: "vault.test",
+    title: "Test a connector",
+    description: "Test that a connector is reachable/authorized (stub).",
+    inputSchema: {
+      type: "object",
+      properties: { connector: { type: "string" } },
+      required: ["connector"],
+      additionalProperties: false,
+    },
+    outputSchema: {
+      type: "object",
+      properties: { ok: { type: "boolean" }, connector: { type: "string" } },
+      required: ["ok", "connector"],
+    },
+    requiredRoles: ["reader"],
+    costUnits: 3,
+    handler: async (_ctx, args) => {
+      const connector = String(args?.connector ?? "");
+      // TODO: Replace with real health check against your connector/vault layer.
+      const ok = connector.length > 0;
+      return asTextResult({ ok, connector });
+    },
+  });
+
+  registry.register({
+    name: "agent.run",
+    title: "Run the agent",
+    description: "Start an AI run for a project goal (stub).",
+    inputSchema: {
+      type: "object",
+      properties: {
+        projectId: { type: "string" },
+        goal: { type: "string" },
+        provider: { type: "string", description: "e.g. gemini/openai/anthropic" },
+      },
+      required: ["projectId", "goal"],
+      additionalProperties: false,
+    },
+    outputSchema: {
+      type: "object",
+      properties: { runId: { type: "string" }, status: { type: "string" } },
+      required: ["runId", "status"],
+    },
+    requiredRoles: ["runner"],
+    costUnits: 10,
+    handler: async (_ctx, args) => {
+      // TODO: Hook this into your real queue/worker.
+      const runId = crypto.randomUUID();
+      return {
+        content: [{ type: "text", text: JSON.stringify({ runId, status: "queued" }) }],
+        structuredContent: { runId, status: "queued" },
+      };
+    },
+  });
+
+  return registry;
+}
+
+/**
+ * -----------------------
+ * Governance helpers
+ * -----------------------
+ */
+function getEnvInt(name: string, fallback: number): number {
+  const v = Number(process.env[name]);
+  return Number.isFinite(v) ? v : fallback;
+}
+
+function allowedOrigins(): string[] {
+  const raw = process.env.MCP_ALLOWED_ORIGINS ?? "";
+  return raw
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+function originAllowed(origin: string | undefined): boolean {
+  // If no Origin header (typical for non-browser clients), allow.
+  if (!origin) return true;
+  const allow = allowedOrigins();
+  // If allowlist not configured, default deny for browser-originated calls.
+  if (allow.length === 0) return false;
+  return allow.includes(origin);
+}
+
+function extractApiKey(req: Request): string | null {
+  const headerKey = req.header("x-api-key");
+  if (headerKey) return headerKey.trim();
+
+  const auth = req.header("authorization");
+  if (auth?.toLowerCase().startsWith("bearer ")) return auth.slice(7).trim();
+
+  return null;
+}
+
+function authFromApiKey(apiKey: string | null): AuthContext {
+  const required = process.env.MCP_API_KEY; // optional in dev
+  if (required && apiKey !== required) {
+    // handled earlier
+  }
+
+  const key = apiKey ?? "dev";
+  // Create a non-secret stable id for logs/rate limits (never log raw key)
+  const apiKeyId = crypto.createHash("sha256").update(key).digest("hex").slice(0, 12);
+
+  // TODO: map apiKeyId -> roles/org in your DB
+  // v1: simple role set depending on whether MCP_API_KEY is configured.
+  const roles =
+    required && apiKey === required
+      ? ["reader", "writer", "runner"] // "admin" users
+      : ["reader"]; // safe default
+
+  return { subject: required ? "apiKeyUser" : "devUser", roles, apiKeyId };
+}
+
+function hasAllRoles(have: string[], need: string[] | undefined): boolean {
+  if (!need || need.length === 0) return true;
+  const s = new Set(have);
+  return need.every((r) => s.has(r));
+}
+
+type RateState = { windowStartMs: number; count: number };
+function makeRateLimiter() {
+  const perMinute = getEnvInt("MCP_RATE_LIMIT_PER_MINUTE", 60);
+  const buckets = new Map<string, RateState>();
+
+  return function rateLimit(apiKeyId: string): { ok: true } | { ok: false; retryAfterSec: number } {
+    const now = Date.now();
+    const windowMs = 60_000;
+    const state = buckets.get(apiKeyId);
+    if (!state || now - state.windowStartMs >= windowMs) {
+      buckets.set(apiKeyId, { windowStartMs: now, count: 1 });
+      return { ok: true };
+    }
+    if (state.count >= perMinute) {
+      const retryAfterSec = Math.ceil((windowMs - (now - state.windowStartMs)) / 1000);
+      return { ok: false, retryAfterSec };
+    }
+    state.count += 1;
+    return { ok: true };
+  };
+}
+
+/**
+ * -----------------------
+ * Router factory
+ * -----------------------
+ */
+export function createMcpRouter() {
+  const registry = buildDefaultRegistry();
+  const router = Router();
+
+  // One MCP endpoint path for Streamable HTTP transport (POST + GET).
+  // We'll mount this router at "/mcp", so:
+  // - POST /mcp  -> router.post("/")
+  // - GET  /mcp  -> router.get("/")
+
+  const sessions = new Map<string, McpSession>();
+  const rateLimit = makeRateLimiter();
+
+  const initialBudget = getEnvInt("MCP_BUDGET_UNITS", 10_000);
+
+  // Non-standard helper endpoint (handy for debugging / docs / your own UI)
+  router.get("/schema", (req, res) => {
+    res.json({
+      protocolVersion: MCP_PROTOCOL_VERSION,
+      tools: registry.listPublic(),
+    });
+  });
+
+  // Optional GET for SSE stream. If you don't support SSE, return 405 per spec.
+  router.get("/", (_req, res) => {
+    res.status(405).send("SSE not implemented on this MCP endpoint.");
+  });
+
+  router.post("/", json({ limit: "1mb" }), async (req: Request, res: Response) => {
+    const requestId = crypto.randomUUID();
+
+    // --- Transport security: validate Origin header (DNS rebinding mitigation) ---
+    const origin = req.header("origin") ?? undefined;
+    if (!originAllowed(origin)) {
+      return res.status(403).json({ error: "Origin not allowed" });
+    }
+
+    // --- Auth (simple API key) ---
+    const apiKey = extractApiKey(req);
+    const requiredKey = process.env.MCP_API_KEY;
+    if (requiredKey && apiKey !== requiredKey) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+    const auth = authFromApiKey(apiKey);
+
+    // --- Rate limit (per apiKeyId) ---
+    const rl = rateLimit(auth.apiKeyId);
+    if (!rl.ok) {
+      res.setHeader("Retry-After", String(rl.retryAfterSec));
+      return res.status(429).json({ error: "Rate limited" });
+    }
+
+    // --- Parse JSON-RPC ---
+    const msg: unknown = req.body;
+    if (!isObject(msg) || msg.jsonrpc !== "2.0" || typeof msg.method !== "string") {
+      // JSON-RPC parse/invalid request
+      return res.status(400).json(jsonRpcErr(null, -32600, "Invalid JSON-RPC request"));
+    }
+    const rpc = msg as JsonRpcRequest;
+    const id = rpc.id ?? undefined;
+    const isNotification = id === undefined;
+
+    // --- Audit (v1 console) ---
+    // Never log raw api key
+    console.log(
+      JSON.stringify({
+        at: new Date().toISOString(),
+        requestId,
+        apiKeyId: auth.apiKeyId,
+        method: rpc.method,
+      })
+    );
+
+    // --- Session handling (optional but useful) ---
+    // If we created a session in initialize, client MUST send Mcp-Session-Id on subsequent requests (if we issued one).
+    const sessionIdHeader = req.header("mcp-session-id") ?? undefined;
+
+    // Protocol tells clients to send MCP-Protocol-Version header after initialization (HTTP). Enforce after initialize.
+    const protoHeader = req.header("mcp-protocol-version") ?? undefined;
+
+    // Helper to send notifications response correctly (202 no body)
+    function acceptNotification(): Response {
+      return res.status(202).send();
+    }
+
+    // --- Handle methods ---
+    try {
+      if (rpc.method === "initialize") {
+        // Negotiate protocol version; simplest: always serve our version.
+        // (Spec allows returning a different supported version if needed.)
+        const sessionId = crypto.randomUUID();
+        sessions.set(sessionId, {
+          createdAtMs: Date.now(),
+          initialized: true, // we accept immediately; we'll still handle notifications/initialized
+          auth,
+          budgetRemaining: initialBudget,
+        });
+
+        // Return Mcp-Session-Id header (Streamable HTTP session management)
+        res.setHeader("Mcp-Session-Id", sessionId);
+
+        const result = {
+          protocolVersion: MCP_PROTOCOL_VERSION,
+          capabilities: {
+            tools: { listChanged: false },
+          },
+          serverInfo: {
+            name: "your-app-mcp",
+            title: "Your App MCP Gateway",
+            version: "0.1.0",
+          },
+          instructions:
+            "Use tools/list to discover tools, then tools/call to invoke them. This server requires X-API-Key if MCP_API_KEY is set.",
+        };
+
+        if (isNotification) return acceptNotification();
+        return res.json(jsonRpcOk(id ?? null, result));
+      }
+
+      if (rpc.method === "notifications/initialized") {
+        // This SHOULD follow initialize per lifecycle.
+        // We'll accept it and mark the session initialized.
+        if (!sessionIdHeader || !sessions.has(sessionIdHeader)) {
+          return acceptNotification(); // tolerate; client might be stateless
+        }
+        const s = sessions.get(sessionIdHeader)!;
+        s.initialized = true;
+        if (isNotification) return acceptNotification();
+        return res.json(jsonRpcOk(id ?? null, {}));
+      }
+
+      if (rpc.method === "ping") {
+        // Ping utility
+        // Spec: respond with empty object
+        // (Some implementations require initialize first; we allow without.)
+        if (isNotification) return acceptNotification();
+        return res.json(jsonRpcOk(id ?? null, {}));
+      }
+
+      // Require session + protocol header for normal operations (after we issue session id)
+      if (!sessionIdHeader || !sessions.has(sessionIdHeader)) {
+        return res
+          .status(400)
+          .json(jsonRpcErr(id ?? null, -32602, "Missing or invalid Mcp-Session-Id (initialize first)"));
+      }
+      const session = sessions.get(sessionIdHeader)!;
+
+      if (protoHeader !== MCP_PROTOCOL_VERSION) {
+        return res
+          .status(400)
+          .json(
+            jsonRpcErr(id ?? null, -32602, "Missing or invalid MCP-Protocol-Version header", {
+              expected: MCP_PROTOCOL_VERSION,
+              got: protoHeader ?? null,
+            })
+          );
+      }
+
+      if (rpc.method === "tools/list") {
+        const result = {
+          tools: registry.listPublic(),
+          nextCursor: null,
+        };
+        if (isNotification) return acceptNotification();
+        return res.json(jsonRpcOk(id ?? null, result));
+      }
+
+      if (rpc.method === "tools/call") {
+        const params = isObject(rpc.params) ? rpc.params : {};
+        const toolName = String((params as any).name ?? "");
+        const args = (params as any).arguments ?? {};
+
+        const tool = registry.get(toolName);
+        if (!tool) {
+          return res.json(jsonRpcErr(id ?? null, -32602, `Unknown tool: ${toolName}`));
+        }
+
+        // RBAC
+        if (!hasAllRoles(session.auth.roles, tool.requiredRoles)) {
+          return res.json(jsonRpcErr(id ?? null, -32001, "Forbidden", { requiredRoles: tool.requiredRoles ?? [] }));
+        }
+
+        // Budgets
+        const cost = tool.costUnits ?? 1;
+        if (session.budgetRemaining - cost < 0) {
+          return res.json(jsonRpcErr(id ?? null, -32002, "Budget exceeded", { remaining: session.budgetRemaining }));
+        }
+
+        const ctx: ToolContext = {
+          requestId,
+          sessionId: sessionIdHeader,
+          auth: session.auth,
+        };
+
+        const toolResult = await tool.handler(ctx, args);
+
+        // Deduct budget after execution (or before; your choice)
+        session.budgetRemaining -= cost;
+
+        const result = {
+          content: toolResult.content ?? [{ type: "text", text: "" }],
+          ...(toolResult.structuredContent !== undefined ? { structuredContent: toolResult.structuredContent } : {}),
+          ...(toolResult.isError !== undefined ? { isError: toolResult.isError } : {}),
+        };
+
+        if (isNotification) return acceptNotification();
+        return res.json(jsonRpcOk(id ?? null, result));
+      }
+
+      // Unknown method
+      if (isNotification) return acceptNotification();
+      return res.json(jsonRpcErr(id ?? null, -32601, `Method not found: ${rpc.method}`));
+    } catch (e: any) {
+      // Server error
+      if (isNotification) return acceptNotification();
+      return res.json(jsonRpcErr(id ?? null, -32603, "Internal error", { message: e?.message ?? String(e) }));
+    }
+  });
+
+  return router;
+}

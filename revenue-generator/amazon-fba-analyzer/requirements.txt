@@ -1,0 +1,17 @@
+flask==2.3.3
+pandas==2.1.3
+numpy==1.25.2
+requests==2.31.0
+aiohttp==3.9.1
+beautifulsoup4==4.12.2
+plotly==5.17.0
+sqlite3
+asyncio
+dataclasses
+typing
+datetime
+logging
+concurrent.futures
+json
+os
+re

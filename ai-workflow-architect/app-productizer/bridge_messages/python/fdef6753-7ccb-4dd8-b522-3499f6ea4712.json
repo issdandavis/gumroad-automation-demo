@@ -1,0 +1,15 @@
+{
+  "id": "fdef6753-7ccb-4dd8-b522-3499f6ea4712",
+  "timestamp": "2025-12-26T01:23:21.453459",
+  "message_type": "ai_response",
+  "source_language": "universal_bridge",
+  "target_language": "python",
+  "payload": {
+    "original_message_id": "2bd72712-6837-4a9f-a86c-22bd7d29b601",
+    "translated_code": "\nfunction hello_world(name):\n    console.log(f\"Hello, {name}!\")\n    return true\n",
+    "from_language": "python",
+    "to_language": "javascript"
+  },
+  "response_channel": "websocket",
+  "checksum": "6884d2352ca8275256d7e976b6ebc07f"
+}

@@ -1,0 +1,940 @@
+# Kubernetes Deployment Manifests for Self-Evolving AI Framework
+# Production-ready deployment with high availability and auto-scaling
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: evolving-ai
+  labels:
+    name: evolving-ai
+    environment: production
+
+---
+# ConfigMap for application configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: evolving-ai-config
+  namespace: evolving-ai
+data:
+  # Evolution Engine Configuration
+  evolution.yaml: |
+    evolution:
+      default_fitness_threshold: 0.8
+      default_mutation_rate: 0.1
+      safety_checks_enabled: true
+      max_concurrent_evolutions: 10
+      mutation_timeout: 300
+      rollback_enabled: true
+    
+    ai_providers:
+      default_provider: "bedrock"
+      auto_failover: true
+      max_retry_attempts: 3
+      timeout_seconds: 30
+      
+      providers:
+        bedrock:
+          region: "us-east-1"
+          model_id: "anthropic.claude-3-sonnet-20240229-v1:0"
+          max_tokens: 4000
+        openai:
+          model: "gpt-4"
+          max_tokens: 4000
+        anthropic:
+          model: "claude-3-opus-20240229"
+          max_tokens: 4000
+    
+    security:
+      encryption_enabled: true
+      audit_logging: true
+      session_timeout: 3600
+      max_login_attempts: 5
+      password_policy:
+        min_length: 12
+        require_uppercase: true
+        require_lowercase: true
+        require_numbers: true
+        require_symbols: true
+    
+    monitoring:
+      metrics_enabled: true
+      metrics_retention_days: 90
+      alert_check_interval: 60
+      prometheus_port: 9090
+      health_check_interval: 30
+
+---
+# Secret for sensitive configuration
+apiVersion: v1
+kind: Secret
+metadata:
+  name: evolving-ai-secrets
+  namespace: evolving-ai
+type: Opaque
+data:
+  # Base64 encoded values (replace with actual encoded secrets)
+  database-url: cG9zdGdyZXNxbDovL3VzZXI6cGFzc3dvcmRAaG9zdDpwb3J0L2RiCg==
+  jwt-secret: c3VwZXItc2VjcmV0LWp3dC1rZXkK
+  encryption-key: YWVzLTI1Ni1lbmNyeXB0aW9uLWtleQo=
+  openai-api-key: c2stb3BlbmFpLWFwaS1rZXkK
+  anthropic-api-key: YW50aHJvcGljLWFwaS1rZXkK
+  aws-access-key-id: YXdzLWFjY2Vzcy1rZXktaWQK
+  aws-secret-access-key: YXdzLXNlY3JldC1hY2Nlc3Mta2V5Cg==
+
+---
+# Persistent Volume Claim for data storage
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: evolving-ai-data
+  namespace: evolving-ai
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+  storageClassName: fast-ssd
+
+---
+# Evolution Engine Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: evolution-engine
+  namespace: evolving-ai
+  labels:
+    app: evolution-engine
+    component: core
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: evolution-engine
+  template:
+    metadata:
+      labels:
+        app: evolution-engine
+        component: core
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+        prometheus.io/path: "/metrics"
+    spec:
+      serviceAccountName: evolving-ai-service-account
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 2000
+      containers:
+      - name: evolution-engine
+        image: evolving-ai/evolution-engine:2.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+          name: http
+          protocol: TCP
+        - containerPort: 9090
+          name: metrics
+          protocol: TCP
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: evolving-ai-secrets
+              key: database-url
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: evolving-ai-secrets
+              key: jwt-secret
+        - name: ENCRYPTION_KEY
+          valueFrom:
+            secretKeyRef:
+              name: evolving-ai-secrets
+              key: encryption-key
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: evolving-ai-secrets
+              key: openai-api-key
+        - name: ANTHROPIC_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: evolving-ai-secrets
+              key: anthropic-api-key
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: evolving-ai-secrets
+              key: aws-access-key-id
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: evolving-ai-secrets
+              key: aws-secret-access-key
+        - name: AWS_REGION
+          value: "us-east-1"
+        - name: ENVIRONMENT
+          value: "production"
+        - name: LOG_LEVEL
+          value: "INFO"
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config
+          readOnly: true
+        - name: data-volume
+          mountPath: /app/data
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1000m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        startupProbe:
+          httpGet:
+            path: /startup
+            port: 8000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 30
+      volumes:
+      - name: config-volume
+        configMap:
+          name: evolving-ai-config
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: evolving-ai-data
+
+---
+# API Gateway Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway
+  namespace: evolving-ai
+  labels:
+    app: api-gateway
+    component: gateway
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+        component: gateway
+    spec:
+      serviceAccountName: evolving-ai-service-account
+      containers:
+      - name: api-gateway
+        image: evolving-ai/api-gateway:2.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        env:
+        - name: EVOLUTION_ENGINE_URL
+          value: "http://evolution-engine:8000"
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: evolving-ai-secrets
+              key: jwt-secret
+        - name: RATE_LIMIT_REQUESTS_PER_MINUTE
+          value: "1000"
+        - name: CORS_ALLOWED_ORIGINS
+          value: "*"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+---
+# Cost Optimizer Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cost-optimizer
+  namespace: evolving-ai
+  labels:
+    app: cost-optimizer
+    component: optimizer
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cost-optimizer
+  template:
+    metadata:
+      labels:
+        app: cost-optimizer
+        component: optimizer
+    spec:
+      serviceAccountName: evolving-ai-service-account
+      containers:
+      - name: cost-optimizer
+        image: evolving-ai/cost-optimizer:2.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8001
+          name: http
+          protocol: TCP
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: evolving-ai-secrets
+              key: database-url
+        - name: DEFAULT_MONTHLY_BUDGET
+          value: "1000"
+        - name: ALERT_THRESHOLDS
+          value: "0.5,0.8,0.9"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
+
+---
+# Security Manager Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: security-manager
+  namespace: evolving-ai
+  labels:
+    app: security-manager
+    component: security
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: security-manager
+  template:
+    metadata:
+      labels:
+        app: security-manager
+        component: security
+    spec:
+      serviceAccountName: evolving-ai-service-account
+      containers:
+      - name: security-manager
+        image: evolving-ai/security-manager:2.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8002
+          name: http
+          protocol: TCP
+        env:
+        - name: ENCRYPTION_KEY
+          valueFrom:
+            secretKeyRef:
+              name: evolving-ai-secrets
+              key: encryption-key
+        - name: AUDIT_LOG_RETENTION_DAYS
+          value: "365"
+        - name: COMPLIANCE_FRAMEWORKS
+          value: "GDPR,SOC2,HIPAA"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
+
+---
+# Monitoring Dashboard Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitoring-dashboard
+  namespace: evolving-ai
+  labels:
+    app: monitoring-dashboard
+    component: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monitoring-dashboard
+  template:
+    metadata:
+      labels:
+        app: monitoring-dashboard
+        component: monitoring
+    spec:
+      serviceAccountName: evolving-ai-service-account
+      containers:
+      - name: monitoring-dashboard
+        image: evolving-ai/monitoring-dashboard:2.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8003
+          name: http
+          protocol: TCP
+        - containerPort: 8765
+          name: websocket
+          protocol: TCP
+        env:
+        - name: PROMETHEUS_URL
+          value: "http://prometheus:9090"
+        - name: GRAFANA_URL
+          value: "http://grafana:3000"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+
+---
+# Services
+apiVersion: v1
+kind: Service
+metadata:
+  name: evolution-engine
+  namespace: evolving-ai
+  labels:
+    app: evolution-engine
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8000
+    targetPort: 8000
+    protocol: TCP
+    name: http
+  - port: 9090
+    targetPort: 9090
+    protocol: TCP
+    name: metrics
+  selector:
+    app: evolution-engine
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-gateway
+  namespace: evolving-ai
+  labels:
+    app: api-gateway
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: api-gateway
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cost-optimizer
+  namespace: evolving-ai
+  labels:
+    app: cost-optimizer
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8001
+    targetPort: 8001
+    protocol: TCP
+    name: http
+  selector:
+    app: cost-optimizer
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: security-manager
+  namespace: evolving-ai
+  labels:
+    app: security-manager
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8002
+    targetPort: 8002
+    protocol: TCP
+    name: http
+  selector:
+    app: security-manager
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: monitoring-dashboard
+  namespace: evolving-ai
+  labels:
+    app: monitoring-dashboard
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8003
+    protocol: TCP
+    name: http
+  - port: 8765
+    targetPort: 8765
+    protocol: TCP
+    name: websocket
+  selector:
+    app: monitoring-dashboard
+
+---
+# Horizontal Pod Autoscaler for Evolution Engine
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: evolution-engine-hpa
+  namespace: evolving-ai
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: evolution-engine
+  minReplicas: 3
+  maxReplicas: 20
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 10
+        periodSeconds: 60
+
+---
+# Horizontal Pod Autoscaler for API Gateway
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: api-gateway-hpa
+  namespace: evolving-ai
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: api-gateway
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+
+---
+# Pod Disruption Budget for Evolution Engine
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: evolution-engine-pdb
+  namespace: evolving-ai
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: evolution-engine
+
+---
+# Pod Disruption Budget for API Gateway
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: api-gateway-pdb
+  namespace: evolving-ai
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: api-gateway
+
+---
+# Service Account
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: evolving-ai-service-account
+  namespace: evolving-ai
+
+---
+# Role for service account
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: evolving-ai
+  name: evolving-ai-role
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services", "configmaps", "secrets"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["apps"]
+  resources: ["deployments", "replicasets"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["autoscaling"]
+  resources: ["horizontalpodautoscalers"]
+  verbs: ["get", "list", "watch"]
+
+---
+# Role binding
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: evolving-ai-role-binding
+  namespace: evolving-ai
+subjects:
+- kind: ServiceAccount
+  name: evolving-ai-service-account
+  namespace: evolving-ai
+roleRef:
+  kind: Role
+  name: evolving-ai-role
+  apiGroup: rbac.authorization.k8s.io
+
+---
+# Network Policy for security
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: evolving-ai-network-policy
+  namespace: evolving-ai
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: evolving-ai
+    - namespaceSelector:
+        matchLabels:
+          name: monitoring
+  - from: []
+    ports:
+    - protocol: TCP
+      port: 8080  # API Gateway
+    - protocol: TCP
+      port: 8003  # Monitoring Dashboard
+  egress:
+  - to: []
+    ports:
+    - protocol: TCP
+      port: 53   # DNS
+    - protocol: UDP
+      port: 53   # DNS
+    - protocol: TCP
+      port: 443  # HTTPS
+    - protocol: TCP
+      port: 80   # HTTP
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: evolving-ai
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: kube-system
+
+---
+# Ingress for external access
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: evolving-ai-ingress
+  namespace: evolving-ai
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rate-limit: "1000"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+spec:
+  tls:
+  - hosts:
+    - api.evolving-ai.com
+    - dashboard.evolving-ai.com
+    secretName: evolving-ai-tls
+  rules:
+  - host: api.evolving-ai.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: api-gateway
+            port:
+              number: 80
+  - host: dashboard.evolving-ai.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: monitoring-dashboard
+            port:
+              number: 80
+
+---
+# Prometheus ServiceMonitor for metrics collection
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: evolving-ai-metrics
+  namespace: evolving-ai
+  labels:
+    app: evolving-ai
+spec:
+  selector:
+    matchLabels:
+      app: evolution-engine
+  endpoints:
+  - port: metrics
+    interval: 30s
+    path: /metrics
+
+---
+# PrometheusRule for alerting
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: evolving-ai-alerts
+  namespace: evolving-ai
+  labels:
+    app: evolving-ai
+spec:
+  groups:
+  - name: evolving-ai.rules
+    rules:
+    - alert: EvolutionEngineDown
+      expr: up{job="evolution-engine"} == 0
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Evolution Engine is down"
+        description: "Evolution Engine has been down for more than 1 minute"
+    
+    - alert: HighErrorRate
+      expr: rate(http_requests_total{status=~"5.."}[5m]) > 0.05
+      for: 2m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High error rate detected"
+        description: "Error rate is {{ $value }} errors per second"
+    
+    - alert: HighResponseTime
+      expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])) > 0.2
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High response time"
+        description: "95th percentile response time is {{ $value }}s"
+    
+    - alert: LowFitnessScore
+      expr: evolution_fitness_score < 0.7
+      for: 10m
+      labels:
+        severity: warning
+      annotations:
+        summary: "Low fitness score"
+        description: "Evolution fitness score is {{ $value }}"
+    
+    - alert: HighMemoryUsage
+      expr: (container_memory_working_set_bytes / container_spec_memory_limit_bytes) > 0.9
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High memory usage"
+        description: "Memory usage is {{ $value | humanizePercentage }}"
+    
+    - alert: HighCPUUsage
+      expr: rate(container_cpu_usage_seconds_total[5m]) > 0.8
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High CPU usage"
+        description: "CPU usage is {{ $value | humanizePercentage }}"
+
+---
+# CronJob for system backup
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: system-backup
+  namespace: evolving-ai
+spec:
+  schedule: "0 2 * * *"  # Daily at 2 AM
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: evolving-ai-service-account
+          containers:
+          - name: backup
+            image: evolving-ai/backup-tool:2.0.0
+            imagePullPolicy: Always
+            env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: evolving-ai-secrets
+                  key: database-url
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: evolving-ai-secrets
+                  key: aws-access-key-id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: evolving-ai-secrets
+                  key: aws-secret-access-key
+            - name: BACKUP_BUCKET
+              value: "evolving-ai-backups"
+            - name: RETENTION_DAYS
+              value: "30"
+            command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Starting system backup..."
+              /app/backup.sh
+              echo "Backup completed successfully"
+            volumeMounts:
+            - name: data-volume
+              mountPath: /app/data
+              readOnly: true
+          volumes:
+          - name: data-volume
+            persistentVolumeClaim:
+              claimName: evolving-ai-data
+          restartPolicy: OnFailure
+      backoffLimit: 3
+
+---
+# CronJob for cleanup old data
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: data-cleanup
+  namespace: evolving-ai
+spec:
+  schedule: "0 3 * * 0"  # Weekly on Sunday at 3 AM
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: evolving-ai-service-account
+          containers:
+          - name: cleanup
+            image: evolving-ai/cleanup-tool:2.0.0
+            imagePullPolicy: Always
+            env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: evolving-ai-secrets
+                  key: database-url
+            - name: METRICS_RETENTION_DAYS
+              value: "90"
+            - name: LOGS_RETENTION_DAYS
+              value: "30"
+            - name: EVOLUTION_HISTORY_RETENTION_DAYS
+              value: "365"
+            command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Starting data cleanup..."
+              /app/cleanup.sh
+              echo "Cleanup completed successfully"
+          restartPolicy: OnFailure
+      backoffLimit: 2

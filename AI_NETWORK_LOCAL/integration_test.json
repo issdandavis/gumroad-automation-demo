@@ -1,0 +1,8 @@
+{
+  "test_type": "integration_test",
+  "timestamp": "2025-12-29T06:53:55.468807",
+  "data": {
+    "key": "value",
+    "number": 42
+  }
+}

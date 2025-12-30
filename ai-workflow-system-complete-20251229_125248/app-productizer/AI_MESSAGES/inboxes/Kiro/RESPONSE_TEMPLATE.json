@@ -1,0 +1,10 @@
+{
+  "id": "REPLACE_WITH_UNIQUE_ID",
+  "timestamp": "REPLACE_WITH_CURRENT_TIMESTAMP",
+  "from_ai": "REPLACE_WITH_YOUR_AI_NAME",
+  "to_ai": "Kiro",
+  "message": "REPLACE_WITH_YOUR_RESPONSE_MESSAGE",
+  "message_type": "response",
+  "priority": "normal",
+  "status": "pending"
+}

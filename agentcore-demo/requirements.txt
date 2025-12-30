@@ -1,0 +1,22 @@
+# AgentCore Dependencies
+bedrock-agentcore>=1.0.3
+bedrock-agentcore-starter-toolkit>=0.2.5
+
+# AWS Dependencies
+boto3>=1.42.1
+botocore>=1.42.1
+
+# Observability
+aws-opentelemetry-distro>=0.10.0
+
+# Development Dependencies
+python-dotenv>=1.2.1
+uvicorn>=0.34.2
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+
+# Optional: For enhanced functionality
+httpx>=0.28.1
+pydantic>=2.0.0

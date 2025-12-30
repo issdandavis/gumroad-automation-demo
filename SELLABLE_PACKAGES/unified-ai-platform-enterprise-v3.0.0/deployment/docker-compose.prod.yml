@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  bridge-api:
+    build: ./bridge-api
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - REDIS_HOST=redis
+      - DATABASE_URL=postgresql://user:pass@postgres:5432/unified_ai
+    depends_on:
+      - redis
+      - postgres
+    restart: unless-stopped
+
+  evolution-framework:
+    build: ./evolution-framework
+    ports:
+      - "5000:5000"
+    environment:
+      - BRIDGE_API_URL=http://bridge-api:3001
+    depends_on:
+      - bridge-api
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=unified_ai
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  postgres_data:

@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Shopify Mobile Manager{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="h3 mb-4">
+            <i class="fas fa-tachometer-alt me-2"></i>Store Dashboard
+            <small class="text-muted">{{ user.shopify_domain }}</small>
+        </h1>
+    </div>
+</div>
+
+<!-- Analytics Cards -->
+<div class="row mb-4">
+    <div class="col-md-3 col-sm-6 mb-3">
+        <div class="card metric-card">
+            <div class="card-body text-center">
+                <i class="fas fa-dollar-sign fa-2x mb-2"></i>
+                <h4 class="card-title">${{ "%.2f"|format(analytics.total_revenue or 0) }}</h4>
+                <p class="card-text">Total Revenue ({{ analytics.period_days or 30 }} days)</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <div class="card metric-card">
+            <div class="card-body text-center">
+                <i class="fas fa-shopping-cart fa-2x mb-2"></i>
+                <h4 class="card-title">{{ analytics.total_orders or 0 }}</h4>
+                <p class="card-text">Total Orders</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <div class="card metric-card">
+            <div class="card-body text-center">
+                <i class="fas fa-chart-line fa-2x mb-2"></i>
+                <h4 class="card-title">${{ "%.2f"|format(analytics.avg_order_value or 0) }}</h4>
+                <p class="card-text">Avg Order Value</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 mb-3">
+        <div class="card metric-card">
+            <div class="card-body text-center">
+                <i class="fas fa-clock fa-2x mb-2"></i>
+                <h4 class="card-title">Live</h4>
+                <p class="card-text">Real-time Data</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0"><i class="fas fa-bolt me-2"></i>Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 mb-2">
+                        <button class="btn btn-primary w-100" onclick="refreshData()">
+                            <i class="fas fa-sync-alt me-1"></i>Refresh Data
+                        </button>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-2">
+                        <a href="{{ url_for('products') }}" class="btn btn-outline-primary w-100">
+                            <i class="fas fa-box me-1"></i>Manage Products
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-2">
+                        <a href="{{ url_for('orders') }}" class="btn btn-outline-primary w-100">
+                            <i class="fas fa-list me-1"></i>View Orders
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-2">
+                        <button class="btn btn-outline-success w-100" onclick="exportData()">
+                            <i class="fas fa-download me-1"></i>Export Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Orders -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0"><i class="fas fa-shopping-cart me-2"></i>Recent Orders</h5>
+                <a href="{{ url_for('orders') }}" class="btn btn-sm btn-outline-primary">View All</a>
+            </div>
+            <div class="card-body">
+                {% if recent_orders %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Order #</th>
+                                <th>Customer</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Items</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in recent_orders %}
+                            <tr>
+                                <td><strong>#{{ order.order_number }}</strong></td>
+                                <td>{{ order.customer_email or 'Guest' }}</td>
+                                <td><strong>${{ "%.2f"|format(order.total_price) }}</strong></td>
+                                <td>
+                                    <span class="badge bg-{% if order.fulfillment_status == 'fulfilled' %}success{% elif order.fulfillment_status == 'partial' %}warning{% else %}secondary{% endif %} status-badge">
+                                        {{ order.fulfillment_status or 'unfulfilled' }}
+                                    </span>
+                                </td>
+                                <td>{{ order.line_items }} items</td>
+                                <td>{{ order.created_at.strftime('%m/%d %H:%M') if order.created_at else 'N/A' }}</td>
+                                <td>
+                                    {% if order.fulfillment_status != 'fulfilled' %}
+                                    <button class="btn btn-sm btn-success" onclick="fulfillOrder('{{ order.id }}')">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    {% endif %}
+                                    <button class="btn btn-sm btn-outline-primary" onclick="viewOrder('{{ order.id }}')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-4">
+                    <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                    <h5 class="text-muted">No recent orders</h5>
+                    <p class="text-muted">Orders will appear here when customers make purchases.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Overlay -->
+<div class="loading position-fixed top-50 start-50 translate-middle">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function refreshData() {
+    $.get('/api/analytics?days=30', function(data) {
+        location.reload();
+    }).fail(function() {
+        alert('Failed to refresh data. Please try again.');
+    });
+}
+
+function fulfillOrder(orderId) {
+    const trackingNumber = prompt('Enter tracking number (optional):');
+    
+    $.ajax({
+        url: '/api/fulfill-order',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            order_id: orderId,
+            tracking_number: trackingNumber
+        }),
+        success: function(response) {
+            if (response.success) {
+                alert('Order fulfilled successfully!');
+                location.reload();
+            } else {
+                alert('Failed to fulfill order. Please try again.');
+            }
+        },
+        error: function() {
+            alert('Error fulfilling order. Please try again.');
+        }
+    });
+}
+
+function viewOrder(orderId) {
+    // In a real app, this would open a detailed order view
+    alert('Order details for #' + orderId + '\n\nThis would open a detailed view in the full application.');
+}
+
+function exportData() {
+    // Create CSV export of recent data
+    const csvContent = "data:text/csv;charset=utf-8," + 
+        "Order Number,Customer,Total,Status,Items,Date\n" +
+        {% for order in recent_orders %}
+        "{{ order.order_number }},{{ order.customer_email or 'Guest' }},{{ order.total_price }},{{ order.fulfillment_status or 'unfulfilled' }},{{ order.line_items }},{{ order.created_at.strftime('%Y-%m-%d %H:%M') if order.created_at else 'N/A' }}\n" +
+        {% endfor %}
+        "";
+    
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "shopify_orders_" + new Date().toISOString().split('T')[0] + ".csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Auto-refresh every 30 seconds
+setInterval(function() {
+    $.get('/api/analytics?days=30', function(data) {
+        // Update metrics without full page reload
+        $('.metric-card h4').each(function(index) {
+            switch(index) {
+                case 0: $(this).text('$' + (data.total_revenue || 0).toFixed(2)); break;
+                case 1: $(this).text(data.total_orders || 0); break;
+                case 2: $(this).text('$' + (data.avg_order_value || 0).toFixed(2)); break;
+            }
+        });
+    });
+}, 30000);
+</script>
+{% endblock %}
