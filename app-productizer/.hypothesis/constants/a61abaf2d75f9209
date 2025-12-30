@@ -1,0 +1,4 @@
+# file: C:\Users\issda\vscode-remote-wsl\app-productizer\self_evolving_core\rollback.py
+# hypothesis_version: 6.148.8
+
+['fitness_score', 'generation', 'generations_back', 'label', 'mutation_count', 'r', 'snapshot_*.json', 'snapshot_id', 'timestamp', 'version', 'w']

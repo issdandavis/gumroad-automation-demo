@@ -1,0 +1,4 @@
+# file: C:\Users\issda\vscode-remote-wsl\app-productizer\self_evolving_core\logging_system.py
+# hypothesis_version: 6.148.8
+
+[100, 10000, 'a', 'apply_mutation', 'attempts', 'auto_approved', 'auto_approved_rate', 'autonomy', 'avg_impact', 'by_type', 'critical', 'debug', 'error', 'error_type', 'fitness', 'fitness_impact', 'generation', 'heal', 'healing', 'info', 'logs/audit.log', 'logs/evolution.json', 'mutation', 'mutation_id', 'mutation_type', 'path', 'platform', 'r', 'risk_score', 'security', 'storage', 'strategy', 'system', 'timestamp', 'total', 'w', 'warning']

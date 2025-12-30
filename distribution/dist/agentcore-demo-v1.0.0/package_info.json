@@ -1,0 +1,26 @@
+{
+  "package_name": "AgentCore Demo",
+  "version": "1.0.0",
+  "release_date": "2025-12-29T14:22:29.529405",
+  "license": "MIT",
+  "author": "AI Workflow Systems",
+  "description": "Production-ready AgentCore agent template",
+  "requirements": {
+    "python": ">=3.10",
+    "aws_cli": ">=2.0",
+    "agentcore": ">=0.2.5"
+  },
+  "features": [
+    "Complete agent implementation",
+    "AWS AgentCore integration",
+    "Comprehensive test suite",
+    "Production deployment ready",
+    "Commercial license included"
+  ],
+  "support": {
+    "email": "support@aiworkflow.com",
+    "documentation": "README.md",
+    "deployment_guide": "DEPLOYMENT_GUIDE.md",
+    "guarantee": "30-day money-back"
+  }
+}

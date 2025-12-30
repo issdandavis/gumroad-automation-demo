@@ -1,0 +1,4 @@
+# file: C:\Users\issda\vscode-remote-wsl\app-productizer\self_evolving_core\__init__.py
+# hypothesis_version: 6.148.8
+
+['2.0.0', 'AIProviderHub', 'AuditLogger', 'AutonomyConfig', 'AutonomyController', 'BasePlugin', 'ConfigManager', 'ConfigValidator', 'CoreTraits', 'DegradationAlert', 'DropboxClient', 'Event', 'EventBus', 'EvolutionLog', 'EvolvingAIFramework', 'FeedbackAnalyzer', 'FitnessMonitor', 'FitnessScore', 'GitHubClient', 'LocalStorage', 'Mutation', 'MutationEngine', 'MutationRecord', 'MutationValidator', 'OperationResult', 'PluginManager', 'ProviderAdapter', 'RollbackManager', 'SelfHealer', 'Snapshot', 'StorageSync', 'SyncQueue', 'SyncResult', 'SystemDNA', 'WorkflowResult', '__author__', '__version__']

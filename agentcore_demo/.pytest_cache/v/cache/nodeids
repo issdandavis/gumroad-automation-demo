@@ -1,0 +1,14 @@
+[
+  "tests/test_agent.py::TestAgentCoreDemo::test_agent_initialization",
+  "tests/test_agent.py::TestAgentCoreDemo::test_agentcore_info_response",
+  "tests/test_agent.py::TestAgentCoreDemo::test_capabilities_response",
+  "tests/test_agent.py::TestAgentCoreDemo::test_default_response",
+  "tests/test_agent.py::TestAgentCoreDemo::test_empty_prompt",
+  "tests/test_agent.py::TestAgentCoreDemo::test_error_handling",
+  "tests/test_agent.py::TestAgentCoreDemo::test_hello_response",
+  "tests/test_agent.py::TestAgentCoreDemo::test_missing_prompt",
+  "tests/test_agent.py::TestAgentCoreDemo::test_response_structure",
+  "tests/test_agent.py::TestAgentCoreDemo::test_time_response",
+  "tests/test_agent.py::TestAgentIntegration::test_concurrent_requests",
+  "tests/test_agent.py::TestAgentIntegration::test_json_serialization"
+]

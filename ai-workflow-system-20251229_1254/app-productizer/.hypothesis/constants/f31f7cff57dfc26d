@@ -1,0 +1,4 @@
+# file: C:\Users\issda\vscode-remote-wsl\app-productizer\self_evolving_core\providers.py
+# hypothesis_version: 6.148.8
+
+[0.0, 0.002, 0.01, 0.015, 0.03, 0.7, 1000, 'ANTHROPIC_API_KEY', 'All providers failed', 'Budget limit reached', 'OPENAI_API_KEY', 'anthropic', 'anthropic_api_key', 'anthropic_model', 'available', 'avg_latency_ms', 'base', 'budget_remaining', 'content', 'cost', 'disabled', 'error', 'gpt-3.5-turbo', 'gpt-4', 'gpt-4-turbo', 'max_tokens', 'model', 'openai', 'openai_api_key', 'openai_model', 'provider', 'providers', 'rate_limited', 'requests', 'role', 'status', 'success', 'success_rate', 'temperature', 'tokens', 'total_cost', 'user']
