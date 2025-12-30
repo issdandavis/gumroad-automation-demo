@@ -1,4 +1,5 @@
 # AgentCore Demo - Commercial Package
+<!-- Last Updated: 2025-12-29 - Ready for $97 commercial launch -->
 
 ## 🎯 Product Overview
 

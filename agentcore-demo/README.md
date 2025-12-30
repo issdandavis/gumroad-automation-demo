@@ -1,4 +1,5 @@
 # AgentCore Demo - Production-Ready AI Agent
+<!-- Last Updated: 2025-12-29 - Complete package ready for commercial distribution -->
 
 A complete, production-ready example of building and deploying AI agents using AWS Bedrock AgentCore.
 

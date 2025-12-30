@@ -1,6 +1,7 @@
 """
 Production-Ready AgentCore Agent
 A complete example showing how to build and deploy AI agents with AWS Bedrock AgentCore
+Last Updated: 2025-12-29 - Fully tested and production ready
 """
 
 import os

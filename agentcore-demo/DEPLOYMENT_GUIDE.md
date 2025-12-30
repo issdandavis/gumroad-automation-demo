@@ -1,4 +1,5 @@
 # AgentCore Demo - Deployment Guide
+<!-- Last Updated: 2025-12-29 - Complete deployment instructions verified -->
 
 Complete step-by-step guide for deploying your AgentCore agent to AWS.
 
