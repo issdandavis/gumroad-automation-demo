@@ -268,8 +268,9 @@ class AWSConfigManager:
                 identity = sts.get_caller_identity()
                 logger.info(f"AWS session established for account: {identity.get('Account')}")
             except Exception as e:
-                logger.error(f"Failed to establish AWS session: {e}")
-                raise
+                error_msg = f"Failed to establish AWS session with provided credentials. Error: {str(e)}"
+                logger.error(error_msg)
+                raise RuntimeError(error_msg) from e
         
         return self._session
     
