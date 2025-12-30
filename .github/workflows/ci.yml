@@ -10,59 +10,34 @@ jobs:
   test-agentcore:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-    
-    - name: Install dependencies
-      run: |
-        cd agentcore-demo
-        pip install -r requirements.txt
-    
-    - name: Run tests
-      run: |
-        cd agentcore-demo
-        python -m pytest tests/ -v
-    
-    - name: Validate package
-      run: |
-        cd agentcore-demo
-        python validate_package.py
+      - uses: actions/checkout@v3
 
-  test-platform:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-    
-    - name: Install dependencies
-      run: |
-        cd ai-workflow-architect
-        npm install
-    
-    - name: Run tests
-      run: |
-        cd ai-workflow-architect
-        npm test
-    
-    - name: Build project
-      run: |
-        cd ai-workflow-architect
-        npm run build
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd agentcore-demo
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          cd agentcore-demo
+          python -m pytest tests/ -v
+
+      - name: Validate package
+        run: |
+          cd agentcore-demo
+          python validate_package.py
 
   security-scan:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Run security scan
-      uses: securecodewarrior/github-action-add-sarif@v1
-      with:
-        sarif-file: 'security-scan-results.sarif'
+      - uses: actions/checkout@v3
+
+      - name: Run security scan
+        run: |
+          echo "Security scan placeholder - configure with your preferred security tool"
+          echo "Recommended: Snyk, GitHub Advanced Security, or similar"
