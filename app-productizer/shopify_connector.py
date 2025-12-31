@@ -29,6 +29,28 @@ from enum import Enum
 from pathlib import Path
 import requests
 
+# Intelligence module imports (optional enhancement)
+try:
+    from ecommerce_intelligence import (
+        EnhancedProductAnalyzer,
+        CompetitorAnalyzer,
+        TrendDetector,
+        ProductScorer,
+        HealthMonitor,
+        WebhookHandler,
+        cached
+    )
+    INTELLIGENCE_AVAILABLE = True
+except ImportError:
+    INTELLIGENCE_AVAILABLE = False
+
+# PC Build compatibility checker (optional)
+try:
+    from pc_compatibility_checker import PCCompatibilityChecker, check_build
+    COMPATIBILITY_CHECKER_AVAILABLE = True
+except ImportError:
+    COMPATIBILITY_CHECKER_AVAILABLE = False
+
 # Framework imports - with graceful fallbacks for standalone operation
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
@@ -1417,6 +1439,180 @@ def handler(event: Dict[str, Any], context) -> Dict[str, Any]:
             "statusCode": 500,
             "body": json.dumps({"error": str(e)})
         }
+
+
+# =============================================================================
+# ENHANCED STORE MANAGER (with Intelligence Modules)
+# =============================================================================
+
+class EnhancedStoreManager(ZeroClickStoreManager):
+    """
+    Enhanced store manager with e-commerce intelligence capabilities.
+    Adds competitor analysis, trend detection, and health monitoring.
+    """
+
+    def __init__(self, config: ShopifyConfig = None, dry_run: bool = None):
+        super().__init__(config, dry_run)
+
+        # Initialize intelligence modules if available
+        if INTELLIGENCE_AVAILABLE:
+            self.product_analyzer = EnhancedProductAnalyzer()
+            self.competitor_analyzer = CompetitorAnalyzer()
+            self.trend_detector = TrendDetector()
+            self.health_monitor = HealthMonitor()
+            self.webhook_handler = WebhookHandler()
+            logger.info("Intelligence modules loaded")
+        else:
+            self.product_analyzer = None
+            self.competitor_analyzer = None
+            self.trend_detector = None
+            self.health_monitor = None
+            self.webhook_handler = None
+            logger.info("Intelligence modules not available - basic mode")
+
+        # Initialize compatibility checker if available
+        if COMPATIBILITY_CHECKER_AVAILABLE:
+            self.compatibility_checker = PCCompatibilityChecker()
+            logger.info("PC compatibility checker loaded")
+        else:
+            self.compatibility_checker = None
+
+    def analyze_opportunity(
+        self,
+        product_name: str,
+        wholesale_cost: float,
+        selling_price: float,
+        category: str = "general"
+    ) -> Dict[str, Any]:
+        """
+        Get comprehensive product opportunity analysis.
+        Uses intelligence modules for deeper insights.
+        """
+        if not INTELLIGENCE_AVAILABLE or not self.product_analyzer:
+            # Fallback to basic margin analysis
+            margin = ((selling_price - wholesale_cost) / selling_price) * 100
+            return {
+                "product_name": product_name,
+                "profit_margin": round(margin, 1),
+                "overall_score": 50,
+                "recommendation": "Intelligence modules not available - manual review recommended",
+                "analysis_mode": "basic"
+            }
+
+        # Full intelligence analysis
+        analysis = self.product_analyzer.analyze_product_opportunity(
+            product_name, wholesale_cost, selling_price, category
+        )
+        analysis["analysis_mode"] = "enhanced"
+        return analysis
+
+    def get_trending_products(self, limit: int = 10) -> List[Dict[str, Any]]:
+        """Get currently trending product categories"""
+        if not INTELLIGENCE_AVAILABLE or not self.trend_detector:
+            return [{"message": "Trend detection not available"}]
+
+        return self.trend_detector.get_trending_categories(limit)
+
+    def analyze_competitors(
+        self,
+        product_name: str,
+        your_price: float,
+        category: str = "general"
+    ) -> Dict[str, Any]:
+        """Analyze competitor pricing for a product"""
+        if not INTELLIGENCE_AVAILABLE or not self.competitor_analyzer:
+            return {"message": "Competitor analysis not available"}
+
+        from dataclasses import asdict
+        analysis = self.competitor_analyzer.analyze_product(
+            product_name, your_price, category
+        )
+        return {
+            "product_name": analysis.product_name,
+            "your_price": analysis.your_price,
+            "market_average": analysis.market_average,
+            "market_low": analysis.market_low,
+            "market_high": analysis.market_high,
+            "price_position": analysis.price_position,
+            "recommended_price": analysis.recommended_price,
+            "competitive_score": analysis.competitive_score,
+            "competitor_count": len(analysis.competitor_prices)
+        }
+
+    def get_system_health(self) -> Dict[str, Any]:
+        """Get comprehensive system health status"""
+        if not INTELLIGENCE_AVAILABLE or not self.health_monitor:
+            return {
+                "status": "unknown",
+                "message": "Health monitoring not available"
+            }
+
+        health = self.health_monitor.check_health()
+        return {
+            "status": health.status.value,
+            "uptime_seconds": health.uptime_seconds,
+            "memory_usage_mb": health.memory_usage_mb,
+            "cache_stats": health.cache_stats,
+            "recommendations": health.recommendations,
+            "checks": [
+                {
+                    "component": c.component,
+                    "status": c.status.value,
+                    "message": c.message
+                }
+                for c in health.checks
+            ]
+        }
+
+    def check_pc_build_compatibility(self, build: Dict[str, Any]) -> Dict[str, Any]:
+        """Check PC build component compatibility"""
+        if not COMPATIBILITY_CHECKER_AVAILABLE or not self.compatibility_checker:
+            return {
+                "compatible": True,
+                "message": "Compatibility checker not available - manual review required"
+            }
+
+        report = self.compatibility_checker.check_build_compatibility(build)
+        return report.to_dict()
+
+    async def smart_process_request(self, request: str) -> Dict[str, Any]:
+        """
+        Enhanced request processing with intelligence insights.
+        Adds trend and competition data to results.
+        """
+        # Get base results
+        result = await self.process_user_request(request)
+
+        # Enhance with intelligence if available and successful
+        if result.get("success") and INTELLIGENCE_AVAILABLE:
+            # Add trending categories
+            result["trending_categories"] = self.get_trending_products(5)
+
+            # Add system health
+            result["system_health"] = self.get_system_health()
+
+            # Enhance listed products with intelligence
+            if result.get("listed_products") and self.product_analyzer:
+                for product in result["listed_products"]:
+                    if "title" in product and "price" in product:
+                        # Estimate wholesale cost from margin
+                        margin = product.get("margin", 50)
+                        price = product["price"]
+                        estimated_cost = price * (1 - margin / 100)
+
+                        # Get intelligence analysis
+                        intel = self.analyze_opportunity(
+                            product["title"],
+                            estimated_cost,
+                            price
+                        )
+                        product["intelligence"] = {
+                            "overall_score": intel.get("overall_score"),
+                            "trend": intel.get("trend", {}).get("direction"),
+                            "competition": intel.get("competition", {}).get("price_position")
+                        }
+
+        return result
 
 
 # =============================================================================
