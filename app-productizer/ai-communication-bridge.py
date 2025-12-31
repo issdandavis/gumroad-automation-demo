@@ -875,7 +875,8 @@ Respond in JSON format for automated processing.
         response = requests.post(
             'https://api.perplexity.ai/chat/completions',
             headers=headers,
-            json=data
+            json=data,
+            timeout=30  # 30 second timeout to prevent hanging
         )
         
         if response.status_code == 200:
@@ -909,7 +910,8 @@ Respond in JSON format for automated processing.
             response = requests.post(
                 self.config['zapier_webhook'],
                 json=message_data,
-                headers={'Content-Type': 'application/json'}
+                headers={'Content-Type': 'application/json'},
+                timeout=15  # 15 second timeout for webhooks
             )
             
             if response.status_code == 200:

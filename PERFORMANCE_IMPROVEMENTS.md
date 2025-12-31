@@ -75,6 +75,22 @@ spine = AINeuroSpine()
 
 **Performance Gain**: ~2-5x faster for large directory trees
 
+### 6. HTTP Request Timeouts (ai-communication-bridge.py, autonomous-ai-network.py)
+
+#### Added Timeouts to All HTTP Requests
+- **Impact**: Prevents hanging connections and improves reliability
+- **Changes**:
+  - Added 30s timeout to Perplexity API calls
+  - Added 15s timeout to Zapier webhook calls
+  - Added 10s timeout to Dropbox folder creation
+  - Added 30s timeout to Dropbox file uploads
+  - Added 15s timeout to GitHub API calls
+
+**Benefits**:
+- Prevents indefinite hangs on network issues
+- Allows graceful error handling
+- Improves user experience with predictable response times
+
 ## Performance Benefits Summary
 
 | Optimization | File | Benefit |
@@ -85,6 +101,7 @@ spine = AINeuroSpine()
 | Configurable Intervals | ai-communication-bridge.py | Reduces dev CPU usage, tunable |
 | Import Fix | ai-communication-bridge.py | Prevents crashes |
 | File Collection | deployment_manager.py | 2-5x faster packaging |
+| HTTP Timeouts | ai-communication-bridge.py, autonomous-ai-network.py | Prevents hanging, better reliability |
 
 ## Additional Recommendations (Not Yet Implemented)
 

@@ -155,7 +155,8 @@ class DropboxStorage:
             response = requests.post(
                 f"{self.api_url}/files/create_folder_v2",
                 headers=headers,
-                json=data
+                json=data,
+                timeout=10  # 10 second timeout
             )
             return response.status_code == 200
         except Exception as e:
@@ -190,7 +191,8 @@ class DropboxStorage:
             response = requests.post(
                 "https://content.dropboxapi.com/2/files/upload",
                 headers=headers,
-                data=json.dumps(message_data, indent=2).encode()
+                data=json.dumps(message_data, indent=2).encode(),
+                timeout=30  # 30 second timeout for uploads
             )
             return response.status_code == 200
         except Exception as e:
@@ -239,7 +241,8 @@ class GitHubStorage:
             response = requests.post(
                 f"{self.api_url}/user/repos",
                 headers=headers,
-                json=repo_data
+                json=repo_data,
+                timeout=15  # 15 second timeout
             )
             return response.status_code == 201
         except Exception as e:
