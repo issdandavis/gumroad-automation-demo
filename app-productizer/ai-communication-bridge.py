@@ -20,6 +20,7 @@ from collections import defaultdict
 import pickle
 import statistics
 from typing import Dict, List, Any, Optional
+from functools import lru_cache
 
 class AINeuroSpine:
     """
@@ -35,7 +36,7 @@ class AINeuroSpine:
     - GROWTH: Expands capabilities over time
     """
     
-    def __init__(self):
+    def __init__(self, background_intervals=None):
         self.config = self.load_config()
         self.memory_db = self.init_memory_system()
         self.neural_patterns = self.load_neural_patterns()
@@ -43,6 +44,14 @@ class AINeuroSpine:
         self.learning_cache = {}
         self.reflex_responses = self.init_reflexes()
         self.adaptation_engine = AdaptationEngine()
+        
+        # Configurable background process intervals (in seconds)
+        self.background_intervals = background_intervals or {
+            'memory_consolidation': 3600,  # 1 hour
+            'performance_monitoring': 300,  # 5 minutes
+            'pattern_recognition': 1800,   # 30 minutes
+            'self_healing': 600            # 10 minutes
+        }
         
         # Start background processes (like autonomic nervous system)
         self.start_background_processes()
@@ -103,6 +112,13 @@ class AINeuroSpine:
                 response_patterns TEXT
             )
         """)
+        
+        # Create indexes for performance optimization
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_interactions_service ON interactions(ai_service)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_interactions_timestamp ON interactions(timestamp)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_interactions_quality ON interactions(quality_score)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_neural_patterns_type ON neural_patterns(pattern_type)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_personalities_service ON ai_personalities(ai_service)")
         
         conn.commit()
         return conn
@@ -297,7 +313,7 @@ class AINeuroSpine:
         
         # Add context from successful interactions
         if insights.get('quality_predictors'):
-            avg_successful_length = np.mean([p['message_length'] for p in insights['quality_predictors']])
+            avg_successful_length = statistics.mean([p['message_length'] for p in insights['quality_predictors']])
             if len(enhanced_message) < avg_successful_length * 0.7:
                 enhanced_message += "\n\nAdditional context: This request is part of the App Productizer system that transforms code into sellable products."
         
@@ -461,36 +477,38 @@ class AINeuroSpine:
     def memory_consolidation_loop(self):
         """Background memory consolidation (like sleep processing)"""
         while True:
-            time.sleep(3600)  # Every hour
+            time.sleep(self.background_intervals['memory_consolidation'])
             self.consolidate_memories()
     
     def performance_monitoring_loop(self):
         """Background performance monitoring (like vital signs)"""
         while True:
-            time.sleep(300)  # Every 5 minutes
+            time.sleep(self.background_intervals['performance_monitoring'])
             self.monitor_system_health()
     
     def pattern_recognition_loop(self):
         """Background pattern recognition (like subconscious learning)"""
         while True:
-            time.sleep(1800)  # Every 30 minutes
+            time.sleep(self.background_intervals['pattern_recognition'])
             self.recognize_new_patterns()
     
     def self_healing_loop(self):
         """Background self-healing (like immune system)"""
         while True:
-            time.sleep(600)  # Every 10 minutes
+            time.sleep(self.background_intervals['self_healing'])
             self.self_heal_and_optimize()
     
     def consolidate_memories(self):
         """Consolidate memories for better pattern recognition"""
         print("🧠 Consolidating memories...")
         
-        # Analyze recent interactions for patterns
+        # Analyze recent interactions for patterns (limit to most recent 1000)
         cursor = self.memory_db.execute("""
             SELECT ai_service, message_type, quality_score, learned_patterns
             FROM interactions 
             WHERE timestamp > datetime('now', '-24 hours')
+            ORDER BY timestamp DESC
+            LIMIT 1000
         """)
         
         interactions = cursor.fetchall()
@@ -587,8 +605,9 @@ class AINeuroSpine:
         
         return capabilities
     
+    @lru_cache(maxsize=32)
     def get_ai_personality(self, ai_service: str) -> Dict:
-        """Get AI service personality profile"""
+        """Get AI service personality profile (cached for performance)"""
         cursor = self.memory_db.execute(
             "SELECT personality_profile FROM ai_personalities WHERE ai_service = ?",
             (ai_service,)

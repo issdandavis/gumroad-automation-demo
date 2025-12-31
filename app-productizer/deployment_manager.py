@@ -301,24 +301,25 @@ class PackageBuilder:
         self.dist_dir.mkdir(parents=True, exist_ok=True)
     
     def _collect_files(self) -> List[Path]:
-        """Collect all files to include in package"""
+        """Collect all files to include in package (optimized)"""
         files = []
+        
+        # Pre-compile exclusion patterns for better performance
+        suffix_exclusions = {ex[1:] for ex in self.exclusions if ex.startswith("*")}
+        path_exclusions = {ex for ex in self.exclusions if not ex.startswith("*")}
         
         for item in self.source_dir.rglob("*"):
             if item.is_file():
-                # Check exclusions
-                skip = False
-                for exclusion in self.exclusions:
-                    if exclusion.startswith("*"):
-                        if item.suffix == exclusion[1:]:
-                            skip = True
-                            break
-                    elif exclusion in str(item):
-                        skip = True
-                        break
+                # Check suffix exclusions (faster lookup with set)
+                if item.suffix in suffix_exclusions:
+                    continue
                 
-                if not skip:
-                    files.append(item)
+                # Check path exclusions
+                item_str = str(item)
+                if any(exclusion in item_str for exclusion in path_exclusions):
+                    continue
+                
+                files.append(item)
         
         return files
     
