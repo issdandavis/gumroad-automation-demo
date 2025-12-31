@@ -17,9 +17,11 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
 from collections import defaultdict
+from types import MappingProxyType
 import pickle
 import statistics
 from typing import Dict, List, Any, Optional
+from functools import lru_cache
 
 class AINeuroSpine:
     """
@@ -35,7 +37,7 @@ class AINeuroSpine:
     - GROWTH: Expands capabilities over time
     """
     
-    def __init__(self):
+    def __init__(self, background_intervals=None):
         self.config = self.load_config()
         self.memory_db = self.init_memory_system()
         self.neural_patterns = self.load_neural_patterns()
@@ -43,6 +45,14 @@ class AINeuroSpine:
         self.learning_cache = {}
         self.reflex_responses = self.init_reflexes()
         self.adaptation_engine = AdaptationEngine()
+        
+        # Configurable background process intervals (in seconds)
+        self.background_intervals = background_intervals or {
+            'memory_consolidation': 3600,  # 1 hour
+            'performance_monitoring': 300,  # 5 minutes
+            'pattern_recognition': 1800,   # 30 minutes
+            'self_healing': 600            # 10 minutes
+        }
         
         # Start background processes (like autonomic nervous system)
         self.start_background_processes()
@@ -103,6 +113,15 @@ class AINeuroSpine:
                 response_patterns TEXT
             )
         """)
+        
+        # Create indexes for performance optimization
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_interactions_service ON interactions(ai_service)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_interactions_timestamp ON interactions(timestamp)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_interactions_quality ON interactions(quality_score)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_neural_patterns_type ON neural_patterns(pattern_type)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_personalities_service ON ai_personalities(ai_service)")
+        # Composite index for memory consolidation query (timestamp DESC, quality_score)
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_interactions_timestamp_quality ON interactions(timestamp DESC, quality_score)")
         
         conn.commit()
         return conn
@@ -296,10 +315,14 @@ class AINeuroSpine:
             enhanced_instructions = self.adapt_to_personality(enhanced_instructions, personality)
         
         # Add context from successful interactions
-        if insights.get('quality_predictors'):
-            avg_successful_length = np.mean([p['message_length'] for p in insights['quality_predictors']])
-            if len(enhanced_message) < avg_successful_length * 0.7:
-                enhanced_message += "\n\nAdditional context: This request is part of the App Productizer system that transforms code into sellable products."
+        if insights.get('quality_predictors') and len(insights['quality_predictors']) > 0:
+            try:
+                avg_successful_length = statistics.mean([p['message_length'] for p in insights['quality_predictors']])
+                if len(enhanced_message) < avg_successful_length * 0.7:
+                    enhanced_message += "\n\nAdditional context: This request is part of the App Productizer system that transforms code into sellable products."
+            except (statistics.StatisticsError, KeyError):
+                # Skip if unable to calculate mean or data is missing
+                pass
         
         return enhanced_message, enhanced_instructions
     
@@ -461,36 +484,38 @@ class AINeuroSpine:
     def memory_consolidation_loop(self):
         """Background memory consolidation (like sleep processing)"""
         while True:
-            time.sleep(3600)  # Every hour
+            time.sleep(self.background_intervals['memory_consolidation'])
             self.consolidate_memories()
     
     def performance_monitoring_loop(self):
         """Background performance monitoring (like vital signs)"""
         while True:
-            time.sleep(300)  # Every 5 minutes
+            time.sleep(self.background_intervals['performance_monitoring'])
             self.monitor_system_health()
     
     def pattern_recognition_loop(self):
         """Background pattern recognition (like subconscious learning)"""
         while True:
-            time.sleep(1800)  # Every 30 minutes
+            time.sleep(self.background_intervals['pattern_recognition'])
             self.recognize_new_patterns()
     
     def self_healing_loop(self):
         """Background self-healing (like immune system)"""
         while True:
-            time.sleep(600)  # Every 10 minutes
+            time.sleep(self.background_intervals['self_healing'])
             self.self_heal_and_optimize()
     
     def consolidate_memories(self):
         """Consolidate memories for better pattern recognition"""
         print("🧠 Consolidating memories...")
         
-        # Analyze recent interactions for patterns
+        # Analyze recent interactions for patterns (limit to most recent 1000)
         cursor = self.memory_db.execute("""
             SELECT ai_service, message_type, quality_score, learned_patterns
             FROM interactions 
             WHERE timestamp > datetime('now', '-24 hours')
+            ORDER BY timestamp DESC
+            LIMIT 1000
         """)
         
         interactions = cursor.fetchall()
@@ -587,8 +612,16 @@ class AINeuroSpine:
         
         return capabilities
     
+    @lru_cache(maxsize=32)
     def get_ai_personality(self, ai_service: str) -> Dict:
-        """Get AI service personality profile"""
+        """Get AI service personality profile (cached for performance)
+        
+        Returns an immutable MappingProxyType to ensure cache safety while
+        maintaining caching benefits. The cached result is truly immutable.
+        
+        Note: This caches the database result. If you need a mutable copy,
+        use dict(result) to convert the MappingProxyType to a regular dict.
+        """
         cursor = self.memory_db.execute(
             "SELECT personality_profile FROM ai_personalities WHERE ai_service = ?",
             (ai_service,)
@@ -597,11 +630,14 @@ class AINeuroSpine:
         result = cursor.fetchone()
         if result:
             try:
-                return json.loads(result[0])
-            except:
+                # Parse JSON and return as immutable mapping for cache safety
+                data = json.loads(result[0])
+                return MappingProxyType(data)
+            except (json.JSONDecodeError, TypeError):
                 pass
         
-        return {}
+        # Return immutable empty mapping
+        return MappingProxyType({})
     
     def get_service_performance(self, service: str, message_type: str) -> float:
         """Get service performance for specific message type"""
@@ -856,7 +892,8 @@ Respond in JSON format for automated processing.
         response = requests.post(
             'https://api.perplexity.ai/chat/completions',
             headers=headers,
-            json=data
+            json=data,
+            timeout=30  # 30 second timeout to prevent hanging
         )
         
         if response.status_code == 200:
@@ -890,7 +927,8 @@ Respond in JSON format for automated processing.
             response = requests.post(
                 self.config['zapier_webhook'],
                 json=message_data,
-                headers={'Content-Type': 'application/json'}
+                headers={'Content-Type': 'application/json'},
+                timeout=15  # 15 second timeout for webhooks
             )
             
             if response.status_code == 200:
