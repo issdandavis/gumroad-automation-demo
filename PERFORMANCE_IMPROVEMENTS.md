@@ -15,6 +15,7 @@ This document outlines the free performance optimizations applied to improve cod
   - Added index on `interactions(quality_score)` - speeds up quality filtering
   - Added index on `neural_patterns(pattern_type)` - speeds up pattern lookups
   - Added index on `ai_personalities(ai_service)` - speeds up personality lookups
+  - Added composite index on `interactions(timestamp DESC, quality_score)` - optimizes memory consolidation queries
 
 #### Added Query Limits
 - **Impact**: Prevents memory issues with large result sets
@@ -30,6 +31,7 @@ This document outlines the free performance optimizations applied to improve cod
   - Added `@lru_cache(maxsize=32)` decorator to `get_ai_personality()` method
   - Caches up to 32 AI personality profiles in memory
   - Reduces database I/O for repeated personality lookups
+  - Returns immutable copies to ensure thread safety
 
 ### 3. Import Fixes (ai-communication-bridge.py)
 
@@ -38,6 +40,8 @@ This document outlines the free performance optimizations applied to improve cod
 - **Changes**:
   - Replaced `np.mean()` with `statistics.mean()` (np was not imported)
   - Added `from functools import lru_cache` import
+  - Added proper exception handling for `statistics.StatisticsError`
+  - Fixed bare `except:` clauses to catch specific exceptions
 
 ### 4. Configurable Background Intervals (ai-communication-bridge.py)
 
@@ -72,6 +76,7 @@ spine = AINeuroSpine()
   - Separated suffix exclusions from path exclusions
   - Used set membership testing (O(1)) instead of list iteration (O(n))
   - Eliminated `skip` flag and `break` statements
+  - Added length check to prevent empty suffix patterns
 
 **Performance Gain**: ~2-5x faster for large directory trees
 

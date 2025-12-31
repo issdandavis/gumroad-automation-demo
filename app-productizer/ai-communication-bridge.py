@@ -119,6 +119,8 @@ class AINeuroSpine:
         conn.execute("CREATE INDEX IF NOT EXISTS idx_interactions_quality ON interactions(quality_score)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_neural_patterns_type ON neural_patterns(pattern_type)")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_personalities_service ON ai_personalities(ai_service)")
+        # Composite index for memory consolidation query (timestamp DESC, quality_score)
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_interactions_timestamp_quality ON interactions(timestamp DESC, quality_score)")
         
         conn.commit()
         return conn
@@ -312,10 +314,14 @@ class AINeuroSpine:
             enhanced_instructions = self.adapt_to_personality(enhanced_instructions, personality)
         
         # Add context from successful interactions
-        if insights.get('quality_predictors'):
-            avg_successful_length = statistics.mean([p['message_length'] for p in insights['quality_predictors']])
-            if len(enhanced_message) < avg_successful_length * 0.7:
-                enhanced_message += "\n\nAdditional context: This request is part of the App Productizer system that transforms code into sellable products."
+        if insights.get('quality_predictors') and len(insights['quality_predictors']) > 0:
+            try:
+                avg_successful_length = statistics.mean([p['message_length'] for p in insights['quality_predictors']])
+                if len(enhanced_message) < avg_successful_length * 0.7:
+                    enhanced_message += "\n\nAdditional context: This request is part of the App Productizer system that transforms code into sellable products."
+            except (statistics.StatisticsError, KeyError):
+                # Skip if unable to calculate mean or data is missing
+                pass
         
         return enhanced_message, enhanced_instructions
     
@@ -607,7 +613,10 @@ class AINeuroSpine:
     
     @lru_cache(maxsize=32)
     def get_ai_personality(self, ai_service: str) -> Dict:
-        """Get AI service personality profile (cached for performance)"""
+        """Get AI service personality profile (cached for performance)
+        
+        Note: Returns an immutable copy to ensure cache safety.
+        """
         cursor = self.memory_db.execute(
             "SELECT personality_profile FROM ai_personalities WHERE ai_service = ?",
             (ai_service,)
@@ -616,8 +625,10 @@ class AINeuroSpine:
         result = cursor.fetchone()
         if result:
             try:
-                return json.loads(result[0])
-            except:
+                # Return a frozen (immutable) copy for cache safety
+                data = json.loads(result[0])
+                return data.copy()  # Return a copy to prevent modifications to cached data
+            except (json.JSONDecodeError, TypeError):
                 pass
         
         return {}

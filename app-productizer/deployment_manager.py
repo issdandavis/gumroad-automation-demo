@@ -305,7 +305,7 @@ class PackageBuilder:
         files = []
         
         # Pre-compile exclusion patterns for better performance
-        suffix_exclusions = {ex[1:] for ex in self.exclusions if ex.startswith("*")}
+        suffix_exclusions = {ex[1:] for ex in self.exclusions if ex.startswith("*") and len(ex) > 1}
         path_exclusions = {ex for ex in self.exclusions if not ex.startswith("*")}
         
         for item in self.source_dir.rglob("*"):
