@@ -17,6 +17,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
 from collections import defaultdict
+from types import MappingProxyType
 import pickle
 import statistics
 from typing import Dict, List, Any, Optional
@@ -615,7 +616,11 @@ class AINeuroSpine:
     def get_ai_personality(self, ai_service: str) -> Dict:
         """Get AI service personality profile (cached for performance)
         
-        Note: Returns an immutable copy to ensure cache safety.
+        Returns an immutable MappingProxyType to ensure cache safety while
+        maintaining caching benefits. The cached result is truly immutable.
+        
+        Note: This caches the database result. If you need a mutable copy,
+        use dict(result) to convert the MappingProxyType to a regular dict.
         """
         cursor = self.memory_db.execute(
             "SELECT personality_profile FROM ai_personalities WHERE ai_service = ?",
@@ -625,13 +630,14 @@ class AINeuroSpine:
         result = cursor.fetchone()
         if result:
             try:
-                # Return a frozen (immutable) copy for cache safety
+                # Parse JSON and return as immutable mapping for cache safety
                 data = json.loads(result[0])
-                return data.copy()  # Return a copy to prevent modifications to cached data
+                return MappingProxyType(data)
             except (json.JSONDecodeError, TypeError):
                 pass
         
-        return {}
+        # Return immutable empty mapping
+        return MappingProxyType({})
     
     def get_service_performance(self, service: str, message_type: str) -> float:
         """Get service performance for specific message type"""

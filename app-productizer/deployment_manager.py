@@ -305,7 +305,9 @@ class PackageBuilder:
         files = []
         
         # Pre-compile exclusion patterns for better performance
+        # Suffix patterns: Convert "*.py" -> ".py", but skip bare "*" (len check ensures valid suffixes)
         suffix_exclusions = {ex[1:] for ex in self.exclusions if ex.startswith("*") and len(ex) > 1}
+        # Path patterns: Everything that doesn't start with "*" (e.g., "__pycache__", ".git")
         path_exclusions = {ex for ex in self.exclusions if not ex.startswith("*")}
         
         for item in self.source_dir.rglob("*"):

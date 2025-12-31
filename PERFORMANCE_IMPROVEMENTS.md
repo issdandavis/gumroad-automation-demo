@@ -31,7 +31,8 @@ This document outlines the free performance optimizations applied to improve cod
   - Added `@lru_cache(maxsize=32)` decorator to `get_ai_personality()` method
   - Caches up to 32 AI personality profiles in memory
   - Reduces database I/O for repeated personality lookups
-  - Returns immutable copies to ensure thread safety
+  - Returns MappingProxyType for true immutability and cache safety
+  - Maintains full caching benefits (no copy overhead)
 
 ### 3. Import Fixes (ai-communication-bridge.py)
 
