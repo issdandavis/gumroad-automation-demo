@@ -497,7 +497,7 @@ class PCCompatibilityChecker:
                     if match:
                         psu_wattage = int(match.group(1))
             except (AttributeError, ValueError):
-                # Keep default 0 value if wattage can't be extracted from specs or name
+                # Keep default 500W value if wattage can't be extracted from specs or name
                 pass
 
         # Analysis result
