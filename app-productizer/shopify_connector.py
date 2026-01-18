@@ -153,7 +153,7 @@ logger = logging.getLogger(__name__)
 class ShopifyConfig:
     """Shopify store configuration"""
     store_domain: str = "ng3ykv-h7.myshopify.com"
-    api_version: str = "2024-01"
+    api_version: str = field(default_factory=lambda: os.environ.get("SHOPIFY_API_VERSION", "2024-01"))
     access_token: str = field(default_factory=lambda: os.environ.get("SHOPIFY_ACCESS_TOKEN", ""))
     api_key: str = field(default_factory=lambda: os.environ.get("SHOPIFY_API_KEY", ""))
     api_secret: str = field(default_factory=lambda: os.environ.get("SHOPIFY_API_SECRET", ""))
