@@ -455,7 +455,7 @@ class PCCompatibilityChecker:
                 try:
                     cpu_power = int(re.search(r"(\d+)", str(cpu_tdp)).group(1))
                 except (AttributeError, ValueError):
-                    # Silently skip if TDP format is unparseable, falls back to default cpu_power
+                    # Silently skip if TDP format is unparseable, falls back to default cpu_power (65W)
                     pass
             else:
                 # Estimate from patterns
@@ -472,7 +472,7 @@ class PCCompatibilityChecker:
                 try:
                     gpu_power = int(re.search(r"(\d+)", str(gpu_tdp)).group(1))
                 except (AttributeError, ValueError):
-                    # Silently skip if TDP format is unparseable, falls back to default gpu_power
+                    # Silently skip if TDP format is unparseable, falls back to default gpu_power (75W)
                     pass
             else:
                 for pattern, power in GPU_POWER_MAP.items():
@@ -499,7 +499,7 @@ class PCCompatibilityChecker:
                     if match:
                         psu_wattage = int(match.group(1))
             except (AttributeError, ValueError):
-                # Silently skip if PSU wattage format is unparseable, falls back to default psu_wattage
+                # Silently skip if PSU wattage format is unparseable, falls back to default psu_wattage (500W)
                 pass
 
         # Analysis result
