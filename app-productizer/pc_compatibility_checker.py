@@ -398,6 +398,8 @@ class PCCompatibilityChecker:
                         suggestion=f"Reduce RAM to {max_gb}GB or less"
                     ))
             except (AttributeError, ValueError):
+                # Silently skip if RAM capacity format is unparseable or missing
+                # Falls back to skipping this compatibility check rather than failing
                 pass
 
         # Check RAM slots
@@ -425,6 +427,8 @@ class PCCompatibilityChecker:
                         suggestion=f"Choose a kit with {max_slots} or fewer modules"
                     ))
             except (AttributeError, ValueError):
+                # Silently skip if RAM stick count cannot be determined from channels field
+                # Falls back to skipping this compatibility check rather than failing
                 pass
 
         return issues
@@ -451,6 +455,7 @@ class PCCompatibilityChecker:
                 try:
                     cpu_power = int(re.search(r"(\d+)", str(cpu_tdp)).group(1))
                 except (AttributeError, ValueError):
+                    # Silently skip if TDP format is unparseable, falls back to default cpu_power
                     pass
             else:
                 # Estimate from patterns
@@ -467,6 +472,7 @@ class PCCompatibilityChecker:
                 try:
                     gpu_power = int(re.search(r"(\d+)", str(gpu_tdp)).group(1))
                 except (AttributeError, ValueError):
+                    # Silently skip if TDP format is unparseable, falls back to default gpu_power
                     pass
             else:
                 for pattern, power in GPU_POWER_MAP.items():
@@ -493,6 +499,7 @@ class PCCompatibilityChecker:
                     if match:
                         psu_wattage = int(match.group(1))
             except (AttributeError, ValueError):
+                # Silently skip if PSU wattage format is unparseable, falls back to default psu_wattage
                 pass
 
         # Analysis result
