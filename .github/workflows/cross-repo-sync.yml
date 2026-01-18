@@ -1,0 +1,166 @@
+# Cross-Repository Sync Workflow
+# Syncs shared symphonic_cipher components between scbe-aethermoore-demo and gumroad-automation-demo
+# Enables bidirectional coding across different environments
+
+name: Cross-Repo Sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'symphonic_cipher/**'
+      - 'src/symphonic_cipher/**'
+      - 'shared/**'
+  workflow_dispatch:
+    inputs:
+      sync_direction:
+        description: 'Sync direction'
+        required: true
+        default: 'bidirectional'
+        type: choice
+        options:
+          - bidirectional
+          - to-scbe-demo
+          - from-scbe-demo
+
+env:
+  TARGET_REPO: issdandavis/scbe-aethermoore-demo
+  SHARED_PATHS: |
+    symphonic_cipher
+    src/symphonic_cipher
+    shared/scbe_core
+
+jobs:
+  sync-to-scbe-demo:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event.inputs.sync_direction != 'from-scbe-demo'
+    
+    steps:
+      - name: Checkout gumroad-automation-demo
+        uses: actions/checkout@v4
+        with:
+          path: source
+          fetch-depth: 0
+
+      - name: Checkout scbe-aethermoore-demo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.TARGET_REPO }}
+          token: ${{ secrets.CROSS_REPO_TOKEN }}
+          path: target
+          fetch-depth: 0
+
+      - name: Sync symphonic_cipher to scbe-demo
+        run: |
+          echo "🔄 Syncing shared components to scbe-aethermoore-demo"
+          
+          # Create sync manifest
+          SYNC_MANIFEST=$(date +%Y%m%d_%H%M%S)_sync.json
+          echo '{"source": "gumroad-automation-demo", "timestamp": "'$(date -Iseconds)'", "files": []}' > target/.sync/$SYNC_MANIFEST
+          
+          # Sync symphonic_cipher if exists
+          if [ -d "source/symphonic_cipher" ]; then
+            mkdir -p target/symphonic_cipher
+            rsync -av --delete source/symphonic_cipher/ target/symphonic_cipher/
+            echo "✅ Synced symphonic_cipher/"
+          fi
+          
+          # Sync SELLABLE_PACKAGES SCBE components
+          if [ -d "source/SELLABLE_PACKAGES" ]; then
+            mkdir -p target/packages
+            cp -r source/SELLABLE_PACKAGES/*scbe* target/packages/ 2>/dev/null || true
+            cp -r source/SELLABLE_PACKAGES/*SCBE* target/packages/ 2>/dev/null || true
+            echo "✅ Synced SCBE packages"
+          fi
+
+      - name: Commit and push to scbe-demo
+        working-directory: target
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to sync"
+          else
+            git commit -m "🔄 Sync from gumroad-automation-demo [skip ci]
+            
+            Source: ${{ github.repository }}@${{ github.sha }}
+            Triggered by: ${{ github.actor }}"
+            git push
+            echo "✅ Changes pushed to scbe-aethermoore-demo"
+          fi
+
+  sync-from-scbe-demo:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.sync_direction != 'to-scbe-demo'
+    
+    steps:
+      - name: Checkout gumroad-automation-demo
+        uses: actions/checkout@v4
+        with:
+          path: target
+          fetch-depth: 0
+
+      - name: Checkout scbe-aethermoore-demo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.TARGET_REPO }}
+          token: ${{ secrets.CROSS_REPO_TOKEN }}
+          path: source
+          fetch-depth: 0
+
+      - name: Sync from scbe-demo
+        run: |
+          echo "🔄 Syncing shared components from scbe-aethermoore-demo"
+          
+          # Sync symphonic_cipher
+          if [ -d "source/symphonic_cipher" ]; then
+            mkdir -p target/symphonic_cipher
+            rsync -av source/symphonic_cipher/ target/symphonic_cipher/
+            echo "✅ Synced symphonic_cipher/"
+          fi
+          
+          # Sync demo content
+          if [ -d "source/demo" ]; then
+            mkdir -p target/scbe_demo
+            rsync -av source/demo/ target/scbe_demo/
+            echo "✅ Synced demo content"
+          fi
+
+      - name: Commit and push
+        working-directory: target
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to sync"
+          else
+            git commit -m "🔄 Sync from scbe-aethermoore-demo [skip ci]
+            
+            Source: ${{ env.TARGET_REPO }}
+            Triggered by: ${{ github.actor }}"
+            git push
+            echo "✅ Changes pushed"
+          fi
+
+  create-sync-report:
+    runs-on: ubuntu-latest
+    needs: [sync-to-scbe-demo]
+    if: always()
+    
+    steps:
+      - name: Generate sync report
+        run: |
+          echo "## 🔄 Cross-Repo Sync Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Property | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Source | gumroad-automation-demo |" >> $GITHUB_STEP_SUMMARY
+          echo "| Target | scbe-aethermoore-demo |" >> $GITHUB_STEP_SUMMARY
+          echo "| Timestamp | $(date -Iseconds) |" >> $GITHUB_STEP_SUMMARY
+          echo "| Triggered by | ${{ github.actor }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Shared Components" >> $GITHUB_STEP_SUMMARY
+          echo "- symphonic_cipher/" >> $GITHUB_STEP_SUMMARY
+          echo "- SELLABLE_PACKAGES/" >> $GITHUB_STEP_SUMMARY
