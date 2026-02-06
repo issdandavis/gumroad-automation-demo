@@ -146,7 +146,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 **Support & Contact**
 
 - **Email**: [issdandavis@gmail.com](mailto:issdandavis@gmail.com)
-- **Twitter**: [@ISDanDavis2](https://twitter.com/ISDanDavis2)
+- **Twitter**: [@davisissac](https://x.com/davisissac)
 - **Documentation:** [Complete Guides](./documentation/)
 - **Issues:** [GitHub Issues](https://github.com/yourusername/ai-workflow-systems/issues)
 
