@@ -336,7 +336,7 @@ def upload_documentation(bucket: str, app_id: str, readme_content: str, document
     <div id="content"></div>
     <script>
         // Simple markdown to HTML converter
-        const markdown = `{readme_content.replace('`', '\\`')}`;
+        const markdown = `{readme_content.replace(chr(96), chr(92) + chr(96))}`;
         const html = markdown
             .replace(/^# (.*$)/gim, '<h1>$1</h1>')
             .replace(/^## (.*$)/gim, '<h2>$1</h2>')
